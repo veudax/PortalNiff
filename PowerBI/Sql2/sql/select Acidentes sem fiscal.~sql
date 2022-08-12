@@ -1,0 +1,86 @@
+Select a.Qtd_Ocorr,
+                 codigoempresa emp, --minutosAcidente,
+                 horaacidente, horarainfger, idterminal,
+         a.Data dthist,numerorainfger,
+         codigolinha linha,
+--         codigo,
+         a.codintfunc,
+         a.codintlinha,
+         a.Carro, 
+         entradigit, saidadigit,
+         --a.codfiscal, 
+         Funcionario
+    From (    Select Distinct Count(Fu.Nomefunc) Qtd_Ocorr,
+                  Trunc(datarainfger) Data,
+                 a.codintlinha, l.codigolinha,
+                 ls.idterminal,numerorainfger,
+                 
+                 DateToMin(To_Date(To_Char(a.datarainfger,'dd/mm/yyyy') || ' ' || To_Char(a.horarainfger,'hh24:Mi:ss'), 'dd/mm/yyyy hh24:mi:ss')) minutosAcidente,
+
+                 l.codigoempresa,
+                 fu.codintfunc, horarainfger,
+                 To_Date(To_Char(dm.saidadigit,'dd/mm/yyyy') || ' ' || To_Char(a.horarainfger,'hh24:Mi:ss'), 'dd/mm/yyyy hh24:mi:ss') HoraAcidente,
+                 --ft.codintfunc codfiscal ,
+                 dm.entradigit, dm.saidadigit,
+                 fu.codfunc || ' - ' || fu.NOMEFUNC Funcionario,
+                 f.Codocorr || ' - ' || f.Desccomplhist Ocorrencia,
+                 v.prefixoveic Carro
+            From Frq_Ocorrencia f,
+                 Vw_Funcionarios Fu,
+                 frt_cadveiculos v,
+                 bgm_cadlinhas l,
+                 frq_digitacaomovimento dm, 
+                 niff_pbi_linhasporservico ls,
+                 niff_pbi_terminallinhas tl,  
+               
+--                 niff_pbi_fiscaisdoterminal ft  ,
+                 
+                ( Select Distinct a.datarainfger, a.horarainfger
+                                , a.numerorainfger, a.codocorr, ac.codintfunc, a.codintlinha, a.codigoveic
+                    From ACD_FUNCINFORMGERAIS ac,
+                         acd_informacoesgerais A
+                   Where a.codigoempresa = ac.codigoempresa
+                     And a.codigofl = ac.codigofl
+                     And a.numerorainfger = ac.numerorainfger
+                     And ac.funcprincipalfuncinfger = 'S'
+And                      Codocorr In
+                 (502, 501, 257, 226, 86, 84, 503, 511, 103, 228)
+                     And trunc(a.datarainfger) --= '13-jan-2017' 
+                     Between '15-jan-2017' And '15-jan-2017'
+                     ) A                     
+               
+           Where fu.codintfunc = a.codintfunc
+             And a.codocorr = f.codocorr
+             And fu.CODAREA = 40
+             And f.Codocorr In
+                 (502, 501, 257, 226, 86, 84, 503, 511, 103, 228)
+             And v.codigoveic(+) = a.CodigoVeic
+
+             And ls.codintlinha = a.codintlinha(+)
+            /* And ft.idterminal = ls.idterminal
+             And ft.Data = Trunc(datarainfger)*/
+             
+             And dm.codintfunc = fu.CODINTFUNC
+             And dm.dtdigit = trunc(datarainfger)
+             And dm.codocorr In (96, 99,98)
+             And dm.tipodigit = 'F'
+             And dm.statusdigit = 'N'
+             And a.codintlinha = l.codintlinha(+)
+             
+             And l.codigoempresa In (1,26)
+             And l.codigofl = 1
+             And tl.idterminal = ls.idterminal(+)
+             And tl.tipoterminal = 'TP'
+
+           Group By Trunc(datarainfger), a.horarainfger,
+                    f.Codocorr || ' - ' || f.Desccomplhist,
+                    a.codintlinha, l.codigolinha,
+                    v.prefixoveic, datarainfger,
+                    fu.codintfunc,
+--                    ft.codintfunc, 
+                 l.codigoempresa,
+                 dm.entradigit, dm.saidadigit,
+         --codigo,
+         ls.idterminal,numerorainfger,
+                    fu.codfunc, fu.NOMEFUNC
+) a

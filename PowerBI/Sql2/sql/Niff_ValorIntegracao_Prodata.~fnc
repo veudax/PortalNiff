@@ -1,0 +1,128 @@
+CREATE OR REPLACE Function Niff_ValorIntegracao_Prodata (pbatida In Number, pdataInicio In Date, pDataAtual In Date
+                                                        , pCard In Varchar2, pIdLinhaAtual In Number
+                                                        , pCode In Number, pSecidEntry Number, pSecidExit Number
+                                                        , pIssRelated In Number, pAppRelated In Number, pLdr_id In Number
+                                                        , pPercetRecord In Number) Return Number Is
+  minutos Number;
+  idLinhaAnterior Number;
+  tempoLimite Number;
+  ValorLimite Number;
+  integracao Number;
+  precoLinhaAtual Number;
+  precoLinhaAnterior Number;
+  dataAnterior Date;
+Begin
+    minutos := 0;
+
+    If pbatida <= 0 Then
+      dataAnterior := pDataAtual;
+      idLinhaAnterior := pIdLinhaAtual;
+    Else
+     
+   /* Descobre a linha anterior e os minutos utilizados de uma para a outra*/
+      Begin
+       Select trunc(    24*mod(pDataAtual - c.cu_datetime,1)) * 60 
+            + Round(mod(mod(pDataAtual - c.cu_datetime,1)*24,1)*60) as MINUTOS
+            , c.ld_id, c.cu_datetime
+         Into minutos, idLinhaAnterior, dataAnterior
+         From CARDUSAGEVALIDPASSENGERS c
+        Where c.cuvp_perusectr = pbatida
+          And c.cu_datetime Between pdataInicio And pdataInicio+1
+          And c.cu_datetime < pDataAtual
+          And c.ISS_ID ||'.'|| c.CD_ID ||'.'|| c.CRD_SNR = pCard;
+          
+        exception
+          when no_data_found then
+            tempoLimite := 0;
+            ValorLimite := 0;
+            dataAnterior := pDataAtual;
+            idLinhaAnterior := pIdLinhaAtual;
+          when too_many_rows then
+            Raise_application_error(-20000, 'To many row (batida ' || pbatida || ' inicio ' || pdataInicio || ' card ' || pCard || ')');                        
+        end;  
+     
+    /* Descobre o tempo e valor integração entre as linhas Origem e Destino*/
+      begin
+        Select Distinct Li.Li_Integ_Time, Lid.Lid_Integvalue
+          Into tempoLimite, ValorLimite
+          From Mercury.Lineintegration Li, Mercury.Lineintegrationdt Lid
+             , Mercury.Linedetails LO -- Linha origem, menor id de batida
+             , Mercury. Linedetails LD -- Linha destino, id atual da batida
+         Where Li.Li_Orig_Lmid = lO.Lm_Id
+           And Li.Li_Status = 'A'
+           And Li.Li_Orig_Dir In (0, 1, 2) --- SEMPRE MANTER O "0" PARA OS CASOS "NÃO DEFINIDOS"
+           And Li.Li_Dest_Lmid = Ld.Lm_Id
+           And Li.Li_Dest_Dir In (0, 2) --- SEMPRE MANTER O "0" PARA OS CASOS "NÃO DEFINIDOS"
+           And Lid.Lid_Status = 'A'
+           And Li.Li_Id = Lid.Li_Id
+           And lO.Ld_Id = idLinhaAnterior
+           And ld.ld_id = pIdLinhaAtual;
+          
+        exception
+          when no_data_found then
+            tempoLimite := 0;
+            ValorLimite := 0;
+          when too_many_rows then
+            Raise_application_error(-20000, 'To many row (origem ' || idLinhaAnterior || ' destino ' || pIdLinhaAtual || ')');                        
+        end;        
+       
+     End If;
+     
+    /* busca o preço da linha atual*/
+    Select Case When pCode = 6 And pSecidEntry > 0 And pSecidExit > 0 Then
+        MERCURY.LIN_GETZONEPRICE (09001,
+                                    pIssRelated,
+                                    pAppRelated,
+                                    pIdLinhaAtual,
+                                    pSecidEntry,
+                                    pSecidExit,
+                                    1,
+                                    pLdr_id,
+                                    dataAnterior) * (pPercetRecord /100) / 100
+       Else 
+            MERCURY.LIN_GETLINEPRICE (09001,
+                                     pIssRelated,
+                                     pAppRelated,
+                                     pIdLinhaAtual,
+                                     pLdr_id,
+                                     dataAnterior) * (pPercetRecord /100) / 100
+       End
+     Into precoLinhaAtual
+     From Dual;
+    
+    /* busca o preço da linha anterior*/
+    Select Case When pCode = 6 And pSecidEntry > 0 And pSecidExit > 0 Then
+        MERCURY.LIN_GETZONEPRICE (09001,
+                                    pIssRelated,
+                                    pAppRelated,
+                                    idLinhaAnterior,
+                                    pSecidEntry,
+                                    pSecidExit,
+                                    1,
+                                    pLdr_id,
+                                    dataAnterior) * (pPercetRecord /100) / 100
+       Else 
+            MERCURY.LIN_GETLINEPRICE (09001,
+                                     pIssRelated,
+                                    pAppRelated,
+                                    idLinhaAnterior,
+                                    pLdr_id,
+                                    dataAnterior) * (pPercetRecord /100) / 100
+       End
+     Into precoLinhaAnterior
+     From Dual;
+    
+    /* efetua o calculo conforme o tempo limite */     
+    integracao := 0;
+    If (minutos <= tempoLimite And tempoLimite > 0) Then
+      integracao := ValorLimite - precoLinhaAnterior;
+      If (integracao < 0) Then
+         integracao := 0;
+      End If;
+    Else
+      integracao := precoLinhaAtual; /* Se não está dentro do tempo limite carrega o valor da linha Atual*/ 
+    End if ;     
+    
+    Return integracao;
+End;
+/

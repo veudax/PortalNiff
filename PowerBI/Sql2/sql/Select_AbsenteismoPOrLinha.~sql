@@ -1,0 +1,36 @@
+
+Select Count(Fu.Nomefunc) Qtd_Ocorr, 
+       t.Dthist, fu.CODFUNC,
+       Fu.CodIntFunc
+     ,  decode(dm.codintlinha, Null, ed.cod_intlinha, dm.codintlinha) linha,
+       decode(dm.codigoveic, Null, hd.cod_veic, dm.codigoveic) Veiculo
+  From Flp_Historico t, 
+       Frq_Ocorrencia f, 
+       Vw_Funcionarios Fu
+       ,frq_digitacaomovimento dm
+       ,t_Esc_Escaladiaria ed, 
+       t_esc_servicodiaria hd
+ Where t.Dthist Between Add_Months(trunc(Sysdate,'rr'),0) And Sysdate
+   And f.Codocorr = t.Codocorr
+   And Fu.Codigoempresa = 1
+   And Fu.Codigofl = 1
+   And Fu.Situacaofunc = 'A'
+   And Trunc(dm.dtdigit) = trunc(t.dthist)
+   And dm.codintfunc = t.codintfunc
+   And dm.codocorr = t.codocorr
+   And dm.usuexcldigit Is Null
+   And ed.dat_escala = trunc(t.dthist)
+   And ed.Cod_Intescala = hd.cod_intescala
+   And ed.dat_escala = hd.dat_escala
+   And (hd.cod_motorista = fu.CODINTFUNC Or
+        hd.Cod_Cobrador = fu.CODINTFUNC)
+   And f.Codocorr In
+       (505, 504, 506, 507, 521, 526, 534, 535, 541, 542, 579, 543, 582, 579, 560, 584, 580, 581, 583, 592, 593, 527, 562)
+   And t.Codintfunc = Fu.Codintfunc
+   And Fu.Codarea In (20, 30, 40)
+   And fu.CODINTFUNC = 14995
+ Group By t.Dthist, 
+          Fu.CodIntFunc, fu.CODFUNC,
+          decode(dm.codintlinha, Null, ed.cod_intlinha, dm.codintlinha) ,
+          decode(dm.codigoveic, Null, hd.cod_veic, dm.codigoveic) 
+

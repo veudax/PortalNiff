@@ -1,0 +1,326 @@
+create or replace view pbi_absenteismo_total as
+select '001/001 - EOVG DUTRA' empresa, Sum(a.qtd_ocorr) qtd_ocorr, a.dthist,  a.CODAREA, Max(total_func) total_func
+from
+(select count(fu.nomefunc) qtd_ocorr, Last_day(trunc(t.dthist)) dthist, fu.situacaofunc, fu.CODAREA
+from flp_historico t, frq_ocorrencia f, vw_funcionarios fu
+where t.dthist BETWEEN '01-jan-2016' and sysdate
+   and f.codocorr = t.codocorr
+   and fu.codigoempresa = 1
+   and fu.codigofl = 1
+    -- and fu.situacaofunc = 'A'
+--   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,543,582,579,560,584,580,581,583,592,593,527,562)
+   and f.codocorr In (504,505,506,507,521,526,527,534,535,541,542,560,579,580,581,582,583,584,592,593)
+   and t.codintfunc = fu.codintfunc
+   and fu.CODAREA in (20,30,40)
+   group by t.dthist, fu.situacaofunc, fu.CODAREA)a,
+(select '001/001 - EOVG DUTRA' empresa, count(distinct f.nomefunc) total_func, Last_day(ff.competficha) data, f.codarea Codarea
+  from vw_funcionarios f, flp_fichafinanceira ff
+ where f.codigoempresa = 1
+   and f.codigofl = 1
+   and ff.competficha between '01-jan-2016' and Last_day(sysdate)
+   and ff.codintfunc = f.codintfunc
+   and ff.situacaoffinan = 'A'
+   and (ff.tipofolha = 1)  
+   And f.SITUACAOFUNC = 'A'
+group by ff.competficha, f.codarea) b
+Where To_char(b.Data,'mm/yyyy') = To_char(a.dthist,'mm/yyyy')
+  And b.CodArea = a.CodArea
+Group By a.dthist,  a.CODAREA
+UNION ALL
+----------------------------------------------------------------------------
+select '001/002 - EOVG LAVRAS' empresa, Sum(a.qtd_ocorr) qtd_ocorr, a.dthist,  a.CODAREA, Max(total_func)
+from
+(select count(fu.nomefunc) qtd_ocorr, Last_day(trunc(t.dthist)) dthist, fu.situacaofunc, fu.CODAREA
+from flp_historico t, frq_ocorrencia f, vw_funcionarios fu
+where t.dthist BETWEEN '01-jan-2016' and sysdate
+   and f.codocorr = t.codocorr
+   and fu.codigoempresa = 1
+   and fu.codigofl = 2
+    -- and fu.situacaofunc = 'A'
+--   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,543,582,579,560,584,580,581,583,592,593,527,562)
+   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,582,579,560,584,580,581,583,592,593,527)
+   and t.codintfunc = fu.codintfunc
+   and fu.CODAREA in (20,30,40)
+   group by t.dthist, fu.situacaofunc, fu.CODAREA)a,
+(select '001/002 - EOVG LAVRAS' empresa, count(distinct f.nomefunc) total_func, Last_day(ff.competficha) data, f.codarea Codarea
+  from vw_funcionarios f, flp_fichafinanceira ff
+ where f.codigoempresa = 1
+   and f.codigofl = 2
+   and ff.competficha between '01-jan-2016' and Last_day(sysdate)
+   and ff.codintfunc = f.codintfunc
+   and ff.situacaoffinan = 'A'
+   and (ff.tipofolha = 1)  
+   And f.SITUACAOFUNC = 'A'
+group by ff.competficha, f.codarea) b
+Where To_char(b.Data,'mm/yyyy') = To_char(a.dthist,'mm/yyyy')
+  And b.CodArea = a.CodArea
+Group By a.dthist,  a.CODAREA   
+UNION ALL
+----------------------------------------------------------------------------
+select '002/001 - ABC TRANSPORTES' empresa, Sum(a.qtd_ocorr) qtd_ocorr, a.dthist,  a.CODAREA, Max(total_func)
+from
+(select count(fu.nomefunc) qtd_ocorr, Last_day(trunc(t.dthist)) dthist, fu.situacaofunc, fu.CODAREA
+from flp_historico t, frq_ocorrencia f, vw_funcionarios fu
+where t.dthist BETWEEN '01-jan-2016' and sysdate
+   and f.codocorr = t.codocorr
+   and fu.codigoempresa = 2
+   and fu.codigofl = 1
+    -- and fu.situacaofunc = 'A'
+--   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,543,582,579,560,584,580,581,583,592,593,527,562)
+   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,582,579,560,584,580,581,583,592,593,527)
+   and t.codintfunc = fu.codintfunc
+   and fu.CODAREA in (20,30,40)
+   group by t.dthist, fu.situacaofunc, fu.CODAREA)a,
+   (select '002/001 - ABC TRANSPORTES' empresa, count(distinct f.nomefunc) total_func, Last_day(ff.competficha) data, f.codarea Codarea
+  from vw_funcionarios f, flp_fichafinanceira ff
+ where f.codigoempresa = 2
+   and f.codigofl = 1
+   and ff.competficha between '01-jan-2016' and Last_day(sysdate)
+   and ff.codintfunc = f.codintfunc
+   and ff.situacaoffinan = 'A'
+   and (ff.tipofolha = 1)  
+   And f.SITUACAOFUNC = 'A'
+group by ff.competficha, f.codarea) b
+Where To_char(b.Data,'mm/yyyy') = To_char(a.dthist,'mm/yyyy')
+  And b.CodArea = a.CodArea
+Group By a.dthist,  a.CODAREA
+UNION ALL
+----------------------------------------------------------------------------
+select '003/001 - RAPIDO D OESTE' empresa, Sum(a.qtd_ocorr) qtd_ocorr, a.dthist,  a.CODAREA, Max(total_func)
+from
+(select count(fu.nomefunc) qtd_ocorr, Last_day(trunc(t.dthist)) dthist, fu.situacaofunc, fu.CODAREA
+from flp_historico t, frq_ocorrencia f, vw_funcionarios fu
+where t.dthist BETWEEN '01-jan-2016' and sysdate
+   and f.codocorr = t.codocorr
+   and fu.codigoempresa = 3
+   and fu.codigofl = 1
+    -- and fu.situacaofunc = 'A'
+--   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,543,582,579,560,584,580,581,583,592,593,527,562)
+   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,582,579,560,584,580,581,583,592,593,527)
+   and t.codintfunc = fu.codintfunc
+   and fu.CODAREA in (20,30,40)
+   group by t.dthist, fu.situacaofunc, fu.CODAREA)a,
+(select '003/001 - RAPIDO D OESTE' empresa, count(distinct f.nomefunc) total_func, Last_day(ff.competficha) data, f.codarea Codarea
+  from vw_funcionarios f, flp_fichafinanceira ff
+ where f.codigoempresa = 3
+   and f.codigofl = 1
+   and ff.competficha between '01-jan-2016' and Last_day(sysdate)
+   and ff.codintfunc = f.codintfunc
+   and ff.situacaoffinan = 'A'
+   and (ff.tipofolha = 1)  
+   And f.SITUACAOFUNC = 'A'
+group by ff.competficha, f.codarea) b
+Where To_char(b.Data,'mm/yyyy') = To_char(a.dthist,'mm/yyyy')
+  And b.CodArea = a.CodArea
+Group By a.dthist,  a.CODAREA
+UNION ALL
+----------------------------------------------------------------------------
+select '004/001 - CISNE BRANCO' empresa, Sum(a.qtd_ocorr) qtd_ocorr, a.dthist,  a.CODAREA, Max(total_func)
+from
+(select count(fu.nomefunc) qtd_ocorr, Last_day(trunc(t.dthist)) dthist, fu.situacaofunc, fu.CODAREA
+from flp_historico t, frq_ocorrencia f, vw_funcionarios fu
+where t.dthist BETWEEN '01-jan-2016' and sysdate
+   and f.codocorr = t.codocorr
+   and fu.codigoempresa = 4
+   and fu.codigofl = 1
+    -- and fu.situacaofunc = 'A'
+--   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,543,582,579,560,584,580,581,583,592,593,527,562)
+   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,582,579,560,584,580,581,583,592,593,527)
+   and t.codintfunc = fu.codintfunc
+   and fu.CODAREA in (20,30,40)
+   group by t.dthist, fu.situacaofunc, fu.CODAREA)a,
+(select '004/001 - CISNE BRANCO' empresa, count(distinct f.nomefunc) total_func, Last_day(ff.competficha) data, f.codarea Codarea
+  from vw_funcionarios f, flp_fichafinanceira ff
+ where f.codigoempresa = 4
+   and f.codigofl = 1
+   and ff.competficha between '01-jan-2016' and Last_day(sysdate)
+   and ff.codintfunc = f.codintfunc
+   and ff.situacaoffinan = 'A'
+   and (ff.tipofolha = 1)  
+   And f.SITUACAOFUNC = 'A'
+group by ff.competficha, f.codarea) b
+Where To_char(b.Data,'mm/yyyy') = To_char(a.dthist,'mm/yyyy')
+  And b.CodArea = a.CodArea
+Group By a.dthist,  a.CODAREA
+   
+UNION ALL
+----------------------------------------------------------------------------
+select '005/001 - NIFF' empresa, Sum(a.qtd_ocorr) qtd_ocorr, a.dthist,  a.CODAREA, Max(total_func)
+from
+(select count(fu.nomefunc) qtd_ocorr, Last_day(trunc(t.dthist)) dthist, fu.situacaofunc, fu.CODAREA
+from flp_historico t, frq_ocorrencia f, vw_funcionarios fu
+where t.dthist BETWEEN '01-jan-2016' and sysdate
+   and f.codocorr = t.codocorr
+   and fu.codigoempresa = 5
+   and fu.codigofl = 1
+    -- and fu.situacaofunc = 'A'
+--   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,543,582,579,560,584,580,581,583,592,593,527,562)
+   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,582,579,560,584,580,581,583,592,593,527)
+   and t.codintfunc = fu.codintfunc
+   and fu.CODAREA in (20,30,40,80)
+   group by t.dthist, fu.situacaofunc, fu.CODAREA)a,
+   (select '005/001 - NIFF' empresa, count(distinct f.nomefunc) total_func, Last_day(ff.competficha) data, f.codarea Codarea
+  from vw_funcionarios f, flp_fichafinanceira ff
+ where f.codigoempresa = 5
+   and f.codigofl = 1
+   and ff.competficha between '01-jan-2016' and Last_day(sysdate)
+   and ff.codintfunc = f.codintfunc
+   and ff.situacaoffinan = 'A'
+   and (ff.tipofolha = 1)  
+   And f.SITUACAOFUNC = 'A'
+group by ff.competficha, f.codarea) b
+Where To_char(b.Data,'mm/yyyy') = To_char(a.dthist,'mm/yyyy')
+  And b.CodArea = a.CodArea
+Group By a.dthist,  a.CODAREA
+
+UNION ALL
+----------------------------------------------------------------------------
+select '006/001 - VIAÇÃO ARUJÁ' empresa, Sum(a.qtd_ocorr) qtd_ocorr, a.dthist,  a.CODAREA, Max(total_func)
+from
+(select count(fu.nomefunc) qtd_ocorr, Last_day(trunc(t.dthist)) dthist, fu.situacaofunc, fu.CODAREA
+from flp_historico t, frq_ocorrencia f, vw_funcionarios fu
+where t.dthist BETWEEN '01-jan-2016' and sysdate
+   and f.codocorr = t.codocorr
+   and fu.codigoempresa = 6
+   and fu.codigofl = 1
+    -- and fu.situacaofunc = 'A'
+--   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,543,582,579,560,584,580,581,583,592,593,527,562)
+   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,582,579,560,584,580,581,583,592,593,527)
+   and t.codintfunc = fu.codintfunc
+   and fu.CODAREA in (20,30,40)
+   group by t.dthist, fu.situacaofunc, fu.CODAREA)a,
+(select '006/001 - VIAÇÃO ARUJÁ' empresa, count(distinct f.nomefunc) total_func, Last_day(ff.competficha) data, f.codarea Codarea
+  from vw_funcionarios f, flp_fichafinanceira ff
+ where f.codigoempresa = 6
+   and f.codigofl = 1
+   and ff.competficha between '01-jan-2016' and Last_day(sysdate)
+   and ff.codintfunc = f.codintfunc
+   and ff.situacaoffinan = 'A'
+   and (ff.tipofolha = 1)  
+   And f.SITUACAOFUNC = 'A'
+group by ff.competficha, f.codarea) b
+Where To_char(b.Data,'mm/yyyy') = To_char(a.dthist,'mm/yyyy')
+  And b.CodArea = a.CodArea
+Group By a.dthist,  a.CODAREA
+   
+UNION ALL
+----------------------------------------------------------------------------
+select '009/001 - CAMPIBUS LTDA' empresa, Sum(a.qtd_ocorr) qtd_ocorr, a.dthist,  a.CODAREA, Max(total_func)
+from
+(select count(fu.nomefunc) qtd_ocorr, Last_day(trunc(t.dthist)) dthist, fu.situacaofunc, fu.CODAREA
+from flp_historico t, frq_ocorrencia f, vw_funcionarios fu
+where t.dthist BETWEEN '01-jan-2016' and sysdate
+   and f.codocorr = t.codocorr
+   and fu.codigoempresa = 9
+   and fu.codigofl = 2
+    -- and fu.situacaofunc = 'A'
+--   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,543,582,579,560,584,580,581,583,592,593,527,562)
+   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,582,579,560,584,580,581,583,592,593,527)
+   and t.codintfunc = fu.codintfunc
+   and fu.CODAREA in (20,30,40)
+   group by t.dthist, fu.situacaofunc, fu.CODAREA)a,
+   (select '009/001 - CAMPIBUS LTDA' empresa, count(distinct f.nomefunc) total_func, Last_day(ff.competficha) data, f.codarea Codarea
+  from vw_funcionarios f, flp_fichafinanceira ff
+ where f.codigoempresa = 9
+   and f.codigofl = 2
+   and ff.competficha between '01-jan-2016' and Last_day(sysdate)
+   and ff.codintfunc = f.codintfunc
+   and ff.situacaoffinan = 'A'
+   and (ff.tipofolha = 1)  
+   And f.SITUACAOFUNC = 'A'
+group by ff.competficha, f.codarea) b
+Where To_char(b.Data,'mm/yyyy') = To_char(a.dthist,'mm/yyyy')
+  And b.CodArea = a.CodArea
+Group By a.dthist,  a.CODAREA
+
+UNION ALL
+----------------------------------------------------------------------------
+select '013/001 - RIBE TRANSPORTES' empresa, Sum(a.qtd_ocorr) qtd_ocorr, a.dthist,  a.CODAREA, Max(total_func)
+from
+(select count(fu.nomefunc) qtd_ocorr, Last_day(trunc(t.dthist)) dthist, fu.situacaofunc, fu.CODAREA
+from flp_historico t, frq_ocorrencia f, vw_funcionarios fu
+where t.dthist BETWEEN '01-jan-2016' and sysdate
+   and f.codocorr = t.codocorr
+   and fu.codigoempresa = 13
+   and fu.codigofl = 1
+    -- and fu.situacaofunc = 'A'
+--   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,543,582,579,560,584,580,581,583,592,593,527,562)
+   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,582,579,560,584,580,581,583,592,593,527)
+   and t.codintfunc = fu.codintfunc
+   and fu.CODAREA in (20,30,40)
+   group by t.dthist, fu.situacaofunc, fu.CODAREA)a,
+(select '013/001 - RIBE TRANSPORTES' empresa, count(distinct f.nomefunc) total_func, Last_day(ff.competficha) data, f.codarea Codarea
+  from vw_funcionarios f, flp_fichafinanceira ff
+ where f.codigoempresa = 13
+   and f.codigofl = 1
+   and ff.competficha between '01-jan-2016' and Last_day(sysdate)
+   and ff.codintfunc = f.codintfunc
+   and ff.situacaoffinan = 'A'
+   and (ff.tipofolha = 1)  
+   And f.SITUACAOFUNC = 'A'
+group by ff.competficha, f.codarea) b
+Where To_char(b.Data,'mm/yyyy') = To_char(a.dthist,'mm/yyyy')
+  And b.CodArea = a.CodArea
+Group By a.dthist,  a.CODAREA
+   
+UNION ALL
+----------------------------------------------------------------------------
+select '026/001 - VUG DUTRA' empresa,Sum(a.qtd_ocorr) qtd_ocorr, a.dthist,  a.CODAREA, Max(total_func)
+from
+(select count(fu.nomefunc) qtd_ocorr, Last_day(trunc(t.dthist)) dthist, fu.situacaofunc, fu.CODAREA
+from flp_historico t, frq_ocorrencia f, vw_funcionarios fu
+where t.dthist BETWEEN '01-jan-2016' and sysdate
+   and f.codocorr = t.codocorr
+   and fu.codigoempresa = 26
+   and fu.codigofl = 1
+    -- and fu.situacaofunc = 'A'
+--   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,543,582,579,560,584,580,581,583,592,593,527,562)
+   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,582,579,560,584,580,581,583,592,593,527)
+   and t.codintfunc = fu.codintfunc
+   and fu.CODAREA in (20,30,40)
+   group by t.dthist, fu.situacaofunc, fu.CODAREA)a,
+(select '026/001 - VUG DUTRA' empresa, count(distinct f.nomefunc) total_func, Last_day(ff.competficha) data, f.codarea Codarea
+  from vw_funcionarios f, flp_fichafinanceira ff
+ where f.codigoempresa = 26
+   and f.codigofl = 1
+   and ff.competficha between '01-jan-2016' and Last_day(sysdate)
+   and ff.codintfunc = f.codintfunc
+   and ff.situacaoffinan = 'A'
+   and (ff.tipofolha = 1)  
+   And f.SITUACAOFUNC = 'A'
+group by ff.competficha, f.codarea) b
+Where To_char(b.Data,'mm/yyyy') = To_char(a.dthist,'mm/yyyy')
+  And b.CodArea = a.CodArea
+Group By a.dthist,  a.CODAREA
+   
+UNION ALL
+----------------------------------------------------------------------------
+select '026/003 - VUG BEBEDOURO' empresa,Sum(a.qtd_ocorr) qtd_ocorr, a.dthist,  a.CODAREA, Max(total_func)
+from
+(select count(fu.nomefunc) qtd_ocorr, Last_day(trunc(t.dthist)) dthist, fu.situacaofunc, fu.CODAREA
+from flp_historico t, frq_ocorrencia f, vw_funcionarios fu
+where t.dthist BETWEEN '01-jan-2016' and sysdate
+   and f.codocorr = t.codocorr
+   and fu.codigoempresa = 26
+   and fu.codigofl = 3
+    -- and fu.situacaofunc = 'A'
+--   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,543,582,579,560,584,580,581,583,592,593,527,562)
+   and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,582,579,560,584,580,581,583,592,593,527)
+   and t.codintfunc = fu.codintfunc
+   and fu.CODAREA in (20,30,40)
+   group by t.dthist, fu.situacaofunc, fu.CODAREA)a,
+(select '026/003 - VUG BEBEDOURO' empresa, count(distinct f.nomefunc) total_func, Last_day(ff.competficha) data, f.codarea Codarea
+  from vw_funcionarios f, flp_fichafinanceira ff
+ where f.codigoempresa = 26
+   and f.codigofl = 3
+   and ff.competficha between '01-jan-2016' and Last_day(sysdate)
+   and ff.codintfunc = f.codintfunc
+   and ff.situacaoffinan = 'A'
+   and (ff.tipofolha = 1)  
+   And f.SITUACAOFUNC = 'A'
+group by ff.competficha, f.codarea) b
+Where To_char(b.Data,'mm/yyyy') = To_char(a.dthist,'mm/yyyy')
+  And b.CodArea = a.CodArea
+Group By a.dthist,  a.CODAREA
+   
+

@@ -1,0 +1,5 @@
+Select c.Nome, r.opcao, sexo 
+From niff_bol_enqueteresp r, niff_ads_colaboradores c
+Where r.Idpergunta =7
+  And r.Idcolaborador = c.Idcolaborador
+Order By opcao, sexo, nome

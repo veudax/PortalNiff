@@ -1,0 +1,177 @@
+create or replace view pbi_absenteismo_grupo as
+select decode(a.EmpFil, Null, b.EmpFil, a.EmpFil) EmpFil, 'X' Empresa
+     , Nvl(Sum(a.qtd_ocorr),0) qtd_ocorr
+     , Decode(a.dthist, Null, b.Data, a.dthist) dthist
+     , decode(a.CODAREA, Null, b.CODAREA, a.CODAREA) CODAREA
+     , decode(a.Grupo, Null, b.Grupo, a.grupo) Grupo
+     , decode(a.DESCAREA, Null, b.DESCAREA, a.DESCAREA) DESCAREA
+     , Max(total_func) total_func
+  From (select count(fu.nomefunc) qtd_ocorr
+             , Last_day(trunc(t.dthist)) dthist
+             , fu.situacaofunc
+             , fu.CODAREA, fu.DESCAREA
+             , Lpad(fu.Codigoempresa, 3, '0') || '/' || Lpad(Decode(fu.Codigoempresa, 9, Decode(fu.Codigofl, 2, 1, fu.Codigofl), fu.Codigofl), 3, '0') EmpFil
+             , Decode(g.descgrupo, null, fu.descarea, decode(g.descgrupo,'FISCALIZACAO','FISCAL RODOVIARIO', g.descgrupo)) Grupo
+          from flp_historico t, frq_ocorrencia f, vw_funcionarios fu
+             , Flp_Funcionarios_Grupo fg, Flp_Grupo g
+         where f.codocorr = t.codocorr
+           and fu.Codigoempresa || fu.Codigofl In 31
+           And ((Trunc(t.dthist) BETWEEN ADD_MONTHS(Trunc(SYSDATE,'rr'), -36) and sysdate
+           and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,582,579,560,584,580,581,583,592,593,527,601,602,608,609))
+            Or (Trunc(t.dthist) BETWEEN ADD_MONTHS(Trunc(SYSDATE,'rr'), -36) and Sysdate
+           And fu.CODAREA = 40
+           and f.codocorr In (552,553))
+            Or (Trunc(t.dthist) BETWEEN ADD_MONTHS(Trunc(SYSDATE,'rr'), -36) and ADD_MONTHS(Trunc(SYSDATE,'rr'), -12)-1
+           And fu.CODAREA = 40
+           And f.codocorr In (5, 235, 303))
+            Or (Trunc(t.dthist) BETWEEN ADD_MONTHS(Trunc(SYSDATE,'rr'), -36) and ADD_MONTHS(Trunc(SYSDATE,'rr'), -12)-1
+           And f.codocorr In (2,3,10,28,117,120,173,209,222,230,233,322,344,374,902,903)) )
+           and t.codintfunc = fu.codintfunc
+           and fu.CODAREA in (20,30,40,80)
+
+           And fg.codgrupo = g.codgrupo(+) -- Incluido dia 03/09 para atender a Rapido do oeste
+           And fu.codintfunc = fg.codintfunc(+) -- Incluido dia 03/09 para atender a Rapido do oeste
+         group by Last_day(trunc(t.dthist))
+             , fu.situacaofunc
+             , fu.CODAREA, fu.DESCAREA
+             , Decode(g.descgrupo, null, fu.descarea, Decode(g.descgrupo,'FISCALIZACAO','FISCAL RODOVIARIO', g.descgrupo))
+             , Lpad(fu.Codigoempresa, 3, '0') || '/' || Lpad(Decode(fu.Codigoempresa, 9, Decode(fu.Codigofl, 2, 1, fu.Codigofl), fu.Codigofl), 3, '0')
+         Union All
+        select count(fu.nomefunc) qtd_ocorr
+             , Last_day(trunc(t.dthist)) dthist
+             , fu.situacaofunc
+             , fu.CODAREA, fu.DESCAREA
+             , Lpad(fu.Codigoempresa, 3, '0') || '/' || Lpad(Decode(fu.Codigoempresa, 9, Decode(fu.Codigofl, 2, 1, fu.Codigofl), fu.Codigofl), 3, '0') EmpFil
+             , fu.DESCAREA grupo
+          from flp_historico t, frq_ocorrencia f, vw_funcionarios fu
+         where f.codocorr = t.codocorr
+           and fu.Codigoempresa || fu.Codigofl In (11,12,21,41,51,61,92,131,261,263)
+           And ((Trunc(t.dthist) BETWEEN ADD_MONTHS(Trunc(SYSDATE,'rr'), -36) and sysdate
+           and f.codocorr in(505,504,506,507,521,526,534,535,541,542,579,582,579,560,584,580,581,583,592,593,527,601,602,608,609))
+            Or (Trunc(t.dthist) BETWEEN ADD_MONTHS(Trunc(SYSDATE,'rr'), -36) and Sysdate
+           And fu.CODAREA = 40
+           and f.codocorr In (552,553))
+            Or (Trunc(t.dthist) BETWEEN ADD_MONTHS(Trunc(SYSDATE,'rr'), -36) and ADD_MONTHS(Trunc(SYSDATE,'rr'), -12)-1
+           And fu.CODAREA = 40
+           And f.codocorr In (5, 235, 303))
+            Or (Trunc(t.dthist) BETWEEN ADD_MONTHS(Trunc(SYSDATE,'rr'), -36) and ADD_MONTHS(Trunc(SYSDATE,'rr'), -12)-1
+           And f.codocorr In (2,3,10,28,117,120,173,209,222,230,233,322,344,374,902,903)) )
+           and t.codintfunc = fu.codintfunc
+           and fu.CODAREA in (20,30,40,80)
+         group by Last_day(trunc(t.dthist))
+             , fu.situacaofunc
+             , fu.CODAREA
+             , fu.DESCAREA
+             , Lpad(fu.Codigoempresa, 3, '0') || '/' || Lpad(Decode(fu.Codigoempresa, 9, Decode(fu.Codigofl, 2, 1, fu.Codigofl), fu.Codigofl), 3, '0')
+         ) a,
+       (Select max(Total_func) Total_func, Data, CodArea, EmpFil, Grupo, DescArea
+          From (Select max(Total_func) Total_func, Data, CodArea, descArea, EmpFil, Grupo
+          From (Select Empresa, Empfil, Max(Total_Func) Total_Func, Data, CodArea, descArea, grupo
+           From (select 'X' empresa
+                      , lpad(f.codigoempresa,3,'0') || '/' || lPad(Decode(f.codigoempresa,9, decode(f.codigofl, 2, 1, f.codigofl),f.codigofl),3,'0') EmpFil
+                      , count(*) total_func
+                      , Last_day((Case When trunc(ff.competficha) > Trunc(Sysdate) then Trunc(Sysdate) Else trunc(ff.competficha) End)) Data
+                      , f.CodArea, descArea
+                      , Decode(g.descgrupo, null, f.descarea, Decode(g.descgrupo,'FISCALIZACAO','FISCAL RODOVIARIO', g.descgrupo)) Grupo
+                   from vw_funcionarios f, flp_fichafinanceira ff, Flp_Funcionarios_Grupo fg, Flp_Grupo g
+                  where f.codigoempresa || f.codigofl In 31
+                    and ff.competficha between ADD_MONTHS(Trunc(Sysdate,'rr'), -36) and last_day(sysdate) -- ADD_MONTHS(Trunc(Sysdate,'rr'), -96) and sysdate
+                    and ff.codintfunc = f.codintfunc
+                    and ff.situacaoffinan = 'A'
+                    and (ff.tipofolha = 1)
+                    And fg.codgrupo = g.codgrupo(+)
+                    And f.codintfunc = fg.codintfunc(+)
+                  group by ff.competficha, lpad(f.codigoempresa,3,'0') || '/' || lPad(Decode(f.codigoempresa,9, decode(f.codigofl, 2, 1, f.codigofl),f.codigofl),3,'0')
+                  , CodArea, descArea, Decode(g.descgrupo, null, f.descarea, Decode(g.descgrupo,'FISCALIZACAO','FISCAL RODOVIARIO', g.descgrupo))
+                  Union All -- para trazer a quantidade do mes anterior quando nao tiver calculo no mes atual
+                 Select Empresa, EmpfIl, Sum(Total_func) Total_func, Data, CodArea, descArea, grupo
+                   From (Select Empresa, EmpfIl, Sum(total_Admitidos) - Sum(total_Demitidos) Total_func, Data
+                              , CodArea, descArea, grupo
+                           From pbi_funcativosdemitidoGrupo2 -- rapido
+                          Group By Empresa, EmpFil, Data, CodArea, descArea, grupo
+                          Union All
+                         select 'X' empresa
+                              , lpad(f.codigoempresa,3,'0') || '/' || lPad(Decode(f.codigoempresa,9, decode(f.codigofl, 2, 1, f.codigofl),f.codigofl),3,'0') EmpFil
+                              , count(*) total_func
+                              , Last_Day(trunc(Sysdate)) Data
+                              , f.CODAREA, descArea
+                              , Decode(g.descgrupo, null, f.descarea, Decode(g.descgrupo,'FISCALIZACAO','FISCAL RODOVIARIO', g.descgrupo)) Grupo
+                           from vw_funcionarios f, flp_fichafinanceira ff, Flp_Funcionarios_Grupo fg, Flp_Grupo g
+                          where f.codigoempresa || f.codigofl In 31
+                            and ff.competficha = Last_day(ADD_MONTHS(Trunc(sysdate),-1))
+                            and ff.codintfunc = f.codintfunc
+                            and ff.situacaoffinan = 'A'
+                            and (ff.tipofolha = 1)
+                            And fg.codgrupo = g.codgrupo(+)
+                            And f.codintfunc = fg.codintfunc(+)
+                            And f.codintfunc Not In (select f.CodintFunc
+                                                       from vw_funcionarios f, flp_fichafinanceira ff
+                                                      where f.codigoempresa || f.codigofl In 31
+                                                        and ff.competficha between Last_day(ADD_MONTHS(Trunc(sysdate),-1))+1 and last_day(sysdate)
+                                                        and ff.codintfunc = f.codintfunc
+                                                        and ff.situacaoffinan = 'A'
+                                                        and (ff.tipofolha = 1)
+                                                      group by f.CodintFunc)
+                         group by ff.competficha,
+                                  lpad(f.codigoempresa,3,'0') || '/' || lPad(Decode(f.codigoempresa,9, decode(f.codigofl, 2, 1, f.codigofl),f.codigofl),3,'0')
+                                  , CodArea, descArea, Decode(g.descgrupo, null, f.descarea, Decode(g.descgrupo,'FISCALIZACAO','FISCAL RODOVIARIO', g.descgrupo)))
+                    Group By Empresa, Empfil, Data, codArea, descArea, grupo )
+          Group By  Empresa, Empfil, Data, CodArea, descArea, grupo  )
+          Group By  Empresa, Empfil, Data, CodArea, descArea, grupo
+                 Union All
+                Select max(Total_func) Total_func, Data, CodArea, descArea, EmpFil, descArea Grupo
+                  From (Select Empresa, Empfil, Max(Total_Func) Total_Func, Data, CodArea, descArea
+                       From (select 'X' empresa
+                                  , lpad(f.codigoempresa,3,'0') || '/' || lPad(Decode(f.codigoempresa,9, decode(f.codigofl, 2, 1, f.codigofl),f.codigofl),3,'0') EmpFil
+                                  , count(*) total_func
+                                  , Last_day((Case When trunc(ff.competficha) > Trunc(Sysdate) then Trunc(Sysdate) Else trunc(ff.competficha) End)) Data
+                                  , f.CodArea, descArea
+                               from vw_funcionarios f, flp_fichafinanceira ff
+                              where f.codigoempresa || f.codigofl In (11,12,21,41,51,61,92,131,261,263)
+                                and ff.competficha between ADD_MONTHS(Trunc(Sysdate,'rr'), -36) and last_day(sysdate) -- ADD_MONTHS(Trunc(Sysdate,'rr'), -96) and sysdate
+                                and ff.codintfunc = f.codintfunc
+                                and ff.situacaoffinan = 'A'
+                                and (ff.tipofolha = 1)
+                              group by ff.competficha, lpad(f.codigoempresa,3,'0') || '/' || lPad(Decode(f.codigoempresa,9, decode(f.codigofl, 2, 1, f.codigofl),f.codigofl),3,'0'), CodArea, descArea
+                              Union All -- para trazer a quantidade do mes anterior quando nao tiver calculo no mes atual
+                             Select Empresa, EmpfIl, Sum(Total_func) Total_func, Data, CodArea, descArea
+                               From (Select Empresa, EmpfIl, Sum(total_Admitidos) - Sum(total_Demitidos) Total_func, Data
+                                          , CodArea, descArea
+                                       From pbi_funcativosdemitidoGrupo1 -- sem a rapido
+                                      Group By Empresa, EmpFil, Data, CodArea, descArea
+                                      Union All
+                                     select 'X' empresa
+                                          , lpad(f.codigoempresa,3,'0') || '/' || lPad(Decode(f.codigoempresa,9, decode(f.codigofl, 2, 1, f.codigofl),f.codigofl),3,'0') EmpFil
+                                          , count(*) total_func
+                                          , Last_Day(trunc(Sysdate)) Data
+                                          , f.CODAREA, descArea
+                                       from vw_funcionarios f, flp_fichafinanceira ff
+                                      where f.codigoempresa || f.codigofl In (11,12,21,41,51,61,92,131,261,263)
+                                        and ff.competficha = Last_day(ADD_MONTHS(Trunc(sysdate),-1))
+                                        and ff.codintfunc = f.codintfunc
+                                        and ff.situacaoffinan = 'A'
+                                        and (ff.tipofolha = 1)
+                                        And f.codintfunc Not In (select f.CodintFunc
+                                                                   from vw_funcionarios f, flp_fichafinanceira ff
+                                                                  where f.codigoempresa || f.codigofl In (11,12,21,41,51,61,92,131,261,263)
+                                                                    and ff.competficha between Last_day(ADD_MONTHS(Trunc(sysdate),-1))+1 and last_day(sysdate)
+                                                                    and ff.codintfunc = f.codintfunc
+                                                                    and ff.situacaoffinan = 'A'
+                                                                    and (ff.tipofolha = 1)
+                                                                  group by f.CodintFunc)
+                                     group by ff.competficha,
+                                              lpad(f.codigoempresa,3,'0') || '/' || lPad(Decode(f.codigoempresa,9, decode(f.codigofl, 2, 1, f.codigofl),f.codigofl),3,'0'), CodArea, descArea)
+                                Group By Empresa, Empfil, Data, codArea, descArea )
+                      Group By  Empresa, Empfil, Data, CodArea, descArea  )
+                      Group By  Empresa, Empfil, Data, CodArea, descArea   )
+         Group By Data, CodArea, EmpFil , Grupo, descarea ) B
+ Where To_char(b.Data,'mm/yyyy') = To_char(a.dthist(+),'mm/yyyy')
+   And b.CodArea = a.CodArea(+)
+   And b.EmpFil = a.EmpFil(+)
+   And b.grupo = a.grupo(+)
+ Group By decode(a.EmpFil, Null, b.EmpFil, a.EmpFil)
+     , Decode(a.dthist, Null, b.Data, a.dthist)
+     , decode(a.CODAREA, Null, b.CODAREA, a.CODAREA)
+     , decode(a.Grupo, Null, b.Grupo, a.grupo)
+     , decode(a.DESCAREA, Null, b.DESCAREA, a.DESCAREA)
+

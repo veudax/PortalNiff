@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+</html>
+<body>
+	<table align="center" border="1" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc; border-collapse: collapse;">
+		<tr>
+			<td align="center" bgcolor="#ffffff">
+               <img src="http://www.niff.com.br/wp-content/uploads/2019/01/Comunicado.png" alt="" width="600" height="25%"; />
+		</tr>	
+		{MotivoCancelamento}
+		
+		<tr>
+			<td bgcolor="#ffffff" > 
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td style="padding: 20px 10px 20px 10px;"> 
+							<p style="width: 100%;" "font-size:10pt" align="Center"><font color="4169e1"><b>Dados do comunidado</font></b></p> 
+							<table style="width: 100%;" "font-size:10pt" border="0" cellpadding="0">
+								<tr>
+									<td style="width: 30.4248%;">&nbsp;Data</td>
+									<td style="width: 80.5752%;">&nbsp;{data}</td>
+								</tr>
+								<tr>
+									<td style="width: 30.4248%;">&nbsp;Solicitante</td>
+									<td style="width: 80.5752%;">&nbsp;{solicitante}</td>
+								</tr>
+								<tr>
+									<td style="width: 30.4248%;">&nbsp;Empresa</td>
+									<td style="width: 80.5752%;">&nbsp;<b>{empresa}</b></td>
+								</tr>
+								<tr>
+									<td style="width: 30.4248%;">&nbsp;Número do Processo</td>
+									<td style="width: 80.5752%;">&nbsp;{processo}</td>
+								</tr>
+								<tr>
+									<td style="width: 30.4248%;">&nbsp;Nº do Processo novo</td>
+									<td style="width: 80.5752%;">&nbsp;{novo processo}</td>
+								</tr>
+								<tr>
+									<td style="width: 30.4248%;">&nbsp;Vara</td>
+									<td style="width: 80.5752%;">&nbsp;{vara}</td>
+								</tr>
+								<tr>
+									<td style="width: 30.4248%;">&nbsp;Declarante/Autor</td>
+									<td style="width: 80.5752%;">&nbsp;<b>{autor}</b></td>
+								</tr>
+								<tr>
+									<td style="width: 30.4248%;">&nbsp;{tipo autor} Declarante/Autor</td>
+									<td style="width: 80.5752%;">&nbsp;{cpf}</td>
+								</tr>
+								<tr>
+									<td style="width: 30.4248%;">&nbsp;PIS Declarante/Autor</td>
+									<td style="width: 80.5752%;">&nbsp;{pis}</td>
+								</tr>
+								<tr>	
+									<td style="width: 30.4248%;">&nbsp;Centro de custo</td>
+									<td style="width: 80.5752%;">&nbsp;{custo}</td>
+								</tr>
+							
+							</table>	
+							
+							<p align="Center" bgcolor="#ffffff" "font-size:10pt"><font color="4169e1"><b> Providenciar o Pagamento do Tipo </font></b></p>
+							<table style="width: 100%;" "font-family:'Century Gothic';font-size:10pt" border="0" cellpadding="0">								
+								<tr>
+									<td style="width: 30.4248%;">&nbsp;Reembolso</td>
+									<td style="width: 80.5752%;">&nbsp;{reembolso}</td>
+								</tr>
+								{valor reembolso}
+								<tr>
+									<td style="width: 30.4248%;">&nbsp;Tem Seguro</td>
+									<td style="width: 80.5752%;">&nbsp;{seguro}</td>
+								</tr>
+								<tr>
+									<td style="width: 30.4248%;">&nbsp;Tipo de pagamento</td>
+									<td style="width: 80.5752%;">&nbsp;{tipo}</td>
+								</tr>
+								<tr>
+									<td style="width: 30.4248%;">&nbsp;Referência</td>
+									<td style="width: 80.5752%;">&nbsp;{referencia}</td>
+								</tr>
+								<tr>
+									<td style="width: 30.4248%;">&nbsp;Breve Resumo</td>
+									<td style="width: 80.5752%;">&nbsp;{resumo}</td>
+								</tr>								
+							</table>
+						
+						    <p style="width: 100%;" "font-size:10pt" align="Center"><font color="4169e1"><b> Dados das Parcelas </font></b></p> 
+							<table style="width: 100%;" "font-family:'Century Gothic';font-size:10pt" border="0" cellpadding="0">
+								<tr>
+									<td style="width: 15.4248%;" align="Right"><font color="4169e1"><b>Parcela</b>&nbsp;</font></td>
+									<td style="width: 40.4248%;" align="Center"><font color="4169e1"><b>Vencimento</font></b></td>
+									<td style="width: 80.5752%;" align="Right" ><font color="4169e1"><b>Valor&nbsp;</font></b></td>
+								</tr>
+								{parcelas}
+							</table>
+							
+							<p style="width: 100%;" "font-size:10pt" align="Center"><font color="4169e1"><b> Detalhes do pagamento</font></b></p> 
+							<table style="width: 100%;" "font-family:'Century Gothic';font-size:10pt" border="0" cellpadding="0">
+								<tr>
+									<td style="width: 30.4248%;">&nbsp;Valor Total</td>
+									<td style="width: 80.5752%;">&nbsp;<b>{total}</b></td>
+								</tr>
+								<tr>
+									<td style="width: 30.4248%;">&nbsp;Número de Parcelas</td>
+									<td style="width: 80.5752%;">&nbsp;{Qtde parcelas}</td>
+								</tr>			
+									{nota Fiscal}
+							</table>
+						
+							<p>&nbsp;</p>
+							<table style="width: 100%;" "font-family:'Century Gothic';font-size:10pt" border="0" cellpadding="0">
+								<tr>
+									<td style="width: 30.4248%;">Observações</td>
+									<td style="width: 80.5752%;">{observacoes}</td>
+								</tr>
+							</table>
+							
+							<p style="width: 100%;" "font-size:10pt" align="Center"><font color="4169e1"><b>Dados Bancários</font></b></p> 		
+
+							<table style="width: 100%;" "font-family:'Century Gothic';font-size:10pt" border="0" cellpadding="0">
+							<tr>
+								<td style="width: 30.4248%;">&nbsp;Nome do Favorecido</td>
+								<td style="width: 80.5752%;">&nbsp;<b>{favorecido}</b></td>
+								</tr>
+								<tr>
+								<td style="width: 30.4248%;">&nbsp;{tipo favorecido}</td>
+								<td style="width: 80.5752%;">&nbsp;<b>{cpf favorecido}</b></td>
+								</tr>
+								<tr>
+								<td style="width: 30.4248%;">&nbsp;Banco</td>
+								<td style="width: 80.5752%;">&nbsp;<b>{banco}</b></td>
+								</tr>
+								<tr>
+								<td style="width: 30.4248%;">&nbsp;Agência</td>
+								<td style="width: 80.5752%;">&nbsp;<b>{agencia}</b></td>
+								</tr>
+								<tr>
+								<td style="width: 30.4248%;">&nbsp;Conta</td>
+								<td style="width: 80.5752%;">&nbsp;<b>{conta}</b></td>
+								</tr>
+							</table>
+							
+						</td>
+					</tr>	
+				</table>
+			</td>
+		</tr>
+		
+		<tr>
+      <td bgcolor ="#ffffff"  style="font-family: Arial, sans-serif; font-size: 14px; line-height: 10px; padding: 10px 30px 10px 30px;">
+	       <p style="color: #4169e1; font-family: Arial, sans-serif; font-size: 13px"/>Não responda esse e-mail.</font></p>
+      </td>
+    </tr>
+    <tr>
+      <td bgcolor ="#ffffff"  style="font-family: Arial, sans-serif; font-size: 10px; line-height: 10px; padding: 0px 30px 0px 30px;">
+			<p> Esta mensagem é reservada e sua divulgação, distribuição, reprodução ou qualquer forma de uso é proibida e depende de prévia autorização desta instituição. O remetente utiliza o correio eletrônico no exercício do seu trabalho ou em razão dele, eximindo esta instituição de qualquer responsabilidade por utilização indevida. Se você recebeu esta mensagem por engano, favor eliminá-la imediatamente.</p>
+      </td>
+    </tr>
+	</table>
+	
+</body>
+</html>

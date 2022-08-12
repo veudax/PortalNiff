@@ -1,0 +1,37 @@
+Create Table Pbi_niff_AcompOsPrev (Id Number Not Null,
+                                   CodIntOS Number Not Null,
+                                   Data Date Not Null,
+                                   Numero Number Not Null,
+                                   CodigoVeic Number Not Null,
+                                   CodIntMaterialObrig Number Null,
+                                   CodIntMaterialUtil Number Null,
+                                   MaterialObrig Varchar2(8) Null,
+                                   MaterialUtil  Varchar2(8) Null,
+                                   Km Number,
+                                   PecasObrig Varchar2(255) Null,
+                                   PecasUtil Varchar2(255) Null ) Tablespace Globus_Table;
+                                   
+Alter Table Pbi_niff_AcompOsPrev Add Constraint Pk_PbiNiffAcompOsPrev
+  primary key (Id) using index 
+  tablespace GLOBUS_INDEX;
+  
+Alter Table Pbi_niff_AcompOsPrev Add CodigoEmpresa Number;  
+Alter Table Pbi_niff_AcompOsPrev Add CodigoFl Number;
+
+
+Create Table Pbi_niff_AcompOsCor (Id Number Not Null,
+                                  CodIntOS Number Not Null,
+                                  CodigoEmpresa Number Not Null,
+                                  CodigoFl Number Not Null,
+                                  Data Date Not Null,
+                                  Numero Number Not Null,
+                                  CodigoVeic Number Not Null,
+                                  CodIntMaterial Number Null,
+                                  Material  Varchar2(8) Null,
+                                  Km Number,
+                                  PecasUtil Varchar2(255) Null ) Tablespace Globus_Table;
+                                   
+Alter Table Pbi_niff_AcompOsCor Add Constraint Pk_PbiNiffAcompOsCor
+  primary key (Id) using index 
+  tablespace GLOBUS_INDEX;
+  

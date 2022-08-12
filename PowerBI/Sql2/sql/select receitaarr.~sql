@@ -1,0 +1,43 @@
+(Select -- 2 ano do ano atual
+  l.nroficiallinha,
+  '001/001 - EOVG DUTRA' empresa,
+  '001/001' EmpFil,
+--  g.dat_viagem_guia data,
+  Last_Day(
+  g.dat_prest_contas) Data,
+  to_char(g.dat_prest_contas,'D'),
+--  to_char
+--  P.COD_TIPOPAGTO,
+--  P.NOM_DESCRICAO,
+  SUM(Decode(P.COD_TIPOPAGTO, 'X', -1, '956', -1,1) * A.VLR_RECEB)  VLR_FATURAMENTO,
+  SUM(Decode(P.COD_TIPOPAGTO, '403',0, Decode(P.COD_TIPOPAGTO, 'X', -1, '956', -1,1)) * A.QTD_PASSAG_TRANS) PASSAGEIROS,
+  Round(SUM(Decode(P.COD_TIPOPAGTO, '403',0, Decode(P.COD_TIPOPAGTO, 'X', -1, '956', -1,1)) * A.QTD_PASSAG_TRANS) / d.valor,2) Media
+FROM
+  T_ARR_GUIA G,
+  T_ARR_VIAGENS_GUIA V,
+  T_ARR_DETALHE_GUIA A,
+  T_TRF_TIPOPAGTO P,
+  Bgm_Cadlinhas l,
+  (select t.valor, t.data From pbi_radar_operacional t where grupo = 'Dias uteis' And t.empfil = '001/001') d
+WHERE
+  P.COD_TIPOPAGTO     = A.COD_TIPOPAGTARIFA AND
+  V.COD_SEQ_VIAGEM    = A.COD_SEQ_VIAGEM    AND
+  V.COD_SEQ_GUIA      = A.COD_SEQ_GUIA      AND
+  G.COD_SEQ_GUIA      = V.COD_SEQ_GUIA      And
+  l.codintlinha = a.codintlinha And
+--  G.DAT_VIAGEM_GUIA   BETWEEN '01-JAN-2015' AND trunc(sysdate)
+  g.dat_prest_contas   BETWEEN '01-DEC-2017' AND '31-DEC-2017' --And
+--  g.dat_prest_contas   Not In ( '02-nov-2017','15-nov-2017','20-NOV-2017')
+  AND G.COD_EMPRESA = 1 AND G.CODIGOFL = 1
+  And l.nroficiallinha = '003'
+  And Last_day(d.data) = Last_Day(g.dat_prest_contas)
+--  And to_char(g.dat_prest_contas,'d') Not In (1,7) -- DESCONSIDERA SABADO E DOMINGO
+  GROUP BY
+--  g.dat_viagem_guia,
+l.nroficiallinha,
+to_char(g.dat_prest_contas,'D'),
+  Last_Day(
+  g.dat_prest_contas),
+--  P.COD_TIPOPAGTO, 
+d.valor--,  P.NOM_DESCRICAO
+ )

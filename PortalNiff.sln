@@ -1,0 +1,146 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Site", "Site\Site.csproj", "{8467B44F-A45A-4A06-A9CC-8A1FCF2B6B09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{21B8A9D5-EED9-4D03-9762-B761F7389312}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dados", "Dados\Dados.csproj", "{650E4FC0-F7A1-45CD-B7C3-79FFC989D3E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classes", "Classes\Classes.csproj", "{009CA923-D3FD-449C-A854-C1407A52A40D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suportte", "DeskTop\Suportte.csproj", "{C047147D-251D-479E-8C2D-AD59C6AC9DD2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentacao", "Documentacao", "{5B0835C8-04BE-4F92-BBBD-A0688CED3BED}"
+	ProjectSection(SolutionItems) = preProject
+		Documentacao\Documentacao do sistema.docx = Documentacao\Documentacao do sistema.docx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackupBI", "BackupBI", "{14F68707-F1AB-4DE3-98D1-7E786B6FABBE}"
+	ProjectSection(SolutionItems) = preProject
+		Backup BI\Fluxo de Caixa.pbix = Backup BI\Fluxo de Caixa.pbix
+		Backup BI\Indicador - Gastos dos aprovadores.pbix = Backup BI\Indicador - Gastos dos aprovadores.pbix
+		Backup BI\Indicador - Receita Arrecadação.pbix = Backup BI\Indicador - Receita Arrecadação.pbix
+		Backup BI\Indicador - Relatorio de ocorrencias.pbix = Backup BI\Indicador - Relatorio de ocorrencias.pbix
+		Backup BI\Indicador de Centro de Custos.pbix = Backup BI\Indicador de Centro de Custos.pbix
+		Backup BI\Indicador de MKBF x Consumo.pbix = Backup BI\Indicador de MKBF x Consumo.pbix
+		Backup BI\Indicador de Ocorrências.pbix = Backup BI\Indicador de Ocorrências.pbix
+		Backup BI\Posicao Financeira de Estoque.pbix = Backup BI\Posicao Financeira de Estoque.pbix
+		Backup BI\Posicao Financeira de Inflacao Ano.pbix = Backup BI\Posicao Financeira de Inflacao Ano.pbix
+		Backup BI\QualidadeRH.pbix = Backup BI\QualidadeRH.pbix
+		Backup BI\Radar.pbix = Backup BI\Radar.pbix
+		Backup BI\Relatorio Retirada de Materiais.pbix = Backup BI\Relatorio Retirada de Materiais.pbix
+		Backup BI\RH - Horas Excedente.pbix = Backup BI\RH - Horas Excedente.pbix
+		Backup BI\URBANO_ARRECADACAO.pbix = Backup BI\URBANO_ARRECADACAO.pbix
+		Backup BI\Vendas WEB.pbix = Backup BI\Vendas WEB.pbix
+		Backup BI\Índice de Acidentes.pbix = Backup BI\Índice de Acidentes.pbix
+		Backup BI\Índice de Avarias.pbix = Backup BI\Índice de Avarias.pbix
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Absenteismo", "Absenteismo", "{2A3B80F1-57B6-4F35-A2AD-EE1CE34787E9}"
+	ProjectSection(SolutionItems) = preProject
+		Backup BI\Absenteismo\Indicador de Absenteismo - Administrativo.pbix = Backup BI\Absenteismo\Indicador de Absenteismo - Administrativo.pbix
+		Backup BI\Absenteismo\Indicador de Absenteismo - Manutencao.pbix = Backup BI\Absenteismo\Indicador de Absenteismo - Manutencao.pbix
+		Backup BI\Absenteismo\Indicador de Absenteismo - Operacional.pbix = Backup BI\Absenteismo\Indicador de Absenteismo - Operacional.pbix
+		Backup BI\Absenteismo\Indicador de Absenteismo.pbix = Backup BI\Absenteismo\Indicador de Absenteismo.pbix
+		Backup BI\Absenteismo\Indicador de Absenteismo2.pbix = Backup BI\Absenteismo\Indicador de Absenteismo2.pbix
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Horas Extras", "Horas Extras", "{4621B8F4-7562-4583-BDBE-3AED8381E705}"
+	ProjectSection(SolutionItems) = preProject
+		Backup BI\Horas Extras\Indicador - Horas Extras - Administrativo.pbix = Backup BI\Horas Extras\Indicador - Horas Extras - Administrativo.pbix
+		Backup BI\Horas Extras\Indicador - Horas Extras - Manutencao.pbix = Backup BI\Horas Extras\Indicador - Horas Extras - Manutencao.pbix
+		Backup BI\Horas Extras\Indicador - Horas Extras - Operacional.pbix = Backup BI\Horas Extras\Indicador - Horas Extras - Operacional.pbix
+		Backup BI\Horas Extras\Indicador - Horas Extras.pbix = Backup BI\Horas Extras\Indicador - Horas Extras.pbix
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Turn Over", "Turn Over", "{9AE8E189-AB69-4D3F-A8F9-25E1F983F80E}"
+	ProjectSection(SolutionItems) = preProject
+		Backup BI\TurnOver\Indicador de Turn Over - Operacional.pbix = Backup BI\TurnOver\Indicador de Turn Over - Operacional.pbix
+		Backup BI\TurnOver\Indicador de Turn Over.pbix = Backup BI\TurnOver\Indicador de Turn Over.pbix
+		Backup BI\TurnOver\Indicador de Turn Over_teste.pbix = Backup BI\TurnOver\Indicador de Turn Over_teste.pbix
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Antigos", "Antigos", "{CD2B5583-9D71-4980-A081-D6079391200E}"
+	ProjectSection(SolutionItems) = preProject
+		Backup BI\Antigos e com defeito\Fluxo de Caixa_old.pbix = Backup BI\Antigos e com defeito\Fluxo de Caixa_old.pbix
+		Backup BI\Antigos e com defeito\Indicador - Horas Extras - Administrativo.pbix = Backup BI\Antigos e com defeito\Indicador - Horas Extras - Administrativo.pbix
+		Backup BI\Antigos e com defeito\Indicador - Horas Extras - Manutencao.pbix = Backup BI\Antigos e com defeito\Indicador - Horas Extras - Manutencao.pbix
+		Backup BI\Antigos e com defeito\Indicador - Horas Extras - Operacional.pbix = Backup BI\Antigos e com defeito\Indicador - Horas Extras - Operacional.pbix
+		Backup BI\Antigos e com defeito\Indicador - Horas Extras.pbix = Backup BI\Antigos e com defeito\Indicador - Horas Extras.pbix
+		Backup BI\Antigos e com defeito\Indicador - Receita Arrecadação_old.pbix = Backup BI\Antigos e com defeito\Indicador - Receita Arrecadação_old.pbix
+		Backup BI\Antigos e com defeito\Indicador de Absenteismo - Administrativo.pbix = Backup BI\Antigos e com defeito\Indicador de Absenteismo - Administrativo.pbix
+		Backup BI\Antigos e com defeito\Indicador de Absenteismo - Copy.pbix = Backup BI\Antigos e com defeito\Indicador de Absenteismo - Copy.pbix
+		Backup BI\Antigos e com defeito\Indicador de Absenteismo - Manutencao.pbix = Backup BI\Antigos e com defeito\Indicador de Absenteismo - Manutencao.pbix
+		Backup BI\Antigos e com defeito\Indicador de Absenteismo - Operacional.pbix = Backup BI\Antigos e com defeito\Indicador de Absenteismo - Operacional.pbix
+		Backup BI\Antigos e com defeito\Indicador de Absenteismo 2.pbix = Backup BI\Antigos e com defeito\Indicador de Absenteismo 2.pbix
+		Backup BI\Antigos e com defeito\Indicador de Absenteismo.pbix = Backup BI\Antigos e com defeito\Indicador de Absenteismo.pbix
+		Backup BI\Antigos e com defeito\Indicador de Turn Over - Operacional.pbix = Backup BI\Antigos e com defeito\Indicador de Turn Over - Operacional.pbix
+		Backup BI\Antigos e com defeito\Indicador de Turn Over.pbix = Backup BI\Antigos e com defeito\Indicador de Turn Over.pbix
+		Backup BI\Antigos e com defeito\Relatorio Retirada de Materiais_danificado.pbix = Backup BI\Antigos e com defeito\Relatorio Retirada de Materiais_danificado.pbix
+		Backup BI\Antigos e com defeito\Índice de Acidentes_old.pbix = Backup BI\Antigos e com defeito\Índice de Acidentes_old.pbix
+		Backup BI\Antigos e com defeito\Índice de Avarias_old.pbix = Backup BI\Antigos e com defeito\Índice de Avarias_old.pbix
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sql", "Sql", "{2A8937C2-EAD0-4A57-B846-8DF190C6E9FF}"
+	ProjectSection(SolutionItems) = preProject
+		BackupBI\Sql\PBI_Acidentes.sql = BackupBI\Sql\PBI_Acidentes.sql
+		BackupBI\Sql\PBI_Avarias.sql = BackupBI\Sql\PBI_Avarias.sql
+		BackupBI\Sql\PBI_HorasExcedentes.sql = BackupBI\Sql\PBI_HorasExcedentes.sql
+		Backup BI\SQL\PBI_HorasExtras_Total.sql = Backup BI\SQL\PBI_HorasExtras_Total.sql
+		BackupBI\Sql\PBI_MKBF.sql = BackupBI\Sql\PBI_MKBF.sql
+		BackupBI\Sql\PBI_Receitas.sql = BackupBI\Sql\PBI_Receitas.sql
+		BackupBI\Sql\PBI_RelatorioOcorrencias.sql = BackupBI\Sql\PBI_RelatorioOcorrencias.sql
+		BackupBI\Sql\PBI_TurnOver.sql = BackupBI\Sql\PBI_TurnOver.sql
+		BackupBI\Sql\PBI_TurnOver_Operacional.sql = BackupBI\Sql\PBI_TurnOver_Operacional.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servico_Suportte", "Servico_Suportte\Servico_Suportte.csproj", "{2B2A9C05-3AA5-45D0-B395-31249855C542}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8467B44F-A45A-4A06-A9CC-8A1FCF2B6B09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8467B44F-A45A-4A06-A9CC-8A1FCF2B6B09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8467B44F-A45A-4A06-A9CC-8A1FCF2B6B09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8467B44F-A45A-4A06-A9CC-8A1FCF2B6B09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21B8A9D5-EED9-4D03-9762-B761F7389312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21B8A9D5-EED9-4D03-9762-B761F7389312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21B8A9D5-EED9-4D03-9762-B761F7389312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21B8A9D5-EED9-4D03-9762-B761F7389312}.Release|Any CPU.Build.0 = Release|Any CPU
+		{650E4FC0-F7A1-45CD-B7C3-79FFC989D3E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{650E4FC0-F7A1-45CD-B7C3-79FFC989D3E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{650E4FC0-F7A1-45CD-B7C3-79FFC989D3E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{650E4FC0-F7A1-45CD-B7C3-79FFC989D3E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{009CA923-D3FD-449C-A854-C1407A52A40D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{009CA923-D3FD-449C-A854-C1407A52A40D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{009CA923-D3FD-449C-A854-C1407A52A40D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{009CA923-D3FD-449C-A854-C1407A52A40D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C047147D-251D-479E-8C2D-AD59C6AC9DD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C047147D-251D-479E-8C2D-AD59C6AC9DD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C047147D-251D-479E-8C2D-AD59C6AC9DD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C047147D-251D-479E-8C2D-AD59C6AC9DD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B2A9C05-3AA5-45D0-B395-31249855C542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B2A9C05-3AA5-45D0-B395-31249855C542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B2A9C05-3AA5-45D0-B395-31249855C542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B2A9C05-3AA5-45D0-B395-31249855C542}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2A3B80F1-57B6-4F35-A2AD-EE1CE34787E9} = {14F68707-F1AB-4DE3-98D1-7E786B6FABBE}
+		{4621B8F4-7562-4583-BDBE-3AED8381E705} = {14F68707-F1AB-4DE3-98D1-7E786B6FABBE}
+		{9AE8E189-AB69-4D3F-A8F9-25E1F983F80E} = {14F68707-F1AB-4DE3-98D1-7E786B6FABBE}
+		{CD2B5583-9D71-4980-A081-D6079391200E} = {14F68707-F1AB-4DE3-98D1-7E786B6FABBE}
+		{2A8937C2-EAD0-4A57-B846-8DF190C6E9FF} = {14F68707-F1AB-4DE3-98D1-7E786B6FABBE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3F394827-9650-47D5-AFA0-C2F8FA060E4B}
+	EndGlobalSection
+EndGlobal

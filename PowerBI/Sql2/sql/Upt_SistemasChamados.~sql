@@ -1,0 +1,1629 @@
+Create Table NIFF_CHM_Usuarios (IdUsuario Number Not Null,
+                                Tipo Varchar2(1) Default 'S' Not Null, -- S Solicitante, A Atendente M Ambos
+                                Nome Varchar2(50) Not Null,
+                                Ativo Varchar2(1) Default 'N' Not Null,
+                                Administrador Varchar2(1) Default 'N' Not Null,
+                                IpMaquina Varchar2(20) Null,
+                                NomeMaquina Varchar2(20) Null,
+                                Telefone Number Not Null,
+                                Ramal Number Not Null,
+                                Email Varchar2(80) Not Null,
+                                UsuarioAcesso Varchar2(30) Not Null,
+                                Senha Varchar2(20) Not Null,
+                                Cargo Varchar2(30) Null,
+                                DtNascimento Date Null,
+                                Foto Long Raw )  Tablespace Globus_Table;
+                                
+Alter Table NIFF_CHM_Usuarios Add Constraint Pk_NIFFUsuario 
+  primary key (IdUsuario) using index 
+  tablespace GLOBUS_INDEX;                                 
+                                
+Create Table NIFF_CHM_Categorias (IdCategoria Number Not Null,
+                                 Descricao Varchar2(50) Not Null,
+                                 Ativo Varchar2(1) Not Null ) Tablespace Globus_Table;
+
+Alter Table NIFF_CHM_Categorias Add Constraint Pk_NIFFCategoria 
+  primary key (IdCategoria) using index 
+  tablespace GLOBUS_INDEX;                                 
+                                 
+Create Table NIFF_CHM_UsuRespCateg (IdCategoria Number Not Null,
+                                    IdUsuario Number Not Null) Tablespace Globus_Table;
+
+Alter Table NIFF_CHM_UsuRespCateg Add Constraint Pk_NIFFUsuRespCateg 
+  primary key (IdCategoria, IdUsuario) using index 
+  tablespace GLOBUS_INDEX;                                 
+
+
+Create Table NIFF_CHM_CategAutoUsuario (IdCategoria Number Not Null,
+                                    IdUsuario Number Not Null) Tablespace Globus_Table;
+
+Alter Table NIFF_CHM_CategAutoUsuario Add Constraint Pk_NIFFCategAutoUsu 
+  primary key (IdCategoria, IdUsuario) using index 
+  tablespace GLOBUS_INDEX;                                 
+
+Create Table NIFF_CHM_Empresas ( IdEmpresa Number Not Null,
+                                 Nome Varchar2(50) Not Null,
+                                 Ativo Varchar2(1) Default 'N' Not Null,
+                                 CodigoGlobus Varchar2(7) Null ) Tablespace Globus_Table;
+                                 
+Alter Table NIFF_CHM_Empresas Add Constraint Pk_NIFFEmpresas
+  primary key (IdEmpresa) using index 
+  tablespace GLOBUS_INDEX;                                 
+                                 
+Create Table NIFF_CHM_EmpAutoUsuario (IdEmpresa Number Not Null,
+                                      IdUsuario Number Not Null) Tablespace Globus_Table;
+
+Alter Table NIFF_CHM_EmpAutoUsuario Add Constraint Pk_NIFFEmpAutoUsu
+  primary key (IdEmpresa, IdUsuario) using index 
+  tablespace GLOBUS_INDEX;                                               
+                                      
+Create Table NIFF_CHM_Modulos (IdModulo Number Not Null,
+                               IdCategoria Number Not Null,
+                               Nome Varchar2(50) Not Null,
+                               Fornecedor Varchar2(50) Null,
+                               Ativo Varchar2(1) Default 'N' Not Null)  Tablespace Globus_Table;
+
+Alter Table NIFF_CHM_Modulos Add Constraint Pk_NIFFModulos
+  primary key (IdModulo) using index 
+  tablespace GLOBUS_INDEX;                                               
+                              
+Create Table NIFF_CHM_ModAutoUsuario (IdModulo Number Not Null,
+                                      IdUsuario Number Not Null )  Tablespace Globus_Table;
+
+Alter Table NIFF_CHM_ModAutoUsuario Add Constraint Pk_NIFFModAutoUsu
+  primary key (IdModulo, IdUsuario) using index 
+  tablespace GLOBUS_INDEX;                                                  
+
+Create Table NIFF_CHM_Telas (IdTela Number Not Null,
+                             IdModulo Number Not Null,
+                             Nome Varchar2(60) Not Null,
+                             Caminho Varchar2(25) Not Null,
+                             Ativo Varchar2(1) Default 'N' Not Null,
+                             Tipo Varchar2(1) Default 'C' Not Null )  Tablespace Globus_Table;
+                             
+Alter Table NIFF_CHM_Telas Add Constraint Pk_NIFFTelas
+  primary key (IdTela) using index 
+  tablespace GLOBUS_INDEX;                                                                               
+                             
+Create Table NIFF_CHM_Chamado (IdChamado Number Not Null,
+                               IdUsuario Number Not Null,
+                               IdCategoria Number Not Null,
+                               IdTela Number Null,
+                               Assunto Varchar2(255) Not Null,
+                               IdEmpresa Number Not Null,
+                               Data Date Not Null,
+                               Numero Varchar2(10) Not Null,
+                               Satus Varchar2(1) Default 'N' Not Null,
+                               Origem Varchar2(1) Default 'T' Not Null,
+                               Prioridade Varchar2(1) Default 'M' Not Null, 
+                               NumAdeqForn Varchar2(10) Null,
+                               DataEntAdeq Date Null, 
+                               Avaliacao Number(1) Null,
+                               Descricao Long Not Null )  Tablespace Globus_Table;
+                              
+Alter Table NIFF_CHM_Chamado Add Constraint Pk_NIFFChamados
+  primary key (IdChamado) using index 
+  tablespace GLOBUS_INDEX;                                                                               
+                               
+Create Table NIFF_CHM_AnexosChamado (IdChamado Number Not Null,
+                                     IdAnexo Number Not Null,
+                                     Anexo Long Raw);
+
+Alter Table NIFF_CHM_AnexosChamado Add Constraint Pk_NIFFAnexoChamado
+  primary key (IdAnexo) using index 
+  tablespace GLOBUS_INDEX;                                                                               
+                                     
+Create Table NIFF_CHM_HistoChamado (IdChamado Number Not Null,
+                                    IdHistorico Number Not Null,
+                                    IdUsuario Number Not Null,
+                                    Descricao Long Not Null)  Tablespace Globus_Table;
+                                   
+Alter Table NIFF_CHM_HistoChamado Add Constraint Pk_NIFFHistoChamado
+  primary key (IdHistorico) using index 
+  tablespace GLOBUS_INDEX;                                                                               
+                                    
+Create Table NIFF_CHM_AnexosHistorico (IdHistorico Number Not Null,
+                                       IdAnexo Number Not Null,
+                                       Anexo Long Raw);
+                                     
+Alter Table NIFF_CHM_AnexosHistorico Add Constraint Pk_NIFFAnexoHistorico
+  primary key (IdAnexo) using index 
+  tablespace GLOBUS_INDEX;                                                                               
+                                       
+Create Table NIFF_CHM_Parametros (IdParam Number Not Null,
+                                  UsuarioCategoria Varchar2(1) Default 'N' Not Null,
+                                  PrazoReabertura Number(2) Default 7 Not Null,                                       
+                                  ExigeAvaliacao Varchar2(1) Default 'N' Not Null,
+                                  FormatoChamado Varchar2(1) Default 'M' Not Null,
+                                  PodeAbrirChamado Varchar2(1) Default 'N' Not Null,
+                                  UsuAutoCancelar Varchar2(1) Default 'A' Not Null )  Tablespace Globus_Table;
+                                    
+Alter Table NIFF_CHM_Parametros Add Constraint Pk_NIFFParametro
+  primary key (IdParam) using index 
+  tablespace GLOBUS_INDEX;                                                                               
+
+Create Table NIFF_CHM_LOCALIZACAO (IdLocalizacao Number Not Null,
+                                   Codigo Varchar2(5) Not Null,
+                                   Descricao Varchar2(100) Not Null,
+                                   IdEmpresa Number Not Null )  Tablespace Globus_Table;
+                                
+Alter Table NIFF_CHM_LOCALIZACAO Add Constraint Pk_NIFFLocalizacao
+  primary key (IdLocalizacao) using index 
+  tablespace GLOBUS_INDEX;                                                                               
+                                
+
+Create Table NIFF_CHM_SALAREUNIAO (IdSala Number Not Null,
+                                   Codigo Varchar2(10) Not Null,
+                                   IdLocalizacao Number Not Null,
+                                   Capacidade Number Default 1 )  Tablespace Globus_Table;
+                                  
+Alter Table NIFF_CHM_SALAREUNIAO Add Constraint Pk_NIFFSalaReuniao
+  primary key (IdSala) using index 
+  tablespace GLOBUS_INDEX;                                                                               
+                                  
+
+Create Table NIFF_CHM_AGENDA (IdAgenda Number Not Null,
+                              Data Date Not Null,
+                              HoraInicio Date Not Null,                                  
+                              HoraFim Date Not Null,                                  
+                              TipoAgenda Varchar2(1) Default 'S' Not Null,
+                              IdSala Number Null,
+                              CodigoVeic Number, -- Vem do Globus
+                              LocalVisita Varchar2(500) Null,
+                              Hotel Varchar2(100) Null,
+                              IdEmpresa Number Null, 
+                              IdUsuario Number Not Null ) Tablespace Globus_Table;
+                                                
+Alter Table NIFF_CHM_AGENDA Add Constraint Pk_NIFFAgenda
+  primary key (IdAgenda) using index 
+  tablespace GLOBUS_INDEX;    
+
+Create Table NIFF_CHM_AgendaUsu (IdAgenda Number Not Null,
+                                 IdUsuario Number Not null);
+                                 
+Alter Table NIFF_CHM_AgendaUsu Add Constraint Pk_NIFFAgendaUsu
+  primary key (IdAgenda, idUsuario) using index 
+  tablespace GLOBUS_INDEX;    
+
+Create Table NIFF_CHM_TIPODespesa (IdTipoDespesa Number Not Null,
+                                   Codigo Varchar2(5) Not Null,
+                                   Descricao Varchar2(100) Not Null,
+                                   Tipo Varchar2(1) Default 'D' Not Null,
+                                   ValorMaximo Number Default 0 Not Null,
+                                   PedeAutorizacao Varchar2(1) Default 'N' ) Tablespace Globus_Table;
+                                   
+Alter Table NIFF_CHM_TIPODespesa Add Constraint Pk_NIFFTipoDespesa
+  primary key (IdTipoDespesa) using Index;  
+
+Create Table NIFF_CHM_Despesas (IdDespesas Number Not Null,
+                               IdAgenda Number Not Null, 
+                               DataReembolso Date,
+                               ValorReembolso Number,
+                               IdUsuarioAutoriz Number ) Tablespace Globus_Table;
+                                  
+Alter Table NIFF_CHM_Despesas Add Constraint Pk_NIFFDespesa
+  primary key (IdDespesas) using index 
+  tablespace GLOBUS_INDEX;    
+                      
+Create Table NIFF_CHM_ItensDespesas (IdItens Number Not Null,
+                                    IdDespesas Number Not Null,
+                                    IdTipoDespesa Number Not Null,
+                                    Tipo Varchar2(1) Default 'D' Not Null,
+                                    Data Date Not Null,
+                                    Valor Number,
+                                    Imagem Long Raw,
+                                    IdUsuario Number ) Tablespace Globus_Table;
+                      
+Alter Table NIFF_CHM_ItensDespesas Add Constraint Pk_NIFFItensDespesa
+  primary key (IdItens) using index 
+  tablespace GLOBUS_INDEX;                                    
+              
+              
+Create Table NIFF_CHM_Chat (IdChat Number Not Null,
+                            IdUsuarioOrigem Number Not Null,
+                            IdUsuarioDestino Number Not Null,
+                            Mensagem Long,
+                            Excluida Varchar2(1) Default 'N' Not Null,
+                            DataExclusao Date Null ) Tablespace Globus_Table;
+
+        
+Alter Table NIFF_CHM_Chat Add Constraint Pk_NIFFChat
+  primary key (IdChat) using index 
+  tablespace GLOBUS_INDEX;                                    
+               
+         
+Create Table NIFF_CHM_ChatAnexos (IdChat Number Not Null,
+                                  IdAnexo Number Not Null,
+                                  Anexo Long Raw ) Tablespace Globus_Table;
+
+Alter Table NIFF_CHM_ChatAnexos Add Constraint Pk_NIFFChatAnexo
+  primary key (IdAnexo) using index 
+  tablespace GLOBUS_INDEX;                                    
+
+Create Table NIFF_CHM_UsuarioLogado (IdUsuario Number Not Null,
+                     /*DatHora*/     DataLogado Date Not Null,
+                                     Status Varchar2(1) Default 'O') Tablespace Globus_Table; 
+
+Alter Table NIFF_CHM_UsuarioLogado Add Constraint Pk_NIFFUsuarioLog
+  primary key (IdUsuario,DataLogado) using index 
+  tablespace GLOBUS_INDEX;                                    
+                                                                               
+-- Foreign Keys                                
+ALTER TABLE NIFF_CHM_UsuRespCateg
+       ADD  ( CONSTRAINT fk_Usuario_UsuRespCateg
+              FOREIGN KEY (IdUsuario)
+                             REFERENCES NIFF_CHM_Usuarios);
+                                    
+ALTER TABLE NIFF_CHM_UsuRespCateg
+       ADD  ( CONSTRAINT fk_Categ_UsuRespCateg
+              FOREIGN KEY (IdCategoria)
+                             REFERENCES NIFF_CHM_Categorias);
+                                    
+                                          
+ALTER TABLE NIFF_CHM_CategAutoUsuario
+       ADD  ( CONSTRAINT fk_Usuario_CategAutoUsu
+              FOREIGN KEY (IdUsuario)
+                             REFERENCES NIFF_CHM_Usuarios);
+                                    
+ALTER TABLE NIFF_CHM_CategAutoUsuario
+       ADD  ( CONSTRAINT fk_Categ_CategAutoUsu
+              FOREIGN KEY (IdCategoria)
+                             REFERENCES NIFF_CHM_Categorias);
+                                    
+ALTER TABLE NIFF_CHM_EmpAutoUsuario
+       ADD  ( CONSTRAINT fk_Usuario_EmpAutoUsu
+              FOREIGN KEY (IdUsuario)
+                             REFERENCES NIFF_CHM_Usuarios);
+                                    
+ALTER TABLE NIFF_CHM_EmpAutoUsuario
+       ADD  ( CONSTRAINT fk_Emresa_EmpAutoUsu
+              FOREIGN KEY (IdEmpresa)
+                             REFERENCES NIFF_CHM_Empresas);
+                                    
+ALTER TABLE NIFF_CHM_Modulos
+       ADD  ( CONSTRAINT fk_Categ_Modulos
+              FOREIGN KEY (IdCategoria)
+                             REFERENCES NIFF_CHM_Categorias);
+                                          
+                                          
+ALTER TABLE NIFF_CHM_ModAutoUsuario
+       ADD  ( CONSTRAINT fk_Usuario_ModAUTOUsu
+              FOREIGN KEY (IdUsuario)
+                             REFERENCES NIFF_CHM_Usuarios);
+                                    
+ALTER TABLE NIFF_CHM_ModAutoUsuario
+       ADD  ( CONSTRAINT fk_Modulo_modAutousu
+              FOREIGN KEY (IdModulo)
+                             REFERENCES NIFF_CHM_Modulos);
+
+ALTER TABLE NIFF_CHM_Telas
+       ADD  ( CONSTRAINT fk_Modulo_Telas
+              FOREIGN KEY (IdModulo)
+                             REFERENCES NIFF_CHM_Modulos);
+
+ALTER TABLE NIFF_CHM_Chamado
+       ADD  ( CONSTRAINT fk_Usuario_Chamado
+              FOREIGN KEY (IdUsuario)
+                             REFERENCES NIFF_CHM_Usuarios);
+                             
+ALTER TABLE NIFF_CHM_Chamado
+       ADD  ( CONSTRAINT fk_Categ_Chamado
+              FOREIGN KEY (IdCategoria)
+                             REFERENCES NIFF_CHM_Categorias);
+                             
+ALTER TABLE NIFF_CHM_Chamado
+       ADD  ( CONSTRAINT fk_Tela_Chamado
+              FOREIGN KEY (IdTela)
+                             REFERENCES NIFF_CHM_Telas);
+                             
+ALTER TABLE NIFF_CHM_Chamado
+       ADD  ( CONSTRAINT fk_Empresa_Chamado
+              FOREIGN KEY (IdEmpresa)
+                             REFERENCES NIFF_CHM_Empresas);
+                             
+ALTER TABLE NIFF_CHM_AnexosChamado
+       ADD  ( CONSTRAINT fk_Chamado_AnexoCham
+              FOREIGN KEY (IdChamado)
+                             REFERENCES NIFF_CHM_Chamado);
+                             
+ALTER TABLE NIFF_CHM_HistoChamado
+       ADD  ( CONSTRAINT fk_Historico_Chamado
+              FOREIGN KEY (IdChamado)
+                             REFERENCES NIFF_CHM_Chamado);
+                             
+ALTER TABLE NIFF_CHM_HistoChamado
+       ADD  ( CONSTRAINT fk_Usuario_Chamado
+              FOREIGN KEY (Idusuario)
+                             REFERENCES NIFF_CHM_Usuarios);
+
+ALTER TABLE NIFF_CHM_AnexosHistorico
+       ADD  ( CONSTRAINT fk_Historico_AnexoHisto
+              FOREIGN KEY (IdHistorico)
+                             REFERENCES NIFF_CHM_HistoChamado);
+
+ALTER TABLE NIFF_CHM_LOCALIZACAO
+       ADD  ( CONSTRAINT fk_Empresa_Localizacao
+              FOREIGN KEY (IdEmpresa)
+                             REFERENCES Niff_Chm_Empresas);
+     
+ALTER TABLE NIFF_CHM_SALAREUNIAO
+       ADD  ( CONSTRAINT fk_Localizacao_SalaReuniao
+              FOREIGN KEY (IdLocalizacao)
+                             REFERENCES Niff_Chm_Localizacao);
+     
+    
+ALTER TABLE NIFF_CHM_AGENDA
+       ADD  ( CONSTRAINT fk_SalaReuniao_Agenda
+              FOREIGN KEY (IdSala)
+                             REFERENCES Niff_Chm_SalaReuniao);
+    
+ALTER TABLE NIFF_CHM_AGENDA
+       ADD  ( CONSTRAINT fk_Empresa_Agenda
+              FOREIGN KEY (IdEmpresa)
+                             REFERENCES Niff_Chm_Empresas);
+
+ALTER TABLE NIFF_CHM_AGENDA
+       ADD  ( CONSTRAINT fk_Usuario_Agenda
+              FOREIGN KEY (IdUsuario)
+                             REFERENCES Niff_Chm_Usuarios);
+
+ALTER TABLE NIFF_CHM_AgendaUsu
+       ADD  ( CONSTRAINT fk_Agenda_AgendaUsu
+              FOREIGN KEY (IdAgenda)
+                             REFERENCES NIFF_CHM_AGENDA);
+     
+ALTER TABLE NIFF_CHM_AgendaUsu
+       ADD  ( CONSTRAINT fk_Usuario_AgendaUsu
+              FOREIGN KEY (IdUsuario)
+                             REFERENCES Niff_Chm_Usuarios);
+     
+ALTER TABLE NIFF_CHM_Despesas
+       ADD  ( CONSTRAINT fk_Agenda_Despesas
+              FOREIGN KEY (IdAgenda)
+                             REFERENCES NIFF_CHM_AGENDA);
+                                                                    
+ALTER TABLE NIFF_CHM_Despesas
+       ADD  ( CONSTRAINT fk_Usuario_Despesas
+              FOREIGN KEY (IdUsuarioAutoriz)
+                             REFERENCES Niff_Chm_Usuarios (IdUsuario));
+                                                    
+ALTER TABLE NIFF_CHM_ItensDespesas
+       ADD  ( CONSTRAINT fk_Despesas_ItensDesp
+              FOREIGN KEY (IdDespesas)
+                             REFERENCES NIFF_CHM_Despesas (IdDespesas));
+                                                 
+ALTER TABLE NIFF_CHM_ItensDespesas
+       ADD  ( CONSTRAINT fk_TpDespesas_ItensDesp
+              FOREIGN KEY (IdTipoDespesa)
+                             REFERENCES NIFF_CHM_TIPODespesa (IdTipoDespesa));
+                                                               
+ALTER TABLE NIFF_CHM_ItensDespesas
+       ADD  ( CONSTRAINT fk_Usuario_ItensDesp
+              FOREIGN KEY (IdUsuario)
+                             REFERENCES Niff_Chm_Usuarios (IdUsuario));
+                                                                         
+ALTER TABLE NIFF_CHM_Chat
+       ADD  ( CONSTRAINT fk_Usuario_Chat1
+              FOREIGN KEY (IdUsuarioOrigem)
+                             REFERENCES NIFF_CHM_Usuarios (IdUsuario));                 
+
+ALTER TABLE NIFF_CHM_Chat
+       ADD  ( CONSTRAINT fk_Usuario_Chat2
+              FOREIGN KEY (IdUsuarioDestino)
+                             REFERENCES NIFF_CHM_Usuarios (IdUsuario));   
+                             
+ALTER TABLE NIFF_CHM_ChatAnexos
+       ADD  ( CONSTRAINT fk_Chat_ChatAnexo
+              FOREIGN KEY (IdChat)
+                             REFERENCES NIFF_CHM_Chat (IdChat));                 
+                                           
+ALTER TABLE NIFF_CHM_UsuarioLogado
+       ADD  ( CONSTRAINT fk_Usuario_UsuarioLog
+              FOREIGN KEY (IdUsuario)
+                             REFERENCES NIFF_CHM_Usuarios (IdUsuario));                 
+                                                                                                        
+-- Alterações de tabela
+Alter Table Niff_Chm_Usuarios Add AcessaAgenda Varchar2(1) Default 'N' Not Null;                             
+Alter Table Niff_Chm_Usuarios Add AcessaChat Varchar2(1) Default 'N' Not Null;                             
+Alter Table Niff_Chm_Usuarios Add PermiteExcluirChat Varchar2(1) Default 'N' Not Null;                             
+Alter Table Niff_Chm_Parametros Add HoraInicioAgenda Date;
+Alter Table Niff_Chm_Parametros Add HoraFimAgenda Date;
+Alter Table Niff_Chm_Parametros Add IdEmpresa Number;
+                           
+ALTER TABLE NIFF_CHM_Parametros
+       ADD  ( CONSTRAINT fk_Empresa_Parametro
+              FOREIGN KEY (IdEmpresa)
+                             REFERENCES Niff_Chm_Empresas);
+                              
+--Alteração tabelas 14/08/2017
+Alter Table NIFF_CHM_CHAMADO Add notificacaoLida Varchar2(1) Default 'N';
+
+-- Criado tabela 15/08/2017
+Create Table NIFF_CHM_LimpezaFrota (IdLimpeza Number Not Null,
+                                    IdEmpresa Number Not Null,
+                                    Data      Date Not Null,
+                                    CodIntLinha Number Not Null,
+                                    CodVeiculo  Number Not Null,
+                                    IdUsuario   Number Not Null ) Tablespace Globus_table;
+                                    
+                             
+Alter Table NIFF_CHM_LimpezaFrota Add Constraint Pk_NIFFLimpezaFrota 
+  primary key (IdLimpeza) using index 
+  tablespace GLOBUS_INDEX;                                 
+                                        
+                  
+ALTER TABLE NIFF_CHM_LimpezaFrota
+       ADD  ( CONSTRAINT fk_Usuario_LimpezaFrota
+              FOREIGN KEY (IdUsuario)
+                             REFERENCES NIFF_CHM_Usuarios (IdUsuario));                 
+                  
+ALTER TABLE NIFF_CHM_LimpezaFrota
+       ADD  ( CONSTRAINT fk_Empresa_LimpezaFrota
+              FOREIGN KEY (IdEmpresa)
+                             REFERENCES Niff_Chm_Empresas (IdEmpresa));                 
+                                        
+Create Table NIFF_CHM_ItensVistoria (IdItens Number Not Null,
+                                     Codigo Varchar2(5) Not Null,
+                                     Descricao Varchar2(50) Not Null,
+                                     Ativo Varchar2(1) Default 'S' Not Null) Tablespace Globus_table;                                   
+                                     
+Alter Table NIFF_CHM_ItensVistoria Add Constraint Pk_NIFFItensVistoria
+  primary key (IdItens) using index 
+  tablespace GLOBUS_INDEX;                                 
+            
+Create Table NIFF_CHM_ItensLimpeza (IdLimpeza Number Not Null,
+                                    IdItens Number Not Null,
+                                    Status Varchar2(1) Default 'N' Not Null) Tablespace Globus_table;
+                                        
+                             
+Alter Table NIFF_CHM_ItensLimpeza Add Constraint Pk_NIFFItensLimpeza
+  primary key (IdLimpeza,IdItens) using index 
+  tablespace GLOBUS_INDEX;                                                                                              
+
+ALTER TABLE NIFF_CHM_ItensLimpeza
+       ADD  ( CONSTRAINT fk_Itens_LimpezaFrota
+              FOREIGN KEY (IdLimpeza)
+                             REFERENCES NIFF_CHM_LimpezaFrota (IdLimpeza));                 
+
+ALTER TABLE NIFF_CHM_ItensLimpeza
+       ADD  ( CONSTRAINT fk_ItensVist_LimpezaFrota
+              FOREIGN KEY (IdItens)
+                             REFERENCES NIFF_CHM_ItensVistoria (IdItens));                 
+
+-- Alteraçao 15/08/2017
+Alter Table NIFF_CHM_USUARIOS Add AcessaBI Varchar2(1) Default 'N' Not Null;  
+Alter Table NIFF_CHM_ItensVistoria Add ItemCritico Varchar2(1) Default 'N' Not Null;  
+
+-- Alteração 16/08/2017
+Alter Table Niff_Chm_Chat Add Data Date Not Null;
+Alter Table NIFF_CHM_SALAREUNIAO Add Descricao Varchar2(50) Not Null;
+Alter Table NIFF_CHM_HistoChamado Add Data Date Not Null;
+Alter Table NIFF_CHM_Empresas Add CodFilialGlobus Number;
+
+-- Alteração 01/09/2017
+Alter Table NIFF_CHM_USUARIOS Add PermiteIncExcFotosFesta Varchar2(1) Default 'N';
+
+Create Table NIFF_CHM_Festa (IdFesta Number Not Null,
+                             IdEmpresa Number Not Null,
+                             IdUsuario Number Not Null,
+                             Data Date Not Null,
+                             modo Varchar2(1) Default 0) Tablespace Globus_Table;
+                             
+                            
+Alter Table NIFF_CHM_Festa Add Constraint Pk_NIFFFesta
+  primary key (IdFesta) using index 
+  tablespace GLOBUS_INDEX;                                                                                              
+
+ALTER TABLE NIFF_CHM_Festa
+       ADD  ( CONSTRAINT fk_Festa_Empresa
+              FOREIGN KEY (IdEmpresa)
+                             REFERENCES NIFF_CHM_EMPRESAS (IdEmpresa));                 
+                             
+ALTER TABLE NIFF_CHM_Festa
+       ADD  ( CONSTRAINT fk_Festa_Usuario
+              FOREIGN KEY (IdUsuario)
+                             REFERENCES NIFF_CHM_USUARIOS (IdUsuario));                                              
+                             
+Create Table NIFF_CHM_AnexoFesta (IdAnexo Number Not Null,
+                                  IdFesta Number Not Null,
+                                  Foto Long Raw) Tablespace Globus_Table; 
+
+Alter Table NIFF_CHM_AnexoFesta Add Constraint Pk_NIFFAnexoFesta
+  primary key (IdAnexo) using index 
+  tablespace GLOBUS_INDEX;                                                                                              
+
+ALTER TABLE NIFF_CHM_AnexoFesta
+       ADD  ( CONSTRAINT fk_AnexoFesta_Festa
+              FOREIGN KEY (IdFesta)
+                             REFERENCES NIFF_CHM_Festa (IdFesta));
+            
+-- Alteração 04/09/2017                             
+Alter Table NIFF_CHM_USUARIOS Add emailAcessoPowerBi Varchar2(100) Null;
+Alter Table NIFF_CHM_Categorias Add possuiModulos Varchar2(1) Default 'S' Not Null;
+
+-- Alteração 05/09/2017
+Alter Table NIFF_CHM_USUARIOS Add Setor Varchar2(100) Null; 
+CREATE SEQUENCE SQ_NIFF_IDModulo START WITH 1 NOMAXVALUE ORDER NOCACHE;
+CREATE SEQUENCE SQ_NIFF_IDUsuario START WITH 1 NOMAXVALUE ORDER NOCACHE;
+
+-- Alteraçao 08/09/207
+Alter Table Niff_Chm_Chat Add Lida Varchar2(1) Default 'N' Not Null;
+
+-- Alteração 11/09/2017
+CREATE SEQUENCE SQ_NIFF_IDChat START WITH 1 NOMAXVALUE ORDER NOCACHE;
+Alter Table NIFF_CHM_USUARIOS Add IdEmpresa Number; 
+
+-- Alteração 12/09/2017 - Sistema SAC
+Alter Table NIFF_CHM_USUARIOS Add AcessaSAC Varchar2(1) Default 'N' Not Null; 
+Alter Table NIFF_CHM_USUARIOS Add TipoUsuarioSAC Varchar2(1) Default 'A' Not Null; 
+Alter Table NIFF_CHM_USUARIOS Modify Email  Null; 
+Alter Table NIFF_CHM_USUARIOS Add CodFunc Number Null; -- Codigo do funcionario na Folha
+Alter Table Niff_Chm_Empresas Add TextoSacpadrao Long;
+
+Create Table NIFF_CHM_Departamento (IdDepartamento Number Not Null,
+                                    Descricao Varchar2(50) Not Null,
+                                    Ativo Varchar2(1) Default 'S' Not Null) Tablespace Globus_table;
+
+Alter Table NIFF_CHM_Departamento Add Constraint Pk_NIFFDepartamento
+  primary key (IdDepartamento) using index 
+  tablespace GLOBUS_INDEX;                                                                                              
+
+Create Table NIFF_CHM_TipoAtendimento (IdTipoAtendimento Number Not Null,
+                                       Descricao Varchar2(30) Not Null,
+                                       Ativo Varchar2(1) Default 'S' Not Null)  Tablespace Globus_table;
+
+Alter Table NIFF_CHM_TipoAtendimento Add Constraint Pk_NIFFTpAtendimento
+  primary key (IdTipoAtendimento) using index 
+  tablespace GLOBUS_INDEX;                                                                                              
+
+
+Create Table NIFF_CHM_EMTUAtendimento (IdEmtu Number Not Null,
+                                       Codigo Varchar2(5) Not Null,
+                                       IdDepartamento  Number,  
+                                       IdTpAtendimento Number, 
+                                       Titulo Varchar2(30),
+                                       Descricao Varchar2(255)) Tablespace Globus_Table;
+                                    
+Alter Table NIFF_CHM_EMTUAtendimento Add Constraint NIFF_CHM_EMTUAtendimento
+  primary key (IdEmtu) using index 
+  tablespace GLOBUS_INDEX;                                                                                              
+                                    
+ALTER TABLE NIFF_CHM_EMTUAtendimento
+       ADD  ( CONSTRAINT fk_EmtuAtend_Departamento
+              FOREIGN KEY (IdDepartamento)
+                             REFERENCES NIFF_CHM_Departamento (IdDepartamento));
+                                
+ALTER TABLE NIFF_CHM_EMTUAtendimento 
+       ADD  ( CONSTRAINT fk_EmtuAtend_tpAtendimento
+              FOREIGN KEY (IdTpAtendimento)
+                             REFERENCES NIFF_CHM_TipoAtendimento (IdTipoAtendimento));              
+
+Create Table NIFF_CHM_Cliente (IdCliente Number Not Null,
+                               Nome Varchar2(100) Not Null,
+                               RG Varchar2(20) Null,
+                               CPF Varchar2(20) Null,
+                               Endereco Varchar2(100) Null,
+                               Numero Number,
+                               Cidade Varchar2(50) Null,
+                               UF Varchar2(2) Null,
+                               Email Varchar2(100) Null,
+                               Telefone Number Null,
+                               Celular Number Null ) Tablespace Globus_Table;
+                               
+Alter Table NIFF_CHM_Cliente Add Constraint NIFF_CHM_Cliente
+  primary key (IdCliente) using index 
+  tablespace GLOBUS_INDEX;                                                                                              
+
+Create Table NIFF_CHM_Atendimento (IdAtendimento Number Not Null,
+                                   Codigo Varchar2(15) Not Null,                           
+                                   IdUsuario Number Not Null,
+                                   IdTpAtendimento Number Not Null,
+                                   IdCliente Number Not Null,
+                                   ClienteAnonimo Varchar2(1) Default 'N' Not Null,
+                                   TextoAtendimento Long,
+                                   TextoResposta Varchar2(2000), 
+                                   DataAbertura Date,
+                                   DataResposta Date,
+                                   DataFinalizado Date, 
+                                   DataCancelado Date,
+                                   Status Varchar2(1),
+                                   Status2 Varchar2(2), 
+                                   Retorno Varchar2(1),
+                                   Retornou Varchar2(1),
+                                   MotivoRetorno Varchar2(2000),
+                                   MotivoCancelamento Varchar2(2000), 
+                                   Satisfacao Varchar2(1),
+                                   MovitoSatisfacao Varchar2(2000),
+                                   Como Varchar2(1),
+                                   CodigoLinha Number, -- codigo linha no globus
+                                   IdEmtu Number,
+                                   CodFunc Number)   Tablespace Globus_Table;
+                                   
+Alter Table NIFF_CHM_Atendimento Add Constraint NIFF_CHM_Atendimento
+  primary key (IdAtendimento) using index 
+  tablespace GLOBUS_INDEX;                                                                                              
+
+  ALTER TABLE NIFF_CHM_Atendimento 
+       ADD  ( CONSTRAINT fk_Atendimento_tpAtendimento
+              FOREIGN KEY (IdTpAtendimento)
+                             REFERENCES NIFF_CHM_TipoAtendimento (IdTipoAtendimento));              
+
+ALTER TABLE NIFF_CHM_Atendimento
+       ADD  ( CONSTRAINT fk_Atendimento_Usuariio
+              FOREIGN KEY (IdUsuario)
+                             REFERENCES NIFF_CHM_USUARIOS (IdUsuario));
+                             
+ALTER TABLE NIFF_CHM_Atendimento
+       ADD  ( CONSTRAINT fk_Atendimento_Cliente
+              FOREIGN KEY (IdCliente)
+                             REFERENCES NIFF_CHM_Cliente (IdCliente));
+                             
+ALTER TABLE NIFF_CHM_Atendimento
+       ADD  ( CONSTRAINT fk_Atendimento_EMTU
+              FOREIGN KEY (IdEmtu)
+                             REFERENCES NIFF_CHM_EMTUAtendimento (IdEmtu));
+                             
+                             
+                                                                                       
+-- Alterado 13/09/2017
+Alter Table NIFF_CHM_USUARIOS Add IdDepartamento Number Null; 
+                                                          
+                                                          
+-- Alterado 14/09/2017
+Alter Table NIFF_CHM_EMTUAtendimento Add Ativo Varchar2(1) Default 'S';
+
+Alter Table NIFF_CHM_Atendimento Add Nome Varchar2(100) Not Null;
+Alter Table NIFF_CHM_Atendimento Add RG Varchar2(20) Null;
+Alter Table NIFF_CHM_Atendimento Add CPF Varchar2(20) Null;
+Alter Table NIFF_CHM_Atendimento Add Endereco Varchar2(100) Null;
+Alter Table NIFF_CHM_Atendimento Add Numero Number;
+Alter Table NIFF_CHM_Atendimento Add Cidade Varchar2(50) Null;
+Alter Table NIFF_CHM_Atendimento Add UF Varchar2(2) Null;
+Alter Table NIFF_CHM_Atendimento Add Email Varchar2(100) Null;
+Alter Table NIFF_CHM_Atendimento Add Telefone Number Null; 
+Alter Table NIFF_CHM_Atendimento Add Celular Number Null;
+Alter Table NIFF_CHM_Atendimento Add IdUsuarioResponsavel Number Null;
+Alter Table NIFF_CHM_Atendimento Add IdUsuarioFinaliza Number Null;
+Alter Table NIFF_CHM_Atendimento Add IdUsuarioCancela Number Null;
+Alter Table NIFF_CHM_Atendimento Add IdUsuarioRetorno Number Null;
+Alter Table NIFF_CHM_Atendimento Add Origem Varchar2(1) Default 'T' Null;
+Alter Table NIFF_CHM_Atendimento Add Situacao Varchar2(2)  Null;
+Alter Table NIFF_CHM_Atendimento Drop Column Como;
+Alter Table NIFF_CHM_Atendimento Drop Column Status2;
+
+-- alterado 18/09/2017 
+Alter Table NIFF_CHM_Empresas Add FormatoCodigoSAC Varchar2(2) ;
+Alter Table NIFF_CHM_Empresas Add Separador Varchar2(1) Default '-';
+Alter Table Niff_Chm_Usuarios Add CPF Number;
+
+-- alterado 20/09/2017
+Alter Table Niff_Chm_Parametros Add TempoMaximoRetornoSAC Number Default 180;
+Alter Table Niff_Chm_Parametros Add TempoMaximoRetornoChamado Number Default 180;
+
+-- alterado 21/09/2017
+Alter Table Niff_Chm_Usuarios Modify foto Blob;
+
+-- Alterado 22/09/2017
+Create Table Niff_CHM_ConfUsuario (IdUsuario Number,
+                                   Skin Varchar2(3)) Tablespace Globus_table;
+                                   
+                                
+Alter Table Niff_CHM_ConfUsuario Add Constraint Pk_NIFFConfUsuario
+  primary key (IdUsuario) using index 
+  tablespace GLOBUS_INDEX;        
+  
+
+ALTER TABLE Niff_CHM_ConfUsuario
+       ADD  ( CONSTRAINT fk_ConfUsuario_Usuariio
+              FOREIGN KEY (IdUsuario)
+                             REFERENCES NIFF_CHM_USUARIOS (IdUsuario));
+          
+
+Alter Table Niff_CHM_ConfUsuario Add NomeMaquina Varchar2(20);
+
+-- Alterado 26/09/2017
+Alter Table niff_chm_empresas Add NomeAbreviado Varchar2(20);
+Alter Table niff_chm_empresas Add email Varchar2(60);
+Alter Table niff_chm_empresas Add Smtp Varchar2(60);
+Alter Table niff_chm_empresas Add Autentica Varchar2(1) Default 'S';
+Alter Table niff_chm_empresas Add AutenticaSSL Varchar2(1) Default 'N';
+Alter Table niff_chm_empresas Add PortaSMTP Number Default 25;
+Alter Table niff_chm_empresas Add Senha Varchar2(20);
+Alter Table niff_chm_empresas Add telefoneSAC Varchar2(15);
+Alter Table Niff_Chm_Usuarios Add EmailDepto Varchar2(60);
+
+-- Alterado 27/09/2017
+Create Table NIFF_CHM_LogSAC (IdLog Number Not Null,
+                           IdAtendimento Number Not Null,
+                           Descricao Long Not Null,
+                           Data Date Not Null,
+                           IdUsuario Number Not Null)  Tablespace Globus_Table;
+                           
+Alter Table NIFF_CHM_LogSAC Add Constraint NIFF_CHM_LOGSac
+  primary key (IdLog) using index 
+  tablespace GLOBUS_INDEX;                                                                                              
+                                    
+ALTER TABLE NIFF_CHM_LogSAC
+       ADD  ( CONSTRAINT fk_LogSac_Usuariio
+              FOREIGN KEY (IdUsuario)
+                             REFERENCES NIFF_CHM_USUARIOS (IdUsuario));
+                             
+CREATE SEQUENCE SQ_NIFF_IdLogSac START WITH 1 NOMAXVALUE ORDER NOCACHE;                             
+
+-- Alterado 28/09/2017
+Alter Table NIFF_CHM_Atendimento Add RespostaAoCliente Varchar2(2000) Null;
+Alter Table NIFF_CHM_Atendimento Add DataRetornoAoCliente Date Null;
+Alter Table NIFF_CHM_Atendimento Add IdUsuarioRetornouAoCliente Number Null;
+
+-- Alterado 09/10/2017
+Alter Table Niff_Chm_Usuarios Add AcessaDescontoBeneficio Varchar2(1) Default 'N';
+Alter Table Niff_Chm_Empresas Add ValorDescFaltaJustificada Number;
+Alter Table Niff_Chm_Empresas Add ValorDescFaltaInjustificada Number;
+
+-- Alterado 10/10/2017 
+Alter Table Niff_Chm_Empresas Add QtdfaltasJustificadasSuperior Number;
+Alter Table Niff_Chm_Empresas Add QtdfaltasInjustifSuperior Number;
+
+-- Alterado
+Create Table Niff_Chm_log (IdLog Number Not Null,
+                           Data Date Not Null, --data e hora da gravação
+                           Descricao Long Not Null,
+                           Tela Varchar2(100) Null,
+                           IdUsuario Number Not Null ) Tablespace Globus_table;
+                           
+       
+Alter Table Niff_Chm_log Add Constraint NIFF_CHM_LOG
+  primary key (IdLog) using index 
+  tablespace GLOBUS_INDEX;                                                                                              
+                                    
+ALTER TABLE Niff_Chm_log
+       ADD  ( CONSTRAINT fk_Log_Usuariio
+              FOREIGN KEY (IdUsuario)
+                             REFERENCES NIFF_CHM_USUARIOS (IdUsuario));                            
+                             
+CREATE SEQUENCE SQ_NIFF_Log START WITH 1 NOMAXVALUE ORDER NOCACHE;
+                             
+-- alterado 23/10/17
+Alter Table NIFF_CHM_Atendimento Add AguardaSatisfacaoCliente Varchar2(1) Default 'N' Not Null;                             
+Alter Table NIFF_CHM_Empresas Add ExibirOsCanceladosNoSACDias Number Default 4 Not Null;
+Alter Table NIFF_CHM_Empresas Add ResponderEmDiasSAC Number Default 1 Not Null;
+Alter Table NIFF_CHM_Empresas Add SemretornoEmDiasSAC Number Default 4 Not Null;
+
+-- alterado 24/10/17
+Alter Table NIFF_CHM_Atendimento Add DataSatisfacao Date Null;                             
+
+-- alterado 30/10/2017
+Alter Table Niff_chm_agenda Add Texto Varchar2(500) ;
+Alter Table Niff_chm_agenda Add DiaTodo Varchar2(1) Default 'N' Not Null;
+Alter Table Niff_chm_agenda Add Status Varchar2(1) Default 'A' Not Null; -- Ativo, Cancelada
+Alter Table Niff_chm_agenda Add Lembrar Number Default 15; -- minutos para lembrar da agenda.
+
+Alter Table Niff_Chm_Salareuniao Add IdEmpresa Number;
+Alter Table Niff_Chm_Salareuniao Add Ativa Varchar2(1) Default 'S' Not Null;
+Alter Table Niff_Chm_Salareuniao Drop Column IdLocalizaCAO;
+Alter Table Niff_Chm_Salareuniao Drop Column Codigo;
+
+ALTER TABLE NIFF_CHM_SALAREUNIAO
+       ADD  ( CONSTRAINT fk_Empresa_SalaReuniao
+              FOREIGN KEY (IdEmpresa) 
+                             REFERENCES Niff_Chm_Empresas);
+     
+Drop Table Niff_Chm_Localizacao;
+
+
+-- alterado 31/10/2017
+Alter Table Niff_chm_agenda Add DataFim Date Not Null ;
+Alter Table Niff_chm_agenda Drop Column Hotel;
+
+--alterado 01/11/2017
+CREATE SEQUENCE SQ_NIFF_IDAgenda START WITH 1 NOMAXVALUE ORDER NOCACHE;
+Alter Table Niff_chm_agenda Drop Column HORAINICIO;
+Alter Table Niff_chm_agenda Drop Column HORAFIM;
+
+-- alterado 08/11/2017
+Create Table Niff_CHM_Aniversario (IdAniversario Number Not Null,
+                                   IdUsuario Number Not Null,
+                                   Data Date Not Null,
+                                   MostrarMensagem Varchar2(1) Default 'S' Not Null,  
+                                   Mensagem Varchar2(1000) Null) Tablespace Globus_table;
+                      
+
+Alter Table Niff_CHM_Aniversario Add Constraint NIFF_CHM_Aniversario
+  primary key (IdAniversario) using index 
+  tablespace GLOBUS_INDEX;                                            
+
+ALTER TABLE Niff_CHM_Aniversario
+       ADD  ( CONSTRAINT fk_Usuario_Aniversario
+              FOREIGN KEY (IdUsuario) 
+                             REFERENCES Niff_Chm_Usuarios);
+                                        
+-- Alterado 13/11/2017
+Alter Table Niff_Chm_AgendaUsu Add ConviteAceito Varchar2(1) Default 'N' Not Null ;                                        
+
+-- Alterado 17/11/2017
+Alter Table niff_chm_usuarios Modify Telefone Null;
+Alter Table niff_chm_usuarios Modify Ramal Null;
+Alter Table Niff_Chm_Chamado Modify Numero Varchar2(11);
+
+Alter Table Niff_Chm_Chamado Drop Column SATUS;
+Alter Table Niff_Chm_Chamado Add Status Varchar2(1) Default 'N';
+Alter Table Niff_Chm_Chamado Add DescricaoAvaliacao Varchar2(2000) Null;
+Alter Table Niff_Chm_Chamado Add DataAvaliacao Date;
+Alter Table Niff_Chm_Chamado Add TipoChamado Varchar2(1) Default 'E' Not Null;
+
+CREATE SEQUENCE SQ_NIFF_IDChamado START WITH 1 NOMAXVALUE ORDER NOCACHE;
+
+-- Alterado 21/11/2017
+Alter Table niff_chm_parametros Drop Column TEMPOMAXIMORETORNOSAC; 
+Alter Table niff_chm_parametros Drop Column TEMPOMAXIMORETORNOCHAMADO;
+Alter Table niff_chm_parametros Drop Column IDEMPRESA;
+Alter Table niff_chm_parametros Drop Column USUARIOCATEGORIA;
+Alter Table niff_chm_parametros Drop Column PODEABRIRCHAMADO;
+
+Alter Table niff_chm_parametros Add QtdDiasRetornoChamado Number Default 3;
+Alter Table niff_chm_parametros Add ExibirCancelados Number Default 3;
+Alter Table niff_chm_parametros Add EmailChamado Varchar2(60);
+Alter Table niff_chm_parametros Add SMTP Varchar2(60);
+Alter Table niff_chm_parametros Add Autentica Varchar2(1) Default 'S';
+Alter Table niff_chm_parametros Add AutenticaSMTP Varchar2(1) Default 'N';
+Alter Table niff_chm_parametros Add Porta Number Default 25;
+Alter Table niff_chm_parametros Add SenhaEmail Varchar2(20);
+Alter Table niff_chm_parametros Add UsuarioMesmoDepto Varchar2(1) Default 'N';
+Alter Table niff_chm_parametros Add AtendenteConcluiChamado Varchar2(1) Default 'S';
+Alter Table niff_chm_parametros Add AtendentePodeAbrirChamado Varchar2(1) Default 'S';
+Alter Table niff_chm_parametros Add Separador Varchar2(1) Default '-';
+Alter Table niff_chm_parametros Modify FORMATOCHAMADO Varchar2(2);
+
+CREATE SEQUENCE SQ_NIFF_IdParametro START WITH 1 NOMAXVALUE ORDER NOCACHE;
+
+-- Alterado 23/11/2017
+CREATE SEQUENCE SQ_NIFF_IDHistorico START WITH 1 NOMAXVALUE ORDER NOCACHE;
+Alter Table Niff_Chm_Chamado Drop Column DESCRICAO;
+Alter Table Niff_Chm_Histochamado Add Status Varchar2(1) Default 'N';
+Alter Table Niff_Chm_Histochamado Modify Descricao Varchar2(2000);
+Drop Table NIFF_CHM_AnexosChamado;
+
+-- Alterado 24/11/2017
+CREATE SEQUENCE SQ_NIFF_IDAnexo START WITH 1 NOMAXVALUE ORDER NOCACHE;
+Alter Table Niff_Chm_Anexoshistorico Modify Anexo Blob;
+Alter Table Niff_Chm_Anexofesta Modify Foto Blob;
+Alter Table niff_chm_chatanexos Modify Anexo Blob;
+
+Alter Table Niff_Chm_Anexoshistorico Add NomeArquivo Varchar2(30);
+Alter Table niff_chm_chatanexos  Add NomeArquivo Varchar2(30);
+Alter Table Niff_Chm_Anexofesta  Add NomeArquivo Varchar2(30);
+
+--Alterado 28/11/2017
+CREATE SEQUENCE SQ_NIFF_IdAniversario START WITH 1 NOMAXVALUE ORDER NOCACHE;
+
+--Alterado 06/12/2017
+Alter Table niff_chm_usuarios Add AcessaJuridico Varchar2(1) Default 'N';
+
+
+-- alterado 11/12/2017 -- Juridico
+Create Table Niff_Jur_Vara (IdVara Number Not Null,
+                            Nome Varchar2(50) Not Null,
+                            Ativa Varchar2(1) Default 'S' Not Null) Tablespace Globus_Table;
+                            
+
+Alter Table Niff_Jur_Vara Add Constraint pkNiff_Jur_Vara
+  primary key (IdVara) using index 
+  tablespace GLOBUS_INDEX;    
+  
+Create Table Niff_Jur_Tipo (IdTipo Number Not Null,
+                            Descricao Varchar2(50) Not Null,
+                            Ativo Varchar(1) Default 'S' Not Null) Tablespace Globus_Table;
+
+Alter Table Niff_Jur_Tipo Add Constraint pkNiff_Jur_Tipo
+  primary key (IdTipo) using index 
+  tablespace GLOBUS_INDEX;   
+  
+CREATE SEQUENCE SQ_NIFF_JurIdVara START WITH 1 NOMAXVALUE ORDER NOCACHE;
+  
+Create Table Niff_Jur_Comunicados (IdComunicado Number Not Null, 
+                                   DataAbertura Date Not Null,
+                                   DataConfirmacao Date Null,
+                                   Status Varchar2(1) Default 'N', --Novo, Reprovado, Aprovado, Finalizado
+                                   Socilitante Varchar2(60) Null,
+                                   IdEmpresa Number Not Null,
+                                   Processo Varchar2(50) Not Null,
+                                   IdVara Number Not Null,
+                                   Autor Varchar2(50) Null,
+                                   TipoAutor Varchar2(1) Null, -- Pessoa Fisica, Pessoa Jurídica
+                                   CPFAutor Number(20) Null,
+                                   PISAutor Varchar2(50) Null,
+                                   IdTipo Number Not Null,
+                                   MotivoOutros Varchar2(255) Null,
+                                   Reembolso Varchar2(1) Default 'N',
+                                   ValorReembolso Number, 
+                                   Seguro Varchar2(1) Default 'N',
+                                   ValorTotal Number,
+                                   QtdParcela Number,
+                                   NotaFiscal Varchar2(1) Default 'N',
+                                   ValorNotaFiscal Number,
+                                   Observacao Long, 
+                                   Favorecido Varchar2(100),
+                                   CPFFavorecido Number(20),
+                                   Agencia Varchar2(20),
+                                   Conta Varchar2(20),
+                                   Referencia Number(6),
+                                   Resumo Varchar2(2000),
+                                   NovoProcesso Varchar2(50),
+                                   IdUsuario Number,
+                                   EmailEnviado Varchar2(1) Default 'N', -- Sim, Nao
+                                   CentroCusto Number ) Tablespace Globus_Table;
+
+Alter Table Niff_Jur_Comunicados Add Constraint pkNiff_Jur_Comunicados
+  primary key (IdComunicado) using index 
+  tablespace GLOBUS_INDEX;                                            
+
+ALTER TABLE Niff_Jur_Comunicados
+       ADD  ( CONSTRAINT fk_Usuario_JurComunicado
+              FOREIGN KEY (IdUsuario) 
+                             REFERENCES Niff_Chm_Usuarios);                                   
+                                   
+ALTER TABLE Niff_Jur_Comunicados
+       ADD  ( CONSTRAINT fk_Empresa_JurComunicado
+              FOREIGN KEY (IdEmpresa) 
+                             REFERENCES Niff_Chm_Empresas);                                   
+                                   
+ALTER TABLE Niff_Jur_Comunicados
+       ADD  ( CONSTRAINT fk_JurVara_JurComunicado
+              FOREIGN KEY (IdVara) 
+                             REFERENCES Niff_Jur_Vara);                                   
+                                   
+ALTER TABLE Niff_Jur_Comunicados
+       ADD  ( CONSTRAINT fk_JurTipo_JurComunicado
+              FOREIGN KEY (IdTipo) 
+                             REFERENCES Niff_Jur_Tipo);                                   
+                                   
+                            
+Create Table Niff_Jur_Parcela (IdParcela Number Not Null,                             
+                               IdComunicado Number Not Null,
+                               Parcela Number Not Null,
+                               Valor Number Not Null,
+                               Data Date Not Null) Tablespace Globus_Table;
+                               
+Alter Table Niff_Jur_Parcela Add Constraint pkNiff_Jur_Parcela
+  primary key (IdParcela) using index 
+  tablespace GLOBUS_INDEX;                                            
+
+ALTER TABLE Niff_Jur_Parcela
+       ADD  ( CONSTRAINT fk_JurComunicado_JurParcela
+              FOREIGN KEY (IdComunicado) 
+                             REFERENCES Niff_Jur_Comunicados);                                   
+                             
+Create Table Niff_Jur_Email (idEmail Number Not Null,
+                             IdEmpresa Number Not Null,
+                             Email Varchar2(80) Not Null, 
+                             Ativo Varchar2(1) Default 'S' Not Null) Tablespace Globus_Table;                             
+                                                       
+Alter Table Niff_Jur_Email Add Constraint pkNiff_Jur_Email
+  primary key (IdEmail) using index 
+  tablespace GLOBUS_INDEX;                                            
+
+ALTER TABLE Niff_Jur_Email
+       ADD  ( CONSTRAINT fk_Empresa_JurEmail
+              FOREIGN KEY (IdEmpresa) 
+                             REFERENCES Niff_Chm_Empresas);                              
+                                   
+                                    
+Alter Table Niff_Jur_Vara Modify nome Varchar2(80);
+Alter Table Niff_Jur_Comunicados Add Vara Varchar2(100);                                   
+Alter Table Niff_Jur_Comunicados Add Banco Varchar2(100);                                   
+Alter Table Niff_Jur_Comunicados Add Tipo Varchar2(100);                                                                      
+Alter Table Niff_Jur_Comunicados Add Tipo Varchar2(100);  
+Alter Table Niff_Jur_Comunicados Add parcelas Varchar2(2000); 
+Alter Table Niff_Jur_Comunicados Modify IdVara Null;
+Alter Table Niff_Jur_Comunicados Modify IdTipo Null;
+Alter Table Niff_Jur_Comunicados Modify Conta Varchar2(50);
+Alter Table Niff_Jur_Comunicados Modify Agencia Varchar2(50);
+Alter Table Niff_Chm_Empresas Modify NOMEABREVIADO Varchar2(40);
+
+-- alterado 12/12/2017
+CREATE SEQUENCE SQ_NIFF_JurIdEmail START WITH 1 NOMAXVALUE ORDER NOCACHE;
+
+Alter Table Niff_Jur_Email Add TipoEmail Varchar2(1) Default 'J' Not Null; -- Juridico, Financeiro, Diretoria
+
+-- alterado 13/12/2017
+Alter Table Niff_Jur_Comunicados Add IdUsuarioAprovacao Number;
+Alter Table Niff_Jur_Comunicados Add DataReprovacao Date;
+Alter Table Niff_Jur_Comunicados Add IdUsuarioAlteracao Number;
+Alter Table Niff_Jur_Comunicados Add DataAlteracao Date;
+
+-- Alterado 18/12/2017
+Alter Table Niff_Jur_Comunicados Add IdUsuarioReprovador Number;
+Alter Table Niff_Jur_Comunicados Add IdUsuarioCancela Number;
+Alter Table Niff_Jur_Comunicados Add TipoFavorecido Varchar2(1);
+Alter Table Niff_Jur_Comunicados Add IdUsuarioAltera Number;
+Alter Table Niff_Jur_Comunicados Add IdUsuarioFinaliza Number;
+Alter Table Niff_Jur_Comunicados Add DataAlteracao Date;
+Alter Table Niff_Jur_Comunicados Add DataFinalizado Date;
+
+Create Index idx_ComunicadoAber On niff_jur_comunicados (Dataabertura);
+
+-- Alterado 22/12/2017
+Alter Table Niff_Jur_Parcela Add TipoVencimento Varchar2(1) Default 'I';
+CREATE SEQUENCE SQ_NIFF_JurIdComun START WITH 12073 NOMAXVALUE ORDER NOCACHE;
+CREATE SEQUENCE SQ_NIFF_ParIdn START WITH 11605 NOMAXVALUE ORDER NOCACHE;
+Alter Table Niff_Jur_Comunicados Add DataCancela Date;
+
+-- Alterado 26/12/2017
+Alter Table Niff_Jur_Comunicados Modify EmailEnviado Varchar2(2);
+
+-- Alterado 02/01/2018
+Alter Table niff_chm_telas Modify Caminho Varchar2(300);
+
+-- Alterado 03/01/2018
+Create Table Niff_Jur_NotifComunicado (IdNotificacao Number, 
+                                       IdComunicado Number,
+                                       IdUsuario Number,
+                                       Status Varchar2(1)) Tablespace Globus_Table ;
+                                       
+Alter Table Niff_Jur_NotifComunicado Add Constraint pkNiff_Jur_NotifComunicado
+  primary key (IdNotificacao) using index 
+  tablespace GLOBUS_INDEX;                                            
+
+ALTER TABLE Niff_Jur_NotifComunicado
+       ADD  ( CONSTRAINT fk_Comunicado_NotifComunic
+              FOREIGN KEY (IdComunicado) 
+                             REFERENCES Niff_Jur_Comunicados);                              
+                                         
+ALTER TABLE Niff_Jur_NotifComunicado
+       ADD  ( CONSTRAINT fk_Usuario_NotifComunic
+              FOREIGN KEY (IdUsuario) 
+                             REFERENCES Niff_Chm_Usuarios);                                                                       
+                             
+CREATE SEQUENCE SQ_NIFF_JurIdNotif START WITH 1 NOMAXVALUE ORDER NOCACHE;
+                             
+-- Alterado 09/01/2018
+Alter Table Niff_Chm_Usuarios Add IdCargo Number;                             
+Alter Table Niff_Chm_Usuarios Add AcessaCadastroJuridico Varchar2(1) Default 'N';
+Alter Table Niff_Chm_Usuarios Add PermiteAprovarComunicado Varchar2(1) Default 'N';
+Alter Table Niff_Chm_Usuarios Add PermiteReprovarComunicado Varchar2(1) Default 'N';
+Alter Table Niff_Chm_Usuarios Add PermiteCancelarComunicado Varchar2(1) Default 'N';
+
+-- Alterado 11/01/2018
+Create Table Niff_CHM_NotifChamado (IdNotificacao Number, 
+                                    IdChamado Number,
+                                    IdUsuario Number,
+                                    Status Varchar2(1)) Tablespace Globus_Table ;
+                                       
+Alter Table Niff_CHM_NotifChamado Add Constraint pkNiff_CHM_NotifChamado
+  primary key (IdNotificacao) using index 
+  tablespace GLOBUS_INDEX;                                            
+
+ALTER TABLE Niff_CHM_NotifChamado
+       ADD  ( CONSTRAINT fk_Chamado_NotifChamado
+              FOREIGN KEY (IdChamado) 
+                             REFERENCES Niff_Chm_Chamado (IdChamado));                              
+                                         
+ALTER TABLE Niff_CHM_NotifChamado
+       ADD  ( CONSTRAINT fk_Usuario_NotifChamado
+              FOREIGN KEY (IdUsuario)  
+                             REFERENCES Niff_Chm_Usuarios);                                                                       
+                             
+CREATE SEQUENCE SQ_NIFF_NotifCham START WITH 1 NOMAXVALUE ORDER NOCACHE;
+
+Alter Table Niff_Chm_Usuarios Add PermiteAlterarComunicado Varchar2(1) Default 'N';
+Alter Table Niff_Chm_Usuarios Add PermiteFinalizarComunicado Varchar2(1) Default 'N';
+
+Alter Table Niff_Jur_Comunicados Add MotivoCancelamento Varchar2(2000) Null;
+
+-- Alterado 22/01/2018
+Alter Table Niff_Chm_Chamado Add ProblemaResolvido Varchar2(1) Default 'N';
+Alter Table Niff_Chm_Chamado Add DentroDoPrazo Varchar2(1) Default 'N';
+Alter Table Niff_Chm_Chamado Add IdChamadoAgrupado Number;
+Alter Table Niff_Chm_Chamado Add IdUsuarioAgrupou Number;
+Alter Table Niff_Chm_Chamado Add DataAgrupou Date;
+Alter Table Niff_Chm_Usuarios Add AcessaDashBoardChamados Varchar2(1) Default 'N';
+Alter Table Niff_Chm_Parametros Add MesesConsultaDashBoardChamados Number Default 3;
+
+
+-- Alterado 23/01/2018 -- Tabelas para o modulo de avaliação de desempenho
+
+Alter Table Niff_Chm_Usuarios Add AcessaAvaliacaoDesempenho Varchar2(1) Default 'N';
+Alter Table Niff_Chm_Usuarios Add AcessoDeRH Varchar2(1) Default 'N';
+Alter Table Niff_Chm_Usuarios Add AcessoDeGestor Varchar2(1) Default 'N';
+Alter Table Niff_Chm_Usuarios Add AcessoDeColaborador Varchar2(1) Default 'N';
+
+Create Table Niff_ADS_Escolaridade (IdEscola Number Not Null,
+                                    Descricao Varchar2(100) Not Null,
+                                    Ativa Varchar2(1) Default 'S' Not Null) Tablespace Globus_Table;
+                            
+Alter Table Niff_ADS_Escolaridade Add Constraint pkNiff_ADS_Escolaridade
+  primary key (IdEscola) using index 
+  tablespace GLOBUS_INDEX;    
+  
+Create Table Niff_ADS_Prazos (IdPrazos Number Not Null,
+                              Referencia Number Not Null,
+                              Tipo Varchar2(2) Not Null,
+                              Ativo Varchar2(1) Default 'N' Not Null,
+                              Inicio Date Not Null,
+                              Fim Date Not Null ) Tablespace Globus_Table;
+   
+Alter Table Niff_ADS_Prazos Add Constraint pkNiff_ADS_Prazos
+  primary key (IdPrazos) using index 
+  tablespace GLOBUS_INDEX;     
+   
+CREATE SEQUENCE SQ_NIFF_ADSIdPrazos START WITH 1 NOMAXVALUE ORDER NOCACHE;
+
+-- Alterado 24/01/2018
+Create Table Niff_ADS_Competencias (IdCompetencia Number Not Null,
+                                    Descricao Varchar2(100) Not Null,
+                                    Tipo Varchar2(2) Not Null,
+                                    Ativo Varchar2(1) Default 'N' Not Null) Tablespace Globus_Table;
+                                    
+        
+Alter Table Niff_ADS_Competencias Add Constraint pkNiff_ADS_Competencias
+  primary key (IdCompetencia) using index 
+  tablespace GLOBUS_INDEX;                                        
+  
+-- Alterado 25/01/2018  
+
+Create Table NIFF_ADS_SubCompetencias (IdSubComp Number Not Null,
+                                       IdCompetencia Number Not Null,
+                                       Descricao Varchar2(500) Not Null,
+                                       Pontuacao Number Default 1,
+                                       Ativo Varchar2(1) Default 'N' Not Null) Tablespace Globus_Table;
+                                       
+Alter Table NIFF_ADS_SubCompetencias Add Constraint pkNIFF_ADS_SubCompetencias
+  primary key (IdSubComp) using index 
+  tablespace GLOBUS_INDEX;              
+                        
+ALTER TABLE NIFF_ADS_SubCompetencias
+       ADD  ( CONSTRAINT fk_Compet_SubCompet
+              FOREIGN KEY (IdCompetencia)  
+                             REFERENCES Niff_ADS_Competencias (IdCompetencia));                                                                       
+                                                                     
+CREATE SEQUENCE SQ_NIFF_ADSIdSubComp START WITH 1 NOMAXVALUE ORDER NOCACHE;
+                                                                     
+Create Table NIFF_CHM_Corridas (IdCorrida Number Not Null,
+                                Data Date Not Null,
+                                Nome Varchar2(100) Not Null,
+                                Local Varchar2(500) Not Null,
+                                LinkWeb Varchar2(1000) Not Null,
+                                Ativo Varchar2(1) Default 'N' Not Null,
+                                Valor Number Not Null) Tablespace Globus_Table;
+                                
+Alter Table NIFF_CHM_Corridas Add Constraint pkNIFF_CHM_Corridas
+  primary key (IdCorrida) using index 
+  tablespace GLOBUS_INDEX;                                        
+                             
+Create Table NIFF_CHM_Distancias (IdDistancia Number Not Null,
+                                  IdCorrida Number Not Null,
+                                  Km Number Not Null )  Tablespace Globus_Table;
+                                                                          
+Alter Table NIFF_CHM_Distancias Add Constraint pkNIFF_CHM_Distancias
+  primary key (IdDistancia) using index 
+  tablespace GLOBUS_INDEX;                                        
+            
+ALTER TABLE NIFF_CHM_Distancias
+       ADD  ( CONSTRAINT fk_Corrida_Distancia
+              FOREIGN KEY (IdCorrida)  
+                             REFERENCES NIFF_CHM_Corridas (IdCorrida));  
+                             
+Create Table NIFF_CHM_Participantes (IdParticipante Number Not Null,
+                                     IdDistancia Number Not Null,
+                                     IdUsuario Number Null,
+                                     Nome Varchar2(100) Not Null,
+                                     InscricaoPaga Varchar2(1) Default 'N' Not Null,
+                                     TempoBruto Number,
+                                     TempoLiquido Number,
+                                     Ritmo Number,
+                                     ClassificacaoGeral Number,
+                                     Classificacao Number) Tablespace Globus_Table;
+                                     
+Alter Table NIFF_CHM_Participantes Add Constraint pkNIFF_CHM_Participantes
+  primary key (IdParticipante) using index 
+  tablespace GLOBUS_INDEX;                                        
+         
+ALTER TABLE NIFF_CHM_Participantes
+       ADD  ( CONSTRAINT fk_Distancia_Partic
+              FOREIGN KEY (IdDistancia)  
+                             REFERENCES NIFF_CHM_Distancias (IdDistancia));   
+
+ALTER TABLE NIFF_CHM_Participantes
+       ADD  ( CONSTRAINT fk_Usuario_Partic
+              FOREIGN KEY (IdUsuario)  
+                             REFERENCES Niff_Chm_Usuarios (IdUsuario));                               
+                             
+-- Alterado 26/01/2018                             
+Alter Table NIFF_CHM_Corridas Add PrazoInscricao Date Not Null;
+CREATE SEQUENCE SQ_NIFF_CHMIdDistancia START WITH 1 NOMAXVALUE ORDER NOCACHE;
+
+
+-- Alterado 29/01/2018
+Alter Table NIFF_CHM_Participantes Add CPF Number;
+Alter Table NIFF_CHM_Participantes Add InscricaoEmGrupo Varchar2(1) Default 'N' Not Null;
+Alter Table NIFF_CHM_Participantes Add IdUsuarioGrupo Number;-- responsavel pela inscrição 
+CREATE SEQUENCE SQ_NIFF_CHMIdParticipa START WITH 1 NOMAXVALUE ORDER NOCACHE;
+Alter Table NIFF_CHM_USUARIOS Add NaoNotificaCorridas Varchar2(1) Default 'N' Not Null;
+Alter Table NIFF_CHM_USUARIOS Add AniversariantesApenasDaEmpresa Varchar2(1) Default 'N' Not Null;
+
+-- Alterado 31/01/2018
+Create Table Niff_ADS_Cargos (IdCargo Number Not Null,
+                              Descricao Varchar2(300) Not Null,
+                              Ativo Varchar2(1) Default 'N' Not Null,
+                              RequerExperiencia Varchar2(1) Default 'N' Not Null,
+                              IdEscola Number Not Null,
+                              SalarioMinimo Number,
+                              SalarioMaximo Number) Tablespace Globus_Table;
+                              
+
+Alter Table Niff_ADS_Cargos Add Constraint pkNiff_ADS_Cargos
+  primary key (IdCargo) using index 
+  tablespace GLOBUS_INDEX;                                               
+  
+ALTER TABLE Niff_ADS_Cargos
+       ADD  ( CONSTRAINT fk_Escolaridade_Cargos
+              FOREIGN KEY (IdEscola)   
+                             REFERENCES Niff_Ads_Escolaridade (IdEscola));                               
+  
+Create Table Niff_ADS_CompetenciasDoCargo (IdAssoc Number Not Null,
+                                           IdCompetencia Number Not Null,
+                                           IdCargo Number Not Null,
+                                           Ativo Varchar2(1) Default 'N') Tablespace Globus_Table;
+                                           
+
+Alter Table Niff_ADS_CompetenciasDoCargo Add Constraint pkNiff_ADS_CompetenciasDoCargo
+  primary key (IdAssoc) using index 
+  tablespace GLOBUS_INDEX;                  
+
+ALTER TABLE Niff_ADS_CompetenciasDoCargo
+       ADD  ( CONSTRAINT fk_Competencia_CompCargo
+              FOREIGN KEY (IdCompetencia)   
+                             REFERENCES Niff_Ads_Competencias (IdCompetencia));                                                 
+
+ALTER TABLE Niff_ADS_CompetenciasDoCargo
+       ADD  ( CONSTRAINT fk_Cargo_CompCargo 
+              FOREIGN KEY (IdCargo)   
+                             REFERENCES Niff_Ads_Cargos (IdCargo));                                                                              
+
+-- Alterado 01/2/2018
+CREATE SEQUENCE SQ_NIFF_ADSIdCompCarg START WITH 1 NOMAXVALUE ORDER NOCACHE;   
+Alter Table Niff_ADS_CompetenciasDoCargo Drop Column Ativo;                          
+
+-- Alterado 01/2/2018
+Alter Table NIFF_CHM_Participantes Add Sexo Varchar2(1) Default 'M' Not Null;
+Alter Table NIFF_CHM_Participantes Add Visualizado Varchar2(1) Default 'N' Not Null;
+
+-- Alterado 03/02/2018
+Alter Table NIFF_CHM_Participantes Add ValorInscrito Number;
+Alter Table Niff_Chm_Corridas Add ValorGrupo Number;
+
+-- Alterado 05/02/2018
+Create Table Niff_ADS_Colaboradores (IdColaborador Number Not Null,
+                                     CodIntFunc Number Not Null,
+                                     IdEmpresa Number Not Null,
+                                     IdDepartamento Number Not Null,
+                                     IdCargo Number Not Null,
+                                     IdSuperior Number Null ) Tablespace Globus_Table;
+                                     
+Alter Table Niff_ADS_Colaboradores Add Constraint pkNiff_ADS_Colaboradores
+  primary key (IdColaborador) using index 
+  tablespace GLOBUS_INDEX;                  
+                                     
+ALTER TABLE Niff_ADS_Colaboradores
+       ADD  ( CONSTRAINT fk_Empresa_Colaboradores
+              FOREIGN KEY (IdEmpresa)   
+                             REFERENCES Niff_Chm_Empresas (IdEmpresa));     
+
+ALTER TABLE Niff_ADS_Colaboradores
+       ADD  ( CONSTRAINT fk_Cargo_Colaboradores
+              FOREIGN KEY (IdCargo)   
+                             REFERENCES Niff_Ads_Cargos (IdCargo));                                     
+
+ALTER TABLE Niff_ADS_Colaboradores
+       ADD  ( CONSTRAINT fk_Departamento_Colaboradores
+              FOREIGN KEY (IdDepartamento)   
+                             REFERENCES Niff_Chm_Departamento (IdDepartamento));                                                                  
+                             
+ALTER TABLE Niff_ADS_Colaboradores
+       ADD  ( CONSTRAINT fk_Colaboradores_Colaboradores
+              FOREIGN KEY (IdSuperior)   
+                             REFERENCES Niff_ADS_Colaboradores (IdColaborador));                                                                                               
+                             
+CREATE SEQUENCE SQ_NIFF_ADSIdColaborador START WITH 1 NOMAXVALUE ORDER NOCACHE;                                
+
+-- Alterado 07/02/2018
+
+Create Table Niff_ADS_CompetenciasDaPessoa (IdCompPessoa Number Not Null,
+                                            IdColaborador Number Not Null,
+                                            IdAssoc Number Not Null) Tablespace Globus_Table;
+                                           
+Alter Table Niff_ADS_CompetenciasDaPessoa Add Constraint pkNiff_ADSCompetenciasDaPessoa
+  primary key (IdCompPessoa) using index 
+  tablespace GLOBUS_INDEX;                  
+ 
+ALTER TABLE Niff_ADS_CompetenciasDaPessoa
+       ADD  ( CONSTRAINT fk_Colaborador_CompPessoa 
+              FOREIGN KEY (IdColaborador)   
+                             REFERENCES Niff_ADS_Colaboradores (IdColaborador));                                                 
+
+ALTER TABLE Niff_ADS_CompetenciasDaPessoa
+       ADD  ( CONSTRAINT fk_CompCargo_CompPessoa
+              FOREIGN KEY (IdAssoc)   
+                             REFERENCES Niff_Ads_CompetenciasdoCargo (IdAssoc));    
+                             
+CREATE SEQUENCE SQ_NIFF_ADSIdCompPessoa START WITH 1 NOMAXVALUE ORDER NOCACHE;                                
+                             
+Create Table NIFF_Ads_Cursos (IdCurso Number Not Null,
+                              IdColaborador Number Not Null,
+                              Descricao Varchar2(500) Not Null,
+                              Valor Number Default 0 Not Null,
+                              Duracao Number Default 0 Not Null,
+                              Inicio Date Not Null,
+                              Fim Date Null,
+                              Obrigatorio Varchar2(1) Default 'N' Not Null,
+                              Opniao Long Null) Tablespace Globus_Table;
+ 
+Alter Table NIFF_Ads_Cursos Add Constraint pkNIFF_Ads_Cursos
+  primary key (IdCurso) using index 
+  tablespace GLOBUS_INDEX;                  
+
+ALTER TABLE NIFF_Ads_Cursos
+       ADD  ( CONSTRAINT fk_Colaborador_Cursos
+              FOREIGN KEY (IdColaborador)   
+                             REFERENCES Niff_ADS_Colaboradores (IdColaborador));                                                 
+                             
+CREATE SEQUENCE SQ_NIFF_ADSIdCurso START WITH 1 NOMAXVALUE ORDER NOCACHE;                                
+                              
+Create Table Niff_Ads_HistoricoColaborador (IdHistorico Number Not Null,
+                                            Data Date Not Null,
+                                            IdColaborador Number Not Null,
+                                            IdCargo Number Null,
+                                            IdDepartamento Number Null,
+                                            IdSuperior Number Null,
+                                            Salario Number Null) Tablespace Globus_Table;
+
+Alter Table Niff_Ads_HistoricoColaborador Add Constraint pkNiff_AdsHistoricoColaborador
+  primary key (IdHistorico) using index 
+  tablespace GLOBUS_INDEX;                  
+                               
+ALTER TABLE Niff_Ads_HistoricoColaborador
+       ADD  ( CONSTRAINT fk_Cargo_HColaboradores
+              FOREIGN KEY (IdCargo)   
+                             REFERENCES Niff_Ads_Cargos (IdCargo));                                     
+
+ALTER TABLE Niff_Ads_HistoricoColaborador 
+       ADD  ( CONSTRAINT fk_Departamento_HColaboradores
+              FOREIGN KEY (IdDepartamento)   
+                             REFERENCES Niff_Chm_Departamento (IdDepartamento));                                                                  
+                             
+ALTER TABLE Niff_Ads_HistoricoColaborador 
+       ADD  ( CONSTRAINT fk_Colaborador_HColaborador
+              FOREIGN KEY (IdSuperior)   
+                             REFERENCES Niff_ADS_Colaboradores (IdColaborador));                                                                                               
+                              
+CREATE SEQUENCE SQ_NIFF_ADSIdHistorico START WITH 1 NOMAXVALUE ORDER NOCACHE;                                
+
+-- Alteracao 09/02/2018 
+Alter Table Niff_Ads_HistoricoColaborador Add IdEscolaridade Number;
+Alter Table Niff_ADS_Colaboradores Add IdEscolaridade Number; 
+
+-- Alteracao 14/02/2018
+Create Table Niff_Chm_NotifCorrida (IdNotifCorrida Number Not Null,
+                                    IdCorrida Number Not Null,
+                                    IdUsuario Number Not Null) Tablespace Globus_Table;
+                                
+Alter Table Niff_Chm_NotifCorrida Add Constraint pkNiff_Chm_NotifCorrida
+  primary key (IdNotifCorrida) using index 
+  tablespace GLOBUS_INDEX;                  
+                               
+ALTER TABLE Niff_Chm_NotifCorrida
+       ADD  ( CONSTRAINT fk_Corrida_NotifCorrida
+              FOREIGN KEY (IdCorrida)   
+                             REFERENCES Niff_Chm_Corridas (IdCorrida));                                     
+
+ALTER TABLE Niff_Chm_NotifCorrida 
+       ADD  ( CONSTRAINT fk_Usuario_NotifCorrida
+              FOREIGN KEY (IdUsuario)   
+                             REFERENCES Niff_Chm_Usuarios (IdUsuario));                                        
+                             
+Create Table Niff_Chm_NotificacoesSistema (IdNotificacao Number Not Null,
+                                       Tipo Varchar2(2) Not Null,
+                                       DataAviso Date Not Null,
+                                       DataAcao Date Not Null,                            
+                                       IDUsuario Number Not Null,
+                                       Motivo Varchar2(1000)) Tablespace Globus_Table;
+                      
+Alter Table Niff_Chm_NotificacoesSistema Add Constraint pkNiff_Chm_NotificacoesSistema
+  primary key (IdNotificacao) using index 
+  tablespace GLOBUS_INDEX;                  
+                               
+ALTER TABLE Niff_Chm_NotificacoesSistema 
+       ADD  ( CONSTRAINT fk_Usuario_NotifSistema
+              FOREIGN KEY (IdUsuario)   
+                             REFERENCES Niff_Chm_Usuarios (IdUsuario));                                         
+                             
+CREATE SEQUENCE SQ_NIFF_chmNotCorrida START WITH 1 NOMAXVALUE ORDER NOCACHE;                                
+                             
+-- Alteracao 15/02/2018
+Create Table Niff_Ads_Metas (IdMetas Number Not Null, 
+                             Ativo Varchar2(1) Default 'N' Not Null,
+                             Tipo Varchar(1) Default 'C' Not Null,
+                             Perspectiva Varchar2(1) Default 'C' Not Null,
+                             Descricao Varchar2(1000) Not Null,
+                             IdCargo Number Not Null) Tablespace Globus_Table;
+                             
+Alter Table Niff_Ads_Metas Add Constraint pkNiff_Ads_Metas
+  primary key (IdMetas) using index 
+  tablespace GLOBUS_INDEX;                   
+                               
+ALTER TABLE Niff_Ads_Metas  
+       ADD  ( CONSTRAINT fk_Cargo_Metas
+              FOREIGN KEY (IdCargo)   
+                             REFERENCES Niff_Ads_Cargos (IdCargo));                                         
+                             
+-- Alteração 16/02/2018
+Alter Table niff_ads_cargos Add TipoDoCargo Varchar2(2) Null;
+
+Create Table Niff_ADS_MetasDoCargo (IdAssoc Number Not Null,
+                                    IdMetas Number Not Null,
+                                    IdCargo Number Not Null) Tablespace Globus_Table;                                           
+
+Alter Table Niff_ADS_MetasDoCargo Add Constraint pkNiff_ADS_MetasDoCargo
+  primary key (IdAssoc) using index 
+  tablespace GLOBUS_INDEX;                  
+
+ALTER TABLE Niff_ADS_MetasDoCargo
+       ADD  ( CONSTRAINT fk_metas_MetasCargo
+              FOREIGN KEY (IdMetas)   
+                             REFERENCES Niff_Ads_Metas (IdMetas));                                                 
+
+ALTER TABLE Niff_ADS_MetasDoCargo
+       ADD  ( CONSTRAINT fk_Cargo_MetasCargo 
+              FOREIGN KEY (IdCargo)    
+                             REFERENCES Niff_Ads_Cargos (IdCargo));                                                                              
+
+CREATE SEQUENCE SQ_NIFF_AdsIdMetasCargo START WITH 1 NOMAXVALUE ORDER NOCACHE;   
+
+Alter Table niff_ads_metas Drop Column idCargo;
+Alter Table niff_ads_prazos Add EnvioEmail Varchar2(30) Null;
+Alter Table Niff_Ads_Competencias Add TextoExplicativo Long;
+
+-- Alteracao 19/02/2018
+Create Table Niff_ADS_Avaliacao (IdAutoAvaliacao Number Not Null,
+                                     IdColaborador Number Not Null,
+                                     MesReferencia Number Not Null,
+                                     Tipo Varchar2(2) Not Null,
+                                     DataInicio Date Not Null,
+                                     DataFim Date Null ) Tablespace Globus_Table;  
+                                     
+Alter Table Niff_ADS_Avaliacao Add Constraint pkNiff_ADS_AutoAvaliacao
+  primary key (IdAutoAvaliacao) using index 
+  tablespace GLOBUS_INDEX;                  
+
+Alter Table Niff_ADS_Avaliacao
+       Add ( Constraint fk_Colaborador_AutoAvaliacao 
+              Foreign Key (IdColaborador)   
+                         References Niff_Ads_Colaboradores (IdColaborador));                                              
+
+Create Table Niff_Ads_ItensAvaliacao (IdItensAuto Number Not Null,
+                                      IdAutoAvaliacao Number Not Null,
+                                      IdSubComp Number Not Null,
+                                      Avaliacao Number(2) Not Null) Tablespace Globus_Table; 
+                                          
+Alter Table Niff_Ads_ItensAvaliacao Add Constraint pkNiff_Ads_ItensAutoAvaliacao
+  primary key (IdItensAuto) using index 
+  tablespace GLOBUS_INDEX;                  
+
+Alter Table Niff_Ads_ItensAvaliacao
+       Add ( Constraint fk_AutoAvaliacao_ItensAuto 
+              Foreign Key (IdAutoAvaliacao)   
+                         References Niff_ADS_Avaliacao (IdAutoAvaliacao));                                              
+
+CREATE SEQUENCE SQ_NIFF_AdsIdAvaliacao START WITH 1 NOMAXVALUE ORDER NOCACHE;   
+CREATE SEQUENCE SQ_NIFF_AdsIdItensAval START WITH 1 NOMAXVALUE ORDER NOCACHE;                            
+
+-- Alterado 21/02/2018
+Alter Table Niff_Ads_Avaliacao Add IdUsuario Number;
+Alter Table Niff_Ads_Avaliacao Add IdUsuarioAlteracao Number;
+Alter Table Niff_Ads_Avaliacao Add DataAlteracao Date;
+
+-- Alterado 26/02/2018
+Alter Table Niff_Ads_Avaliacao Add FeedBackGestor Varchar2(2000);
+Alter Table Niff_Ads_Avaliacao Add Comentario Varchar2(2000);
+Alter Table Niff_Ads_Avaliacao Add DataFeedBack Date;
+Alter Table Niff_Ads_Avaliacao Add DataComentario Date;
+
+-- Alterado 27/02/2018
+Alter Table Niff_Ads_Metas Add TextoBI Varchar2(200);
+
+Create Table Niff_Ads_ItensAvaliacaoMetas (IdItensAuto Number Not Null,
+                                      IdAutoAvaliacao Number Not Null,
+                                      IdMetas Number Not Null,
+                                      valor Number(3) Not Null) Tablespace Globus_Table; 
+
+Alter Table Niff_Ads_ItensAvaliacaoMetas Add Constraint pkNiff_Ads_ItensAvaliacaoMetas
+  primary key (IdItensAuto) using index 
+  tablespace GLOBUS_INDEX;                  
+
+Alter Table Niff_Ads_ItensAvaliacaoMetas 
+       Add ( Constraint fk_Avaliacao_ItensAutoMeta
+              Foreign Key (IdAutoAvaliacao)   
+                         References Niff_ADS_Avaliacao (IdAutoAvaliacao));                                               
+                         
+Alter Table Niff_Ads_ItensAvaliacaoMetas 
+       Add ( Constraint fk_Metas_ItensAutoMeta
+              Foreign Key (IdMetas)   
+                         References Niff_Ads_Metas (IdMetas)); 
+                         
+-- alterado 01/03/2018
+Alter Table Niff_Ads_ItensAvaliacao Add Comentario Varchar2(2000);
+Alter Table NIFF_ADS_SubCompetencias Add ExibeNaAutoAvaliacao Varchar2(1) Default 'S' Not Null;
+Alter Table NIFF_ADS_SubCompetencias Add ExibeNaAvaliacaoRH Varchar2(1) Default 'S' Not Null;
+Alter Table NIFF_ADS_SubCompetencias Add ExibeNaAvaliacaoGestor Varchar2(1) Default 'S' Not Null;
+
+-- Alterado 07/03/2018
+Create Table Niff_ESF_ISSIntegrado (IdISSInt Number Not Null,
+                                    CodIntNF Number Not Null,
+                                    CodISSInt Number Not Null,
+                                    Data Date Not Null,
+                                    IdUsuario Number Not Null)  Tablespace Globus_Table;
+                                    
+Alter Table Niff_ESF_ISSIntegrado Add Constraint pkNiff_ESF_ISSIntegrado
+  primary key (IdISSInt) using index 
+  tablespace GLOBUS_INDEX;                  
+                                    
+ALTER TABLE Niff_ESF_ISSIntegrado  
+       ADD  ( CONSTRAINT fk_Usuario_ISSIntegrado
+              FOREIGN KEY (IdUsuario)   
+                             REFERENCES Niff_Chm_Usuarios (IdUsuario));                                        
+                                    
+-- Alterado 13/03/2018
+Alter Table Niff_Chm_NotificacoesSistema Add Status Varchar2(1) Default 'N';
+Alter Table Niff_Ads_ItensAvaliacaoMetas Add ValorEsperado Number;
+Alter Table Niff_Ads_ItensAvaliacaoMetas Add Realizado Number;
+Alter Table Niff_Ads_ItensAvaliacaoMetas Add Eficiencia Number;
+Alter Table Niff_Ads_ItensAvaliacaoMetas Add Resultado Number;
+
+-- Alterado 15/03/2018
+Create Table Niff_Ads_Pontuacao (IdPontos Number Not Null,
+                                 MesReferencia Number Not Null,
+                                 Base100 Number Default 1 Not Null,
+                                 NaoAtende Number Default 1 Not Null,
+                                 AtendeParc Number Default 1 Not Null,
+                                 AtendePlen Number Default 1 Not Null,
+                                 Supera Number Not Null) Tablespace Globus_Table;
+
+
+Alter Table Niff_Ads_Pontuacao Add Constraint pkNiff_Ads_Pontuacao
+  primary key (IdPontos) using index 
+  tablespace GLOBUS_INDEX;                                                          
+  
+CREATE SEQUENCE SQ_NIFF_AdsIdPontos START WITH 1 NOMAXVALUE ORDER NOCACHE;   
+
+Alter Table Niff_Ads_ItensAvaliacao Add Pontuacao Number;
+
+-- Alterado 16/03/2018
+Alter Table Niff_Ads_Avaliacao Add NotaAvaliacao Number;
+
+-- Alterado 19/03/2018
+Alter Table Niff_Chm_Usuarios Add AcessoDeControladoria Varchar2(1) Default 'N';
+Alter Table Niff_Chm_NotificacoesSistema Add DataFimAcao Date;
+Alter Table Niff_Chm_NotificacoesSistema Drop Column Tipo;
+
+CREATE SEQUENCE SQ_NIFF_AdsNotSistema START WITH 1 NOMAXVALUE ORDER NOCACHE;   
+
+-- Alterado 20/03/2018
+Alter Table Niff_Chm_Usuarios Add VisualizaRadarCompleto Varchar2(1) Default 'N';
+
+-- Alterado 22/03/2018
+Create Table Niff_Pto_ColabPeriodo (IdPeriodo Number Not Null,
+                                    IdColaborador Number Not Null,
+                                    ReferenciaInicio Number Not Null,
+                                    ReferenciaFim Number Not Null,
+                                    Ativo Varchar2(1) Default 'N' Not Null)  Tablespace Globus_Table;
+                                    
+
+Alter Table Niff_Pto_ColabPeriodo Add Constraint pkNiff_Pto_ColabPeriodo
+  primary key (IdPeriodo) using index 
+  tablespace GLOBUS_INDEX;                                                          
+                                        
+ALTER TABLE Niff_Pto_ColabPeriodo   
+       ADD  ( CONSTRAINT fk_Colaborador_ColabPeriodo
+              FOREIGN KEY (IdColaborador)   
+                             REFERENCES Niff_Ads_Colaboradores (IdColaborador));                                        
+                                                                          

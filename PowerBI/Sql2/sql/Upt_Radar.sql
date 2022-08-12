@@ -1,0 +1,10 @@
+Create Table Pbi_Radar_Operacional (Grupo Varchar2(100) Not Null,
+                              EmpFil Varchar2(7) Not Null,
+                              Data Date Not Null,
+                              Valor Number,
+                              Percentual Number,
+                              Ordem Number(2),
+                              DataAlterado Date,
+                              ValorAnterior Number,
+                              PercentualAnterior Number,
+                              Tipo Varchar2(30)) Tablespace Globus_Table;

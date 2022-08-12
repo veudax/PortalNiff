@@ -1,0 +1,3 @@
+Select a.dataferiado, f.dataferiado, f.codigoempresa, f.codigofl
+  From FINFERIA_EMPRESAFILIAL f, Finferia a
+Where f.dataferiado = a.dataferiado(+)

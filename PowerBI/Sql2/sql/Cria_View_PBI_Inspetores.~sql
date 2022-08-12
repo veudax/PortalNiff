@@ -1,0 +1,7 @@
+Create Or Replace View PBI_Inspetores As
+  Select distinct f.CODINTFUNC, f.CODFUNC, f.nomefunc, lPad(f.codigoempresa,3,'0') || '/' || lPad(f.codigofl,3,'0') empfil
+       , c.codintfunc_coord
+    From vw_funcionarios f
+       , Niff_PBI_CoordInspetores c
+   Where c.codintfunc_inspetor = f.CODINTFUNC
+;

@@ -1,0 +1,21 @@
+Select j.Data, --Distinct
+c.Nome,c.Idcolaborador,j.Id, p.encripta,
+      t1.Nome,
+       p.placar1,
+       p.placar2,
+     t2.Nome
+  From Niff_Bol_Jogos         j,
+       Niff_Bol_Times         T1,
+       Niff_Bol_Times         T2,
+       Niff_Bol_Palpites      p,
+       Niff_Ads_Colaboradores c
+ Where j.Idtime1 = T1.Id
+   And j.Idtime2 = T2.Id
+   And j.Id = p.Idjogo
+   And p.Idcolaborador = c.Idcolaborador
+   And p.placar2 = p.Placar1
+  And p.placar1 = 0 
+  And p.placar2 = 0
+   And j.Data >= To_Date('11/07/2018 11:00','dd/mm/yyyy hh24:mi')
+   And j.Data <= To_Date('11/07/2018 15:00','dd/mm/yyyy hh24:mi')
+   Order By c.nome, j.data, p.placar1, p.placar2, c.nome

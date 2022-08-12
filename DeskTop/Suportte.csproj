@@ -1,0 +1,2743 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C047147D-251D-479E-8C2D-AD59C6AC9DD2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Suportte</RootNamespace>
+    <AssemblyName>Suportte</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Sistemas\Server\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <PublisherName>NIFF Empreendimentos e Participações Ltda</PublisherName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>2019.2.7.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo Support.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>7E58BA0EBC877AC7B5C44DFF8EE87CCB8E277869</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>PortalNiff_DeskTop_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Suportte.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="office1">
+      <HintPath>..\..\..\Windows\assembly\GAC_MSIL\office\15.0.0.0__71e9bce111e9429c\office.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Syncfusion.BulletGraph.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.BulletGraph.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Calculate.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Calculate.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Calculate.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Calculate.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Chart.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Chart.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Chart.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Chart.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Compression.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Core.WinForms, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Core.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Data.WinForms, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Data.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DataSource.WinForms, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.DataSource.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Diagram.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Diagram.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Diagram.Utility.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Diagram.Utility.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Diagram.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Diagram.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DICOM.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.DICOM.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DocIO.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.DocIO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DocIO.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.DocIO.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DocToPDFConverter.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.DocToPDFConverter.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Edit.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Edit.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.ExcelChartToImageConverter.WPF, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.ExcelChartToImageConverter.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.ExcelToPDFConverter.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.ExcelToPDFConverter.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Gauge.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Gauge.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Grid.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Grouping.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Grid.Grouping.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Grouping.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Grid.Grouping.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Grouping.Windows.XmlSerializers, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Grid.Grouping.Windows.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Grid.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Windows.XmlSerializers, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Grid.Windows.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.GridCommon.WinForms, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.GridCommon.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.GridConverter.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.GridConverter.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.GridHelperClasses.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.GridHelperClasses.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grouping.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Grouping.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grouping.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Grouping.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.HighContrastTheme.WinForms, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.HighContrastTheme.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.HtmlConverter.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.HtmlConverter.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.HTMLUI.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.HTMLUI.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.HTMLUI.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.HTMLUI.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Linq.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Linq.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Maps.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Maps.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.MIME.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.MIME.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Office2016Theme.WinForms, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Office2016Theme.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Office2019Theme.WinForms, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Office2019Theme.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.OfficeChart.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.OfficeChart.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.OfficeChartToImageConverter.WPF, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.OfficeChartToImageConverter.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Olap.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Olap.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Pdf.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Pdf.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.PdfViewer.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.PdfViewer.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.PivotAnalysis.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.PivotAnalysis.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.PivotAnalysis.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.PivotAnalysis.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.PivotChart.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.PivotChart.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.PivotConverter.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.PivotConverter.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.PMML.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.PMML.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Presentation.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Presentation.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.PresentationToPdfConverter.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.PresentationToPdfConverter.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.ProjIO.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.ProjIO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Schedule.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Schedule.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Schedule.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Schedule.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Scripting.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Scripting.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Scripting.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Scripting.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfBarcode.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.SfBarcode.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfChart.WPF, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.SfChart.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfDataGrid.WinForms, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.SfDataGrid.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfDataGridConverter.WinForms, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.SfDataGridConverter.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfInput.WinForms, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.SfInput.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfListView.WinForms, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.SfListView.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfSmithChart.WinForms, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.SfSmithChart.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Shared.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Shared.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.WPF, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Shared.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SpellChecker.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.SpellChecker.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Spreadsheet.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Spreadsheet.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SpreadsheetHelper.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.SpreadsheetHelper.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Tools.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.Tools.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.TreeMap.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.TreeMap.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Base, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.XlsIO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Windows, Version=17.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Syncfusion\Essential Studio\Windows\17.3.0.26\Assemblies\4.6\Syncfusion.XlsIO.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Avaliacao de desempenho\AvaliacaoComportamental.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Avaliacao de desempenho\AvaliacaoComportamental.Designer.cs">
+      <DependentUpon>AvaliacaoComportamental.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Avaliacao de desempenho\ComparaAvaliacaoQualitativa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Avaliacao de desempenho\ComparaAvaliacaoQualitativa.Designer.cs">
+      <DependentUpon>ComparaAvaliacaoQualitativa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Avaliacao de desempenho\CopiaDefinicaoDeMetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Avaliacao de desempenho\CopiaDefinicaoDeMetas.Designer.cs">
+      <DependentUpon>CopiaDefinicaoDeMetas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Avaliacao de desempenho\DefinicaoDeMetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Avaliacao de desempenho\DefinicaoDeMetas.Designer.cs">
+      <DependentUpon>DefinicaoDeMetas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Avaliacao de desempenho\EixoYNineBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Avaliacao de desempenho\EixoYNineBox.Designer.cs">
+      <DependentUpon>EixoYNineBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Avaliacao de desempenho\Feedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Avaliacao de desempenho\Feedback.Designer.cs">
+      <DependentUpon>Feedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Avaliacao de desempenho\Notas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Avaliacao de desempenho\Notas.Designer.cs">
+      <DependentUpon>Notas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Avaliacao de desempenho\Radar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Avaliacao de desempenho\Radar.Designer.cs">
+      <DependentUpon>Radar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Avaliacao de desempenho\StatusPrazos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Avaliacao de desempenho\StatusPrazos.Designer.cs">
+      <DependentUpon>StatusPrazos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biblioteca\Acompanhamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Biblioteca\Acompanhamento.Designer.cs">
+      <DependentUpon>Acompanhamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biblioteca\Categorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Biblioteca\Categorias.Designer.cs">
+      <DependentUpon>Categorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biblioteca\Devolucao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Biblioteca\Devolucao.Designer.cs">
+      <DependentUpon>Devolucao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biblioteca\Emprestimos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Biblioteca\Emprestimos.Designer.cs">
+      <DependentUpon>Emprestimos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biblioteca\Leitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Biblioteca\Leitor.Designer.cs">
+      <DependentUpon>Leitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biblioteca\Livros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Biblioteca\Livros.Designer.cs">
+      <DependentUpon>Livros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biblioteca\Perguntas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Biblioteca\Perguntas.Designer.cs">
+      <DependentUpon>Perguntas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biblioteca\Pontuacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Biblioteca\Pontuacao.Designer.cs">
+      <DependentUpon>Pontuacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biblioteca\Reserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Biblioteca\Reserva.Designer.cs">
+      <DependentUpon>Reserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Biblioteca\Respostas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Biblioteca\Respostas.Designer.cs">
+      <DependentUpon>Respostas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BI\AcessoEmpresasPorEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BI\AcessoEmpresasPorEmail.Designer.cs">
+      <DependentUpon>AcessoEmpresasPorEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BI\AcessoUsuariosPorEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BI\AcessoUsuariosPorEmail.Designer.cs">
+      <DependentUpon>AcessoUsuariosPorEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BI\EmailDeAcesso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BI\EmailDeAcesso.Designer.cs">
+      <DependentUpon>EmailDeAcesso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BI\QuantidadeAcessoPorDia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BI\QuantidadeAcessoPorDia.Designer.cs">
+      <DependentUpon>QuantidadeAcessoPorDia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BI\RelatoriosBI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BI\RelatoriosBI.Designer.cs">
+      <DependentUpon>RelatoriosBI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BI\ResumoDosAcessos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BI\ResumoDosAcessos.Designer.cs">
+      <DependentUpon>ResumoDosAcessos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BolaoCopadoMundo\Campeonato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BolaoCopadoMundo\Campeonato.Designer.cs">
+      <DependentUpon>Campeonato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BolaoCopadoMundo\Jogos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BolaoCopadoMundo\Jogos.Designer.cs">
+      <DependentUpon>Jogos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BolaoCopadoMundo\PalpiteFinal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BolaoCopadoMundo\PalpiteFinal.Designer.cs">
+      <DependentUpon>PalpiteFinal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BolaoCopadoMundo\PalpiteJogos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BolaoCopadoMundo\PalpiteJogos.Designer.cs">
+      <DependentUpon>PalpiteJogos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BolaoCopadoMundo\Ranking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BolaoCopadoMundo\Ranking.Designer.cs">
+      <DependentUpon>Ranking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BolaoCopadoMundo\RegraDePontuacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BolaoCopadoMundo\RegraDePontuacao.Designer.cs">
+      <DependentUpon>RegraDePontuacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BolaoCopadoMundo\ResultadosJogos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BolaoCopadoMundo\ResultadosJogos.Designer.cs">
+      <DependentUpon>ResultadosJogos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BolaoCopadoMundo\Selecoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BolaoCopadoMundo\Selecoes.Designer.cs">
+      <DependentUpon>Selecoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BolaoCopadoMundo\ValorArrecadado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BolaoCopadoMundo\ValorArrecadado.Designer.cs">
+      <DependentUpon>ValorArrecadado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Agenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Agenda.Designer.cs">
+      <DependentUpon>Agenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Campeonato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Campeonato.Designer.cs">
+      <DependentUpon>Campeonato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Cargos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Cargos.Designer.cs">
+      <DependentUpon>Cargos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Categorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Categorias.Designer.cs">
+      <DependentUpon>Categorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Competencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Competencia.Designer.cs">
+      <DependentUpon>Competencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\ControleDeHoras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\ControleDeHoras.Designer.cs">
+      <DependentUpon>ControleDeHoras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Corridas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Corridas.Designer.cs">
+      <DependentUpon>Corridas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Departamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Departamentos.Designer.cs">
+      <DependentUpon>Departamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\EditarPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\EditarPerfil.Designer.cs">
+      <DependentUpon>EditarPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Empresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Empresas.Designer.cs">
+      <DependentUpon>Empresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\EMTU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\EMTU.Designer.cs">
+      <DependentUpon>EMTU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Escolaridade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Escolaridade.Designer.cs">
+      <DependentUpon>Escolaridade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Metas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Metas.Designer.cs">
+      <DependentUpon>Metas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Modulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Modulos.Designer.cs">
+      <DependentUpon>Modulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Parametros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Parametros.Designer.cs">
+      <DependentUpon>Parametros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Participantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Participantes.Designer.cs">
+      <DependentUpon>Participantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\PeriodoBancoHoras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\PeriodoBancoHoras.Designer.cs">
+      <DependentUpon>PeriodoBancoHoras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Pessoas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Pessoas.Designer.cs">
+      <DependentUpon>Pessoas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Pontuacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Pontuacao.Designer.cs">
+      <DependentUpon>Pontuacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Prazos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Prazos.Designer.cs">
+      <DependentUpon>Prazos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Ramais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Ramais.Designer.cs">
+      <DependentUpon>Ramais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\ResultadoDasCorridas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\ResultadoDasCorridas.Designer.cs">
+      <DependentUpon>ResultadoDasCorridas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\SalaDeReuniao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\SalaDeReuniao.Designer.cs">
+      <DependentUpon>SalaDeReuniao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Telas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Telas.Designer.cs">
+      <DependentUpon>Telas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\TiposDeAtendimento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\TiposDeAtendimento.Designer.cs">
+      <DependentUpon>TiposDeAtendimento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\TiposDePagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\TiposDePagamento.Designer.cs">
+      <DependentUpon>TiposDePagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\TrocaDeSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\TrocaDeSenha.Designer.cs">
+      <DependentUpon>TrocaDeSenha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Usuarios.Designer.cs">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\Vara.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Vara.Designer.cs">
+      <DependentUpon>Vara.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chamados\Abertura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chamados\Abertura.Designer.cs">
+      <DependentUpon>Abertura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chamados\Avaliacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chamados\Avaliacao.Designer.cs">
+      <DependentUpon>Avaliacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chamados\DashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chamados\DashBoard.Designer.cs">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chamados\Editar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chamados\Editar.Designer.cs">
+      <DependentUpon>Editar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chamados\EstimarHoras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chamados\EstimarHoras.Designer.cs">
+      <DependentUpon>EstimarHoras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chamados\Lembrete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chamados\Lembrete.Designer.cs">
+      <DependentUpon>Lembrete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chamados\MoverCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chamados\MoverCategoria.Designer.cs">
+      <DependentUpon>MoverCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chamados\Tramites.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chamados\Tramites.Designer.cs">
+      <DependentUpon>Tramites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chat.Designer.cs">
+      <DependentUpon>Chat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cigam\ImportacaoManual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cigam\ImportacaoManual.Designer.cs">
+      <DependentUpon>ImportacaoManual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cigam\LimparTabela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cigam\LimparTabela.designer.cs">
+      <DependentUpon>LimparTabela.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\ApuracaoLalur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\ApuracaoLalur.Designer.cs">
+      <DependentUpon>ApuracaoLalur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\AssociaCentroCustoASetor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\AssociaCentroCustoASetor.Designer.cs">
+      <DependentUpon>AssociaCentroCustoASetor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\CFOPeCST.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\CFOPeCST.Designer.cs">
+      <DependentUpon>CFOPeCST.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\CFOPeCST_Saida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\CFOPeCST_Saida.Designer.cs">
+      <DependentUpon>CFOPeCST_Saida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\ConciliacaoAtivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\ConciliacaoAtivo.Designer.cs">
+      <DependentUpon>ConciliacaoAtivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\ConciliacaoBancaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\ConciliacaoBancaria.Designer.cs">
+      <DependentUpon>ConciliacaoBancaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\ConciliacaoClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\ConciliacaoClientes.designer.cs">
+      <DependentUpon>ConciliacaoClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\ConciliacaoFornecedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\ConciliacaoFornecedores.Designer.cs">
+      <DependentUpon>ConciliacaoFornecedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\ConciliacaoParcelamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\ConciliacaoParcelamento.designer.cs">
+      <DependentUpon>ConciliacaoParcelamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\ConferenciaContabilNotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\ConferenciaContabilNotas.Designer.cs">
+      <DependentUpon>ConferenciaContabilNotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\ConferenciaESFNotasSaida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\ConferenciaESFNotasSaida.Designer.cs">
+      <DependentUpon>ConferenciaESFNotasSaida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\CopiaAssociacaoCentroCusto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\CopiaAssociacaoCentroCusto.Designer.cs">
+      <DependentUpon>CopiaAssociacaoCentroCusto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\CopiaCFOPDeNFEmitidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\CopiaCFOPDeNFEmitidos.Designer.cs">
+      <DependentUpon>CopiaCFOPDeNFEmitidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\CopiaContasLalur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\CopiaContasLalur.Designer.cs">
+      <DependentUpon>CopiaContasLalur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\DemonstrativoDoResultadoDoExercicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\DemonstrativoDoResultadoDoExercicio.Designer.cs">
+      <DependentUpon>DemonstrativoDoResultadoDoExercicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\DiferencialAliquota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\DiferencialAliquota.Designer.cs">
+      <DependentUpon>DiferencialAliquota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\EditarProcessoParcelamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\EditarProcessoParcelamento.Designer.cs">
+      <DependentUpon>EditarProcessoParcelamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\Endividamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\Endividamento.Designer.cs">
+      <DependentUpon>Endividamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\ExcluiArquivoArquivei.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\ExcluiArquivoArquivei.Designer.cs">
+      <DependentUpon>ExcluiArquivoArquivei.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\FormulasLalur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\FormulasLalur.Designer.cs">
+      <DependentUpon>FormulasLalur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\ParametroCodigoServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\ParametroCodigoServico.Designer.cs">
+      <DependentUpon>ParametroCodigoServico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\ParametrosArquivei.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\ParametrosArquivei.Designer.cs">
+      <DependentUpon>ParametrosArquivei.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\ParametrosConciliacaoAtivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\ParametrosConciliacaoAtivo.Designer.cs">
+      <DependentUpon>ParametrosConciliacaoAtivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\ParametrosConferenciaContabilNotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\ParametrosConferenciaContabilNotas.Designer.cs">
+      <DependentUpon>ParametrosConferenciaContabilNotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\ParametrosEndividamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\ParametrosEndividamentos.Designer.cs">
+      <DependentUpon>ParametrosEndividamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\ParametrosLalur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\ParametrosLalur.Designer.cs">
+      <DependentUpon>ParametrosLalur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\ParametrosRateio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\ParametrosRateio.Designer.cs">
+      <DependentUpon>ParametrosRateio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\Parcelamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\Parcelamento.Designer.cs">
+      <DependentUpon>Parcelamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\RateioDeBeneficios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\RateioDeBeneficios.Designer.cs">
+      <DependentUpon>RateioDeBeneficios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\ResumoArquivei.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\ResumoArquivei.Designer.cs">
+      <DependentUpon>ResumoArquivei.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\Selic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\Selic.Designer.cs">
+      <DependentUpon>Selic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\ValidacaoArquivei.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\ValidacaoArquivei.Designer.cs">
+      <DependentUpon>ValidacaoArquivei.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\ValidacaoXMLSaida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\ValidacaoXMLSaida.designer.cs">
+      <DependentUpon>ValidacaoXMLSaida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepartamentoPessoal\AutorizacaoProgramacaoDeFerias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepartamentoPessoal\AutorizacaoProgramacaoDeFerias.Designer.cs">
+      <DependentUpon>AutorizacaoProgramacaoDeFerias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepartamentoPessoal\CadastroProgramacaoDeFerias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepartamentoPessoal\CadastroProgramacaoDeFerias.Designer.cs">
+      <DependentUpon>CadastroProgramacaoDeFerias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepartamentoPessoal\PeriodoAquisitivoDeFerias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepartamentoPessoal\PeriodoAquisitivoDeFerias.Designer.cs">
+      <DependentUpon>PeriodoAquisitivoDeFerias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepartamentoPessoal\ProgramacaoDeFerias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepartamentoPessoal\ProgramacaoDeFerias.Designer.cs">
+      <DependentUpon>ProgramacaoDeFerias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diversos\AjusteNotasFiscaisGlobus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diversos\AjusteNotasFiscaisGlobus.Designer.cs">
+      <DependentUpon>AjusteNotasFiscaisGlobus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diversos\AjustesNfeEPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diversos\AjustesNfeEPedidos.Designer.cs">
+      <DependentUpon>AjustesNfeEPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidade\IntegraNotaServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidade\IntegraNotaServico.Designer.cs">
+      <DependentUpon>IntegraNotaServico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diversos\RadarBI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diversos\RadarBI.Designer.cs">
+      <DependentUpon>RadarBI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diversos\Sorteio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diversos\Sorteio.Designer.cs">
+      <DependentUpon>Sorteio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diversos\ValoresADescontar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diversos\ValoresADescontar.Designer.cs">
+      <DependentUpon>ValoresADescontar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EsqueceuASenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EsqueceuASenha.Designer.cs">
+      <DependentUpon>EsqueceuASenha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financeiro\Bancos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financeiro\Bancos.Designer.cs">
+      <DependentUpon>Bancos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financeiro\Colunas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financeiro\Colunas.Designer.cs">
+      <DependentUpon>Colunas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financeiro\CopiaColunasETipos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financeiro\CopiaColunasETipos.Designer.cs">
+      <DependentUpon>CopiaColunasETipos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financeiro\Demonstrativo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financeiro\Demonstrativo.Designer.cs">
+      <DependentUpon>Demonstrativo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financeiro\Resumo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financeiro\Resumo.Designer.cs">
+      <DependentUpon>Resumo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financeiro\Variaveis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financeiro\Variaveis.Designer.cs">
+      <DependentUpon>Variaveis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoEstrategica\CalculoMetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoEstrategica\CalculoMetas.Designer.cs">
+      <DependentUpon>CalculoMetas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoEstrategica\CopiaContasContabeisDaMeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoEstrategica\CopiaContasContabeisDaMeta.Designer.cs">
+      <DependentUpon>CopiaContasContabeisDaMeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoEstrategica\DataDeCorteResultadoBSC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoEstrategica\DataDeCorteResultadoBSC.Designer.cs">
+      <DependentUpon>DataDeCorteResultadoBSC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoEstrategica\GestaoDeMetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoEstrategica\GestaoDeMetas.Designer.cs">
+      <DependentUpon>GestaoDeMetas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoEstrategica\Graficos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoEstrategica\Graficos.Designer.cs">
+      <DependentUpon>Graficos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoEstrategica\Metas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoEstrategica\Metas.Designer.cs">
+      <DependentUpon>Metas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoEstrategica\VisoesBI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestaoEstrategica\VisoesBI.Designer.cs">
+      <DependentUpon>VisoesBI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Juridico\Comunicado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Juridico\Comunicado.Designer.cs">
+      <DependentUpon>Comunicado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Localizer.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDB_ScheduleDataProvider.cs" />
+    <Compile Include="Notificacoes\Aniversario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notificacoes\Aniversario.Designer.cs">
+      <DependentUpon>Aniversario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notificacoes\AniversarioEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notificacoes\AniversarioEmpresa.Designer.cs">
+      <DependentUpon>AniversarioEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notificacoes\Cadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notificacoes\Cadastro.Designer.cs">
+      <DependentUpon>Cadastro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notificacoes\Mensagem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notificacoes\Mensagem.Designer.cs">
+      <DependentUpon>Mensagem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notificacoes\NotificacaoChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notificacoes\NotificacaoChat.Designer.cs">
+      <DependentUpon>NotificacaoChat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notificacoes\PequinosAvisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notificacoes\PequinosAvisos.Designer.cs">
+      <DependentUpon>PequinosAvisos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacional\Demonstrativo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacional\Demonstrativo.Designer.cs">
+      <DependentUpon>Demonstrativo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacional\FaixaDePontuacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacional\FaixaDePontuacao.Designer.cs">
+      <DependentUpon>FaixaDePontuacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacional\Feriados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacional\Feriados.Designer.cs">
+      <DependentUpon>Feriados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacional\Indicadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacional\Indicadores.Designer.cs">
+      <DependentUpon>Indicadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacional\IQO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacional\IQO.designer.cs">
+      <DependentUpon>IQO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacional\JuncaoDasLinhas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacional\JuncaoDasLinhas.Designer.cs">
+      <DependentUpon>JuncaoDasLinhas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacional\MetasDosIndicadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacional\MetasDosIndicadores.Designer.cs">
+      <DependentUpon>MetasDosIndicadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacional\SetorDaLinha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacional\SetorDaLinha.Designer.cs">
+      <DependentUpon>SetorDaLinha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacional\ValoresDosIndicadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacional\ValoresDosIndicadores.Designer.cs">
+      <DependentUpon>ValoresDosIndicadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\AgenciaGlobus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\AgenciaGlobus.designer.cs">
+      <DependentUpon>AgenciaGlobus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Atendimentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Atendimentos.Designer.cs">
+      <DependentUpon>Atendimentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Ativo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Ativo.designer.cs">
+      <DependentUpon>Ativo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\BancoGlobus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\BancoGlobus.designer.cs">
+      <DependentUpon>BancoGlobus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Bancos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Bancos.designer.cs">
+      <DependentUpon>Bancos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Candidato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Candidato.designer.cs">
+      <DependentUpon>Candidato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Cargos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Cargos.Designer.cs">
+      <DependentUpon>Cargos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\CategoriaLivros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\CategoriaLivros.Designer.cs">
+      <DependentUpon>CategoriaLivros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Categorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Categorias.Designer.cs">
+      <DependentUpon>Categorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\CentroDeCustoContabil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\CentroDeCustoContabil.Designer.cs">
+      <DependentUpon>CentroDeCustoContabil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\CFOPGlobus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\CFOPGlobus.Designer.cs">
+      <DependentUpon>CFOPGlobus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Colaborador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Colaborador.Designer.cs">
+      <DependentUpon>Colaborador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Colunas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Colunas.designer.cs">
+      <DependentUpon>Colunas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Competencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Competencias.Designer.cs">
+      <DependentUpon>Competencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Comunicado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Comunicado.Designer.cs">
+      <DependentUpon>Comunicado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\ContaBCOGlobus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\ContaBCOGlobus.designer.cs">
+      <DependentUpon>ContaBCOGlobus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\ContaContabil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\ContaContabil.designer.cs">
+      <DependentUpon>ContaContabil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Corridas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Corridas.Designer.cs">
+      <DependentUpon>Corridas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\CSTGlobus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\CSTGlobus.Designer.cs">
+      <DependentUpon>CSTGlobus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Departamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Departamentos.Designer.cs">
+      <DependentUpon>Departamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Despesas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Despesas.designer.cs">
+      <DependentUpon>Despesas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\EmailBI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\EmailBI.designer.cs">
+      <DependentUpon>EmailBI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Empresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Empresas.Designer.cs">
+      <DependentUpon>Empresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\EMTU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\EMTU.Designer.cs">
+      <DependentUpon>EMTU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Escolaridade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Escolaridade.Designer.cs">
+      <DependentUpon>Escolaridade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\FaixaDePontuacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\FaixaDePontuacao.designer.cs">
+      <DependentUpon>FaixaDePontuacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Feedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Feedback.Designer.cs">
+      <DependentUpon>Feedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\FormulasLalur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\FormulasLalur.designer.cs">
+      <DependentUpon>FormulasLalur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Fornecedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Fornecedores.designer.cs">
+      <DependentUpon>Fornecedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Funcionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Funcionarios.Designer.cs">
+      <DependentUpon>Funcionarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\GrupoDespesas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\GrupoDespesas.designer.cs">
+      <DependentUpon>GrupoDespesas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Indicadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Indicadores.Designer.cs">
+      <DependentUpon>Indicadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Jogos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Jogos.Designer.cs">
+      <DependentUpon>Jogos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\LeiGlobus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\LeiGlobus.designer.cs">
+      <DependentUpon>LeiGlobus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Linhas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Linhas.designer.cs">
+      <DependentUpon>Linhas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Livros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Livros.Designer.cs">
+      <DependentUpon>Livros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Metas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Metas.Designer.cs">
+      <DependentUpon>Metas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Modulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Modulos.Designer.cs">
+      <DependentUpon>Modulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\OperacaoGlobus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\OperacaoGlobus.Designer.cs">
+      <DependentUpon>OperacaoGlobus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\ParametrosAtivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\ParametrosAtivo.designer.cs">
+      <DependentUpon>ParametrosAtivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Parcelamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Parcelamento.designer.cs">
+      <DependentUpon>Parcelamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Participantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Participantes.Designer.cs">
+      <DependentUpon>Participantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\PlanoContabil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\PlanoContabil.designer.cs">
+      <DependentUpon>PlanoContabil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Pontuacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Pontuacao.Designer.cs">
+      <DependentUpon>Pontuacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Pontuacao9Box.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Pontuacao9Box.Designer.cs">
+      <DependentUpon>Pontuacao9Box.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Prazos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Prazos.Designer.cs">
+      <DependentUpon>Prazos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Ramais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Ramais.Designer.cs">
+      <DependentUpon>Ramais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\RelatoriosBI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\RelatoriosBI.designer.cs">
+      <DependentUpon>RelatoriosBI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\SalaDeReuniao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\SalaDeReuniao.Designer.cs">
+      <DependentUpon>SalaDeReuniao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Selecoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Selecoes.Designer.cs">
+      <DependentUpon>Selecoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\SetorDasLinhas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\SetorDasLinhas.designer.cs">
+      <DependentUpon>SetorDasLinhas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\SetorFolha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\SetorFolha.designer.cs">
+      <DependentUpon>SetorFolha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Telas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Telas.Designer.cs">
+      <DependentUpon>Telas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Telefone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Telefone.Designer.cs">
+      <DependentUpon>Telefone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\TipoDeFrotaGlobus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\TipoDeFrotaGlobus.designer.cs">
+      <DependentUpon>TipoDeFrotaGlobus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\TipoDocumentoGlobus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\TipoDocumentoGlobus.Designer.cs">
+      <DependentUpon>TipoDocumentoGlobus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\TiposDeAtendimento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\TiposDeAtendimento.Designer.cs">
+      <DependentUpon>TiposDeAtendimento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\TiposDePagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\TiposDePagamento.Designer.cs">
+      <DependentUpon>TiposDePagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\ParticipantesTorneio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\ParticipantesTorneio.Designer.cs">
+      <DependentUpon>ParticipantesTorneio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Torneios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Torneios.Designer.cs">
+      <DependentUpon>Torneios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Usuarios.Designer.cs">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Vaga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Vaga.designer.cs">
+      <DependentUpon>Vaga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\ValoresOperacional.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\ValoresOperacional.designer.cs">
+      <DependentUpon>ValoresOperacional.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Vara.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Vara.Designer.cs">
+      <DependentUpon>Vara.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Variaveis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Variaveis.designer.cs">
+      <DependentUpon>Variaveis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\Veiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\Veiculos.designer.cs">
+      <DependentUpon>Veiculos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\VigenciasDaPontuacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\VigenciasDaPontuacao.designer.cs">
+      <DependentUpon>VigenciasDaPontuacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\VigenciasDoSetor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\VigenciasDoSetor.designer.cs">
+      <DependentUpon>VigenciasDoSetor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\VigenciasDosIndicadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\VigenciasDosIndicadores.designer.cs">
+      <DependentUpon>VigenciasDosIndicadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisas\VisoesBI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pesquisas\VisoesBI.Designer.cs">
+      <DependentUpon>VisoesBI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessoSeletivo\AcompanhamentoSelecao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcessoSeletivo\AcompanhamentoSelecao.Designer.cs">
+      <DependentUpon>AcompanhamentoSelecao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessoSeletivo\Agendamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcessoSeletivo\Agendamento.Designer.cs">
+      <DependentUpon>Agendamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessoSeletivo\Candidatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcessoSeletivo\Candidatos.Designer.cs">
+      <DependentUpon>Candidatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessoSeletivo\Vagas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcessoSeletivo\Vagas.Designer.cs">
+      <DependentUpon>Vagas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recebedoria\ComparacaoGuias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recebedoria\ComparacaoGuias.Designer.cs">
+      <DependentUpon>ComparacaoGuias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recebedoria\ResumoComparacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recebedoria\ResumoComparacao.designer.cs">
+      <DependentUpon>ResumoComparacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAC\Atendimentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAC\Atendimentos.Designer.cs">
+      <DependentUpon>Atendimentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAC\Finalizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAC\Finalizar.Designer.cs">
+      <DependentUpon>Finalizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAC\Motivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAC\Motivo.Designer.cs">
+      <DependentUpon>Motivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAC\Responder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAC\Responder.Designer.cs">
+      <DependentUpon>Responder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAC\Retornar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAC\Retornar.Designer.cs">
+      <DependentUpon>Retornar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAC\Satisfacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAC\Satisfacao.Designer.cs">
+      <DependentUpon>Satisfacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleScheduleDataProvider.cs" />
+    <Compile Include="StyledRenderer.cs" />
+    <Compile Include="Suprimentos\MetasAprovadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Suprimentos\MetasAprovadores.Designer.cs">
+      <DependentUpon>MetasAprovadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Suprimentos\TiposDePedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Suprimentos\TiposDePedido.Designer.cs">
+      <DependentUpon>TiposDePedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelaInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaInicial.Designer.cs">
+      <DependentUpon>TelaInicial.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Avaliacao de desempenho\AvaliacaoComportamental.resx">
+      <DependentUpon>AvaliacaoComportamental.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Avaliacao de desempenho\ComparaAvaliacaoQualitativa.resx">
+      <DependentUpon>ComparaAvaliacaoQualitativa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Avaliacao de desempenho\CopiaDefinicaoDeMetas.resx">
+      <DependentUpon>CopiaDefinicaoDeMetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Avaliacao de desempenho\DefinicaoDeMetas.resx">
+      <DependentUpon>DefinicaoDeMetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Avaliacao de desempenho\EixoYNineBox.resx">
+      <DependentUpon>EixoYNineBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Avaliacao de desempenho\Feedback.resx">
+      <DependentUpon>Feedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Avaliacao de desempenho\Notas.resx">
+      <DependentUpon>Notas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Avaliacao de desempenho\Radar.resx">
+      <DependentUpon>Radar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Avaliacao de desempenho\StatusPrazos.resx">
+      <DependentUpon>StatusPrazos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Biblioteca\Acompanhamento.resx">
+      <DependentUpon>Acompanhamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Biblioteca\Categorias.resx">
+      <DependentUpon>Categorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Biblioteca\Devolucao.resx">
+      <DependentUpon>Devolucao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Biblioteca\Emprestimos.resx">
+      <DependentUpon>Emprestimos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Biblioteca\Leitor.resx">
+      <DependentUpon>Leitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Biblioteca\Livros.resx">
+      <DependentUpon>Livros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Biblioteca\Perguntas.resx">
+      <DependentUpon>Perguntas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Biblioteca\Pontuacao.resx">
+      <DependentUpon>Pontuacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Biblioteca\Reserva.resx">
+      <DependentUpon>Reserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Biblioteca\Respostas.resx">
+      <DependentUpon>Respostas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BI\AcessoEmpresasPorEmail.resx">
+      <DependentUpon>AcessoEmpresasPorEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BI\AcessoUsuariosPorEmail.resx">
+      <DependentUpon>AcessoUsuariosPorEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BI\EmailDeAcesso.resx">
+      <DependentUpon>EmailDeAcesso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BI\QuantidadeAcessoPorDia.resx">
+      <DependentUpon>QuantidadeAcessoPorDia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BI\RelatoriosBI.resx">
+      <DependentUpon>RelatoriosBI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BI\ResumoDosAcessos.resx">
+      <DependentUpon>ResumoDosAcessos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BolaoCopadoMundo\Campeonato.resx">
+      <DependentUpon>Campeonato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BolaoCopadoMundo\Jogos.resx">
+      <DependentUpon>Jogos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BolaoCopadoMundo\PalpiteFinal.resx">
+      <DependentUpon>PalpiteFinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BolaoCopadoMundo\PalpiteJogos.resx">
+      <DependentUpon>PalpiteJogos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BolaoCopadoMundo\Ranking.resx">
+      <DependentUpon>Ranking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BolaoCopadoMundo\RegraDePontuacao.resx">
+      <DependentUpon>RegraDePontuacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BolaoCopadoMundo\ResultadosJogos.resx">
+      <DependentUpon>ResultadosJogos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BolaoCopadoMundo\Selecoes.resx">
+      <DependentUpon>Selecoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BolaoCopadoMundo\ValorArrecadado.resx">
+      <DependentUpon>ValorArrecadado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Agenda.resx">
+      <DependentUpon>Agenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Campeonato.resx">
+      <DependentUpon>Campeonato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Cargos.resx">
+      <DependentUpon>Cargos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Categorias.resx">
+      <DependentUpon>Categorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Competencia.resx">
+      <DependentUpon>Competencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\ControleDeHoras.resx">
+      <DependentUpon>ControleDeHoras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Corridas.resx">
+      <DependentUpon>Corridas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Departamentos.resx">
+      <DependentUpon>Departamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\EditarPerfil.resx">
+      <DependentUpon>EditarPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Empresas.resx">
+      <DependentUpon>Empresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\EMTU.resx">
+      <DependentUpon>EMTU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Escolaridade.resx">
+      <DependentUpon>Escolaridade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Metas.resx">
+      <DependentUpon>Metas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Modulos.resx">
+      <DependentUpon>Modulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Parametros.resx">
+      <DependentUpon>Parametros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Participantes.resx">
+      <DependentUpon>Participantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\PeriodoBancoHoras.resx">
+      <DependentUpon>PeriodoBancoHoras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Pessoas.resx">
+      <DependentUpon>Pessoas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Pontuacao.resx">
+      <DependentUpon>Pontuacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Prazos.resx">
+      <DependentUpon>Prazos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Ramais.resx">
+      <DependentUpon>Ramais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\ResultadoDasCorridas.resx">
+      <DependentUpon>ResultadoDasCorridas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\SalaDeReuniao.resx">
+      <DependentUpon>SalaDeReuniao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Telas.resx">
+      <DependentUpon>Telas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\TiposDeAtendimento.resx">
+      <DependentUpon>TiposDeAtendimento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\TiposDePagamento.resx">
+      <DependentUpon>TiposDePagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\TrocaDeSenha.resx">
+      <DependentUpon>TrocaDeSenha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Usuarios.resx">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\Vara.resx">
+      <DependentUpon>Vara.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chamados\Abertura.resx">
+      <DependentUpon>Abertura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chamados\Avaliacao.resx">
+      <DependentUpon>Avaliacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chamados\DashBoard.resx">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chamados\Editar.resx">
+      <DependentUpon>Editar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chamados\EstimarHoras.resx">
+      <DependentUpon>EstimarHoras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chamados\Lembrete.resx">
+      <DependentUpon>Lembrete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chamados\MoverCategoria.resx">
+      <DependentUpon>MoverCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chamados\Tramites.resx">
+      <DependentUpon>Tramites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chat.resx">
+      <DependentUpon>Chat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cigam\ImportacaoManual.resx">
+      <DependentUpon>ImportacaoManual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cigam\LimparTabela.resx">
+      <DependentUpon>LimparTabela.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\ApuracaoLalur.resx">
+      <DependentUpon>ApuracaoLalur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\AssociaCentroCustoASetor.resx">
+      <DependentUpon>AssociaCentroCustoASetor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\CFOPeCST.resx">
+      <DependentUpon>CFOPeCST.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\CFOPeCST_Saida.resx">
+      <DependentUpon>CFOPeCST_Saida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\ConciliacaoAtivo.resx">
+      <DependentUpon>ConciliacaoAtivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\ConciliacaoBancaria.resx">
+      <DependentUpon>ConciliacaoBancaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\ConciliacaoClientes.resx">
+      <DependentUpon>ConciliacaoClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\ConciliacaoFornecedores.resx">
+      <DependentUpon>ConciliacaoFornecedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\ConciliacaoParcelamento.resx">
+      <DependentUpon>ConciliacaoParcelamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\ConferenciaContabilNotas.resx">
+      <DependentUpon>ConferenciaContabilNotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\ConferenciaESFNotasSaida.resx">
+      <DependentUpon>ConferenciaESFNotasSaida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\CopiaAssociacaoCentroCusto.resx">
+      <DependentUpon>CopiaAssociacaoCentroCusto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\CopiaCFOPDeNFEmitidos.resx">
+      <DependentUpon>CopiaCFOPDeNFEmitidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\CopiaContasLalur.resx">
+      <DependentUpon>CopiaContasLalur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\DemonstrativoDoResultadoDoExercicio.resx">
+      <DependentUpon>DemonstrativoDoResultadoDoExercicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\DiferencialAliquota.resx">
+      <DependentUpon>DiferencialAliquota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\EditarProcessoParcelamento.resx">
+      <DependentUpon>EditarProcessoParcelamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\Endividamento.resx">
+      <DependentUpon>Endividamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\ExcluiArquivoArquivei.resx">
+      <DependentUpon>ExcluiArquivoArquivei.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\FormulasLalur.resx">
+      <DependentUpon>FormulasLalur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\ParametroCodigoServico.resx">
+      <DependentUpon>ParametroCodigoServico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\ParametrosArquivei.resx">
+      <DependentUpon>ParametrosArquivei.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\ParametrosConciliacaoAtivo.resx">
+      <DependentUpon>ParametrosConciliacaoAtivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\ParametrosConferenciaContabilNotas.resx">
+      <DependentUpon>ParametrosConferenciaContabilNotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\ParametrosEndividamentos.resx">
+      <DependentUpon>ParametrosEndividamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\ParametrosLalur.resx">
+      <DependentUpon>ParametrosLalur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\ParametrosRateio.resx">
+      <DependentUpon>ParametrosRateio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\Parcelamento.resx">
+      <DependentUpon>Parcelamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\RateioDeBeneficios.resx">
+      <DependentUpon>RateioDeBeneficios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\ResumoArquivei.resx">
+      <DependentUpon>ResumoArquivei.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\Selic.resx">
+      <DependentUpon>Selic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\ValidacaoArquivei.resx">
+      <DependentUpon>ValidacaoArquivei.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\ValidacaoXMLSaida.resx">
+      <DependentUpon>ValidacaoXMLSaida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepartamentoPessoal\AutorizacaoProgramacaoDeFerias.resx">
+      <DependentUpon>AutorizacaoProgramacaoDeFerias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepartamentoPessoal\CadastroProgramacaoDeFerias.resx">
+      <DependentUpon>CadastroProgramacaoDeFerias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepartamentoPessoal\PeriodoAquisitivoDeFerias.resx">
+      <DependentUpon>PeriodoAquisitivoDeFerias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepartamentoPessoal\ProgramacaoDeFerias.resx">
+      <DependentUpon>ProgramacaoDeFerias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diversos\AjusteNotasFiscaisGlobus.resx">
+      <DependentUpon>AjusteNotasFiscaisGlobus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diversos\AjustesNfeEPedidos.resx">
+      <DependentUpon>AjustesNfeEPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidade\IntegraNotaServico.resx">
+      <DependentUpon>IntegraNotaServico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diversos\RadarBI.resx">
+      <DependentUpon>RadarBI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diversos\Sorteio.resx">
+      <DependentUpon>Sorteio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diversos\ValoresADescontar.resx">
+      <DependentUpon>ValoresADescontar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EsqueceuASenha.resx">
+      <DependentUpon>EsqueceuASenha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financeiro\Bancos.resx">
+      <DependentUpon>Bancos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financeiro\Colunas.resx">
+      <DependentUpon>Colunas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financeiro\CopiaColunasETipos.resx">
+      <DependentUpon>CopiaColunasETipos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financeiro\Demonstrativo.resx">
+      <DependentUpon>Demonstrativo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financeiro\Resumo.resx">
+      <DependentUpon>Resumo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financeiro\Variaveis.resx">
+      <DependentUpon>Variaveis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestaoEstrategica\CalculoMetas.resx">
+      <DependentUpon>CalculoMetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestaoEstrategica\CopiaContasContabeisDaMeta.resx">
+      <DependentUpon>CopiaContasContabeisDaMeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestaoEstrategica\DataDeCorteResultadoBSC.resx">
+      <DependentUpon>DataDeCorteResultadoBSC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestaoEstrategica\GestaoDeMetas.resx">
+      <DependentUpon>GestaoDeMetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestaoEstrategica\Graficos.resx">
+      <DependentUpon>Graficos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestaoEstrategica\Metas.resx">
+      <DependentUpon>Metas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestaoEstrategica\VisoesBI.resx">
+      <DependentUpon>VisoesBI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Juridico\Comunicado.resx">
+      <DependentUpon>Comunicado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notificacoes\Aniversario.resx">
+      <DependentUpon>Aniversario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notificacoes\AniversarioEmpresa.resx">
+      <DependentUpon>AniversarioEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notificacoes\Cadastro.resx">
+      <DependentUpon>Cadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notificacoes\Mensagem.resx">
+      <DependentUpon>Mensagem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notificacoes\NotificacaoChat.resx">
+      <DependentUpon>NotificacaoChat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notificacoes\PequinosAvisos.resx">
+      <DependentUpon>PequinosAvisos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacional\Demonstrativo.resx">
+      <DependentUpon>Demonstrativo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacional\FaixaDePontuacao.resx">
+      <DependentUpon>FaixaDePontuacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacional\Feriados.resx">
+      <DependentUpon>Feriados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacional\Indicadores.resx">
+      <DependentUpon>Indicadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacional\IQO.resx">
+      <DependentUpon>IQO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacional\JuncaoDasLinhas.resx">
+      <DependentUpon>JuncaoDasLinhas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacional\MetasDosIndicadores.resx">
+      <DependentUpon>MetasDosIndicadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacional\SetorDaLinha.resx">
+      <DependentUpon>SetorDaLinha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacional\ValoresDosIndicadores.resx">
+      <DependentUpon>ValoresDosIndicadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\AgenciaGlobus.resx">
+      <DependentUpon>AgenciaGlobus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Atendimentos.resx">
+      <DependentUpon>Atendimentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Ativo.resx">
+      <DependentUpon>Ativo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\BancoGlobus.resx">
+      <DependentUpon>BancoGlobus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Bancos.resx">
+      <DependentUpon>Bancos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Candidato.resx">
+      <DependentUpon>Candidato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Cargos.resx">
+      <DependentUpon>Cargos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\CategoriaLivros.resx">
+      <DependentUpon>CategoriaLivros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Categorias.resx">
+      <DependentUpon>Categorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\CentroDeCustoContabil.resx">
+      <DependentUpon>CentroDeCustoContabil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\CFOPGlobus.resx">
+      <DependentUpon>CFOPGlobus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Colaborador.resx">
+      <DependentUpon>Colaborador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Colunas.resx">
+      <DependentUpon>Colunas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Competencias.resx">
+      <DependentUpon>Competencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Comunicado.resx">
+      <DependentUpon>Comunicado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\ContaBCOGlobus.resx">
+      <DependentUpon>ContaBCOGlobus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\ContaContabil.resx">
+      <DependentUpon>ContaContabil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Corridas.resx">
+      <DependentUpon>Corridas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\CSTGlobus.resx">
+      <DependentUpon>CSTGlobus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Departamentos.resx">
+      <DependentUpon>Departamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Despesas.resx">
+      <DependentUpon>Despesas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\EmailBI.resx">
+      <DependentUpon>EmailBI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Empresas.resx">
+      <DependentUpon>Empresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\EMTU.resx">
+      <DependentUpon>EMTU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Escolaridade.resx">
+      <DependentUpon>Escolaridade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\FaixaDePontuacao.resx">
+      <DependentUpon>FaixaDePontuacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Feedback.resx">
+      <DependentUpon>Feedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\FormulasLalur.resx">
+      <DependentUpon>FormulasLalur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Fornecedores.resx">
+      <DependentUpon>Fornecedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Funcionarios.resx">
+      <DependentUpon>Funcionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\GrupoDespesas.resx">
+      <DependentUpon>GrupoDespesas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Indicadores.resx">
+      <DependentUpon>Indicadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Jogos.resx">
+      <DependentUpon>Jogos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\LeiGlobus.resx">
+      <DependentUpon>LeiGlobus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Linhas.resx">
+      <DependentUpon>Linhas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Livros.resx">
+      <DependentUpon>Livros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Metas.resx">
+      <DependentUpon>Metas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Modulos.resx">
+      <DependentUpon>Modulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\OperacaoGlobus.resx">
+      <DependentUpon>OperacaoGlobus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\ParametrosAtivo.resx">
+      <DependentUpon>ParametrosAtivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Parcelamento.resx">
+      <DependentUpon>Parcelamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Participantes.resx">
+      <DependentUpon>Participantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\PlanoContabil.resx">
+      <DependentUpon>PlanoContabil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Pontuacao.resx">
+      <DependentUpon>Pontuacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Pontuacao9Box.resx">
+      <DependentUpon>Pontuacao9Box.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Prazos.resx">
+      <DependentUpon>Prazos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Ramais.resx">
+      <DependentUpon>Ramais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\RelatoriosBI.resx">
+      <DependentUpon>RelatoriosBI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\SalaDeReuniao.resx">
+      <DependentUpon>SalaDeReuniao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Selecoes.resx">
+      <DependentUpon>Selecoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\SetorDasLinhas.resx">
+      <DependentUpon>SetorDasLinhas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\SetorFolha.resx">
+      <DependentUpon>SetorFolha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Telas.resx">
+      <DependentUpon>Telas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Telefone.resx">
+      <DependentUpon>Telefone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\TipoDeFrotaGlobus.resx">
+      <DependentUpon>TipoDeFrotaGlobus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\TipoDocumentoGlobus.resx">
+      <DependentUpon>TipoDocumentoGlobus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\TiposDeAtendimento.resx">
+      <DependentUpon>TiposDeAtendimento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\TiposDePagamento.resx">
+      <DependentUpon>TiposDePagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\ParticipantesTorneio.resx">
+      <DependentUpon>ParticipantesTorneio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Torneios.resx">
+      <DependentUpon>Torneios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Usuarios.resx">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Vaga.resx">
+      <DependentUpon>Vaga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\ValoresOperacional.resx">
+      <DependentUpon>ValoresOperacional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Vara.resx">
+      <DependentUpon>Vara.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Variaveis.resx">
+      <DependentUpon>Variaveis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\Veiculos.resx">
+      <DependentUpon>Veiculos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\VigenciasDaPontuacao.resx">
+      <DependentUpon>VigenciasDaPontuacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\VigenciasDoSetor.resx">
+      <DependentUpon>VigenciasDoSetor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\VigenciasDosIndicadores.resx">
+      <DependentUpon>VigenciasDosIndicadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pesquisas\VisoesBI.resx">
+      <DependentUpon>VisoesBI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcessoSeletivo\AcompanhamentoSelecao.resx">
+      <DependentUpon>AcompanhamentoSelecao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcessoSeletivo\Agendamento.resx">
+      <DependentUpon>Agendamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcessoSeletivo\Candidatos.resx">
+      <DependentUpon>Candidatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcessoSeletivo\Vagas.resx">
+      <DependentUpon>Vagas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Recebedoria\ComparacaoGuias.resx">
+      <DependentUpon>ComparacaoGuias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recebedoria\ResumoComparacao.resx">
+      <DependentUpon>ResumoComparacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAC\Atendimentos.resx">
+      <DependentUpon>Atendimentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAC\Finalizar.resx">
+      <DependentUpon>Finalizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAC\Motivo.resx">
+      <DependentUpon>Motivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAC\Responder.resx">
+      <DependentUpon>Responder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAC\Retornar.resx">
+      <DependentUpon>Retornar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAC\Satisfacao.resx">
+      <DependentUpon>Satisfacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Suprimentos\MetasAprovadores.resx">
+      <DependentUpon>MetasAprovadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Suprimentos\TiposDePedido.resx">
+      <DependentUpon>TiposDePedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaInicial.resx">
+      <DependentUpon>TelaInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Logo Support.ico" />
+    <Content Include="logo_FEd_icon.ico" />
+    <Content Include="Modelos email\emailAberturaComunicado.html" />
+    <Content Include="Modelos email\emailAcompanhamentoDePrazos.html" />
+    <Content Include="Modelos email\emailArquivei.html" />
+    <Content Include="Modelos email\emailArquiveiDacte.html" />
+    <Content Include="Modelos email\emailBiblioteca.html" />
+    <Content Include="Modelos email\emailBiblioteca_campanha.html" />
+    <Content Include="Modelos email\emailChamado.html" />
+    <Content Include="Modelos email\emailChamadoAgrupou.html" />
+    <Content Include="Modelos email\emailChamadoAtendentes.html" />
+    <Content Include="Modelos email\emailChamadoMoveu.html" />
+    <Content Include="Modelos email\emailChamadoTramites.html" />
+    <Content Include="Modelos email\emailDevolvidoSAC.html" />
+    <Content Include="Modelos email\emailDiretoriaComunicado.html" />
+    <Content Include="Modelos email\emailFinalizadoClienteSAC.html" />
+    <Content Include="Modelos email\emailFinalizadoSAC.html" />
+    <Content Include="Modelos email\emailNotasNaoLancadas.html" />
+    <Content Include="Modelos email\emailNotificacao.html" />
+    <Content Include="Modelos email\emailNotificacaoConcluida.html" />
+    <Content Include="Modelos email\emailParcelamento.html" />
+    <Content Include="Modelos email\emailProcessoSeletivo_Agendamento.html" />
+    <Content Include="Modelos email\emailRetornoSAC.html" />
+    <Content Include="Modelos email\emailSAC.html" />
+    <Content Include="Modelos email\emailSACAtendente.html" />
+    <Content Include="Modelos email\emailTeste.html" />
+    <Content Include="suportte_icone.ico" />
+    <None Include="Resources\BalaoNiver.png" />
+    <None Include="Resources\if_User_Interface-14_2044274.png" />
+    <None Include="Resources\if_icon-96-folders_314939.png" />
+    <None Include="Resources\Calendario Claro.png" />
+    <None Include="Resources\menu-gray.png" />
+    <None Include="Resources\Menu5.png" />
+    <None Include="Resources\Menu4.png" />
+    <None Include="Resources\menu.png" />
+    <None Include="Resources\Informacao.png" />
+    <None Include="Resources\Erro.png" />
+    <None Include="Resources\Confirmacao.png" />
+    <None Include="Resources\Aviso.png" />
+    <None Include="Resources\SetaUpBranca.png" />
+    <None Include="Resources\SetaDownBranca.png" />
+    <None Include="Resources\SetaCima.png" />
+    <None Include="Resources\SetaBaixo.png" />
+    <None Include="Resources\star_Preenchida.png" />
+    <None Include="Resources\Star.png" />
+    <None Include="Resources\NFE.jpg" />
+    <None Include="Resources\Grafico.png" />
+    <None Include="Resources\Diversos.png" />
+    <None Include="Resources\Contas.png" />
+    <None Include="Resources\excel.png" />
+    <None Include="Resources\Refresh2.png" />
+    <None Include="Resources\OffLine.png" />
+    <None Include="Resources\Ocupado.png" />
+    <None Include="Resources\Invisivel.png" />
+    <None Include="Resources\Ausente.png" />
+    <None Include="Resources\OnLine.png" />
+    <None Include="Resources\Themas.png" />
+    <None Include="Resources\refresh1.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\Emtu.jpg" />
+    <None Include="Resources\Opcoes.png" />
+    <None Include="Resources\departamento.png" />
+    <None Include="Resources\responder.png" />
+    <None Include="Resources\EmailAberto.png" />
+    <None Include="Resources\bandeirafinal.png" />
+    <None Include="Resources\impressraPreta.png" />
+    <None Include="Resources\Impressora.png" />
+    <None Include="Resources\Fone.png" />
+    <None Include="Resources\Headset.png" />
+    <None Include="Resources\SAC.bmp" />
+    <None Include="Resources\SetaIndicador.png" />
+    <None Include="Resources\SetaAbrir.png" />
+    <None Include="Resources\Seta.png" />
+    <None Include="Resources\Setas.png" />
+    <None Include="Resources\if_03_171510.png" />
+    <None Include="Resources\if_vector_66_08_473643.png" />
+    <None Include="Resources\setaMenu_downBranca.png" />
+    <None Include="Resources\Key.png" />
+    <None Include="Resources\User.png" />
+    <None Include="Resources\AvatarLogin.png" />
+    <None Include="Resources\setaMenu2.png" />
+    <None Include="Resources\UserLogin.png" />
+    <None Include="Resources\TrocaSenha1.png" />
+    <None Include="Resources\Vistoria.png" />
+    <None Include="Resources\setaMenu.png" />
+    <None Include="Resources\Reuniao.png" />
+    <None Include="Resources\UserAdd.png" />
+    <None Include="Resources\TicketAdd.png" />
+    <None Include="Resources\Ticket.png" />
+    <None Include="Resources\Plus.png" />
+    <None Include="Resources\Pesquisar.png" />
+    <None Include="Resources\Localizacao.png" />
+    <None Include="Resources\Limpeza.png" />
+    <None Include="Resources\Empresa.png" />
+    <None Include="Resources\EditUser.png" />
+    <None Include="Resources\EditarLivro.png" />
+    <None Include="Resources\Edit.png" />
+    <None Include="Resources\Despesas.png" />
+    <None Include="Resources\Config.png" />
+    <None Include="Resources\Chat.png" />
+    <None Include="Resources\Calendario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Classes\Classes.csproj">
+      <Project>{009ca923-d3fd-449c-a854-c1407a52a40d}</Project>
+      <Name>Classes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dados\Dados.csproj">
+      <Project>{650E4FC0-F7A1-45CD-B7C3-79FFC989D3E4}</Project>
+      <Name>Dados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{21b8a9d5-eed9-4d03-9762-b761f7389312}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Site\Site.csproj">
+      <Project>{8467b44f-a45a-4a06-a9cc-8a1fcf2b6b09}</Project>
+      <Name>Site</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Office">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

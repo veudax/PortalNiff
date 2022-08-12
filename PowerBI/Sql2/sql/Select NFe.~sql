@@ -1,0 +1,20 @@
+Select e.codintnf, e.coddoctoesf, e.numeronf, e.serienf, e.codtpdoc, e.dadosadicionais,
+       e.dataemissao, e.codclassfisc, e.chavedeacesso, e.statusnf, n.status
+       n.mensagemrecibo, n.
+  From esfnotafiscal E,
+       bgm_notafiscal_eletronica N
+ Where n.numeronfe = 4403
+   And n.codintnf_esfnf = e.codintnf
+
+
+
+
+
+
+
+
+Select e.*, Rowid From esfnotafiscal e
+Where e.codintnf = 46496; 
+
+Select e.*, Rowid From esfnotafiscal_item e
+Where e.codintnf = 46496;   

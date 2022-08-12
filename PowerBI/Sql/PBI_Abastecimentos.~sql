@@ -1,0 +1,13 @@
+create or replace view pbi_abastecimentos as
+Select
+      a."EMPFIL",a."PREFIXOVEIC",a."DESCRICAOMODCHASSI",a."MESANO",a."ANOMES",a."ANO",a."QTDE",a."VALOR",a."KM",a."DESCRICAOTPFROTA",a."CODIGOMODCHASSI"
+     , Sum(q) Quantidade
+  From Pbi_ConsultaAbastecimentos a,
+        (Select Count(Distinct mesano) q,a.PREFIXOVEIC, a.Mesano, a.DESCRICAOMODCHASSI, CODIGOMODCHASSI, empfil
+                        From Pbi_ConsultaAbastecimentos a
+                      Group By a.PREFIXOVEIC, a.Mesano, a.DESCRICAOMODCHASSI, CODIGOMODCHASSI, empfil) q
+   Where q.CODIGOMODCHASSI = a.CODIGOMODCHASSI
+     And q.Mesano = a.Mesano
+     And q.empfil = a.empfil
+ Group By a.EmpFil,a.PREFIXOVEIC, a.DESCRICAOMODCHASSI, a.Mesano, a.AnoMes, a.Ano, a.QTDE, a.VALOR, a.Km, a.DESCRICAOTPFROTA, a.CODIGOMODCHASSI
+

@@ -1,0 +1,33 @@
+Delete
+From Est_Itensmovto f
+Where f.seqmovto = 10011634;
+
+Delete
+ From Est_Movto f 
+ Where f.codintnf = 287518 ;
+
+Delete
+ From est_itensnf i
+Where i.codintnf = 287518;
+
+Delete
+ From Est_Venctonf i
+Where i.codintnf = 287518;
+ 
+
+Delete
+From Est_Pedidoitensnf f
+Where f.codintnf = 287518;
+
+Delete
+From Est_Pedidonf f
+Where codintnf = 287518;
+
+Delete
+From bgm_confirmamanifestdest f
+Where f.codintnf_bgm = 287518;
+
+Delete
+From Bgm_Notafiscal n
+Where codintnf = 287518;
+

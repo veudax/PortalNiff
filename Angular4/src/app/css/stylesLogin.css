@@ -1,0 +1,79 @@
+
+#navbarDropdownMenuLink
+{
+  color: rgb(83, 144, 202);
+}
+
+.formCenterLogin{
+  margin:auto;
+  padding: 100px 10px 0px 0px;
+  width:50%;
+  height:auto;
+  color: rgb(83, 144, 202);
+}
+
+a.small.emailHelp:link, a:visited{
+	color: rgb(83, 144, 202);
+}
+
+a.small.emailHelp:hover{
+	color: rgb(68, 168, 214);
+}
+a.small.emailHelp:active{
+	color:  rgb(68, 168, 214);
+}
+
+.esqueceuSenha{
+	color: #6c757d;
+}
+
+.esqueceuSenha:hover{
+	color: rgb(83, 144, 202);
+}
+
+#exampleInputEmail1
+{
+  background-color: #161515;
+  color: rgb(83, 144, 202);
+  border-color: rgb(83, 144, 202);
+}
+
+#exampleInputEmail1:focus
+{
+  background-color: #161515;
+  color: rgb(83, 144, 202);
+  border-color: rgb(68, 168, 214);
+  box-shadow: 0 0 0 0.0;
+}
+
+#exampleInputPassword1 {
+  background-color: #161515;
+  color: rgb(83, 144, 202);
+  border-color: rgb(83, 144, 202);
+}
+
+#exampleInputPassword1:focus {
+  background-color: #161515;
+  color: rgb(83, 144, 202);
+  border-color: rgb(68, 168, 214);
+  box-shadow: 0 0 0 0.0;
+}
+
+#botaoLogin {
+  color: rgb(83, 144, 202);
+  border-color: rgb(83, 144, 202);
+}
+
+#botaoLogin:focus {
+  color: rgb(83, 144, 202);
+  border-color: rgb(68, 168, 214);
+  box-shadow: 0 0 0 0.0;
+}
+
+#botaoLogin:hover {
+  color: black;
+  border-color: rgb(68, 168, 214);
+  background-color: rgb(68, 168, 214);
+  box-shadow: 0 0 0 0.0;
+
+}

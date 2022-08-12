@@ -1,0 +1,28 @@
+Select Round(Sum(Valor),2) Valor, EmpFil
+  From (
+Select Sum(i.qtdepedido * i.valorunitariopedido) valor
+     , Lpad(c.Codigoempresa, 3, '0') || '/' || Lpad(c.Codigofl, 3, '0') EmpFil
+  From cpr_pedidocompras c, Niff_Chm_Usuarios u
+     , cpr_itensdepedido i, est_cadmaterial m, flp_funcionarios f
+ Where i.codigomatint = m.codigomatint
+   And i.codintFunc = f.codintfunc
+   And m.codigogrd In (500,510)
+   And i.numeropedido = c.numeropedido
+   And c.datapedido >= '01-dec-2019'
+   And f.codintfunc Not In (Select CodFunc From Niff_Chm_Usuarios Where idUsuario = 64) -- Diferente de Robson
+   And c.Statuspedido = 'F' --In ('P','F')
+ Group By Lpad(c.Codigoempresa, 3, '0') || '/' || Lpad(c.Codigofl, 3, '0')   
+ Union All  
+Select Sum(o.qtdeitoutpedido * o.vlrunitariooutpedido)
+     , Lpad(c.Codigoempresa, 3, '0') || '/' || Lpad(c.Codigofl, 3, '0') EmpFil
+  From cpr_pedidocompras c, Niff_Chm_Usuarios u
+     , cpr_itensoutrospedido o, cpr_cadmaterialavulso m, flp_funcionarios f
+ Where o.codigomatavulso = m.codigomatavulso
+   And o.codintFunc = f.codintfunc    
+   And m.codigogrd In (500,510)   
+   And c.datapedido >= '01-dec-2019'
+   And o.numeropedido = c.numeropedido
+   And f.codintfunc Not In (Select CodFunc From Niff_Chm_Usuarios Where idUsuario = 64)  -- Diferente de Robson
+   And c.Statuspedido = 'F' --In ('P','F')   
+ Group By Lpad(c.Codigoempresa, 3, '0') || '/' || Lpad(c.Codigofl, 3, '0')   
+ ) Group By EmpFil

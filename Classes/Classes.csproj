@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{009CA923-D3FD-449C-A854-C1407A52A40D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Classes</RootNamespace>
+    <AssemblyName>Classes</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Syncfusion.Grid.Grouping.Windows, Version=15.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Shared.Base, Version=15.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Tools.Windows, Version=15.3460.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Agenda.cs" />
+    <Compile Include="AnexoDoChat.cs" />
+    <Compile Include="AnexoDoHistorico.cs" />
+    <Compile Include="Aniversarios.cs" />
+    <Compile Include="Arquivei.cs" />
+    <Compile Include="Atendimento.cs" />
+    <Compile Include="AutoAvaliacao.cs" />
+    <Compile Include="BancoDeHoras.cs" />
+    <Compile Include="BolaoEnquete.cs" />
+    <Compile Include="BolaoJogos.cs" />
+    <Compile Include="BolaoNotificacao.cs" />
+    <Compile Include="BolaoPalpiteFinalDoColaborador.cs" />
+    <Compile Include="BolaoPalpitesDosColaboradores.cs" />
+    <Compile Include="BolaoPontuacao.cs" />
+    <Compile Include="BolaoTimes.cs" />
+    <Compile Include="BolaoValorArrecadado.cs" />
+    <Compile Include="Cargos.cs" />
+    <Compile Include="Categoria.cs" />
+    <Compile Include="CategoriaDoUsuario.cs" />
+    <Compile Include="CategoriaLivros.cs" />
+    <Compile Include="CentroDeCustoContabil.cs" />
+    <Compile Include="CentroDeCustoFinanceiro.cs" />
+    <Compile Include="CFOPGlobus.cs" />
+    <Compile Include="Chamado.cs" />
+    <Compile Include="Chat.cs" />
+    <Compile Include="Cigam.cs" />
+    <Compile Include="Colaboradores.cs" />
+    <Compile Include="Competencias.cs" />
+    <Compile Include="CompetenciasDoCargo.cs" />
+    <Compile Include="CompetenciasDoColaborador.cs" />
+    <Compile Include="Comunicado.cs" />
+    <Compile Include="ConciliacaoContabil.cs" />
+    <Compile Include="ConferenciaNotasPelaContabilidade.cs" />
+    <Compile Include="ControleDeHoras.cs" />
+    <Compile Include="Corridas.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Cte_schema.cs" />
+    <Compile Include="Curriculos.cs" />
+    <Compile Include="Cursos.cs" />
+    <Compile Include="Departamento.cs" />
+    <Compile Include="DescontoBeneficios.cs" />
+    <Compile Include="Despesa.cs" />
+    <Compile Include="DiferencialAliquota.cs" />
+    <Compile Include="DistanciaCorrida.cs" />
+    <Compile Include="EmailEnvioComunicado.cs" />
+    <Compile Include="Empresa.cs" />
+    <Compile Include="EmpresaDoUsuario.cs" />
+    <Compile Include="EmpresaQueOColaboradorEhAvaliado.cs" />
+    <Compile Include="EmprestimoLivros.cs" />
+    <Compile Include="Endividamento.cs" />
+    <Compile Include="Escolaridade.cs" />
+    <Compile Include="Favoritos.cs" />
+    <Compile Include="Feriado.cs" />
+    <Compile Include="Financeiro.cs" />
+    <Compile Include="FornecedoresGlobus.cs" />
+    <Compile Include="FuncionariosGlobus.cs" />
+    <Compile Include="HistoricoDoChamado.cs" />
+    <Compile Include="HistoricosDoColaborador.cs" />
+    <Compile Include="ItensArquivei.cs" />
+    <Compile Include="ItensAvaliacaoMetas.cs" />
+    <Compile Include="ItensDaAutoAvaliacao.cs" />
+    <Compile Include="ItensDaDespesa.cs" />
+    <Compile Include="ItensDaLimpezaDeFrota.cs" />
+    <Compile Include="ItensNotasFiscaisEscrituracaoGlobus.cs" />
+    <Compile Include="ItensNotasFiscaisLivroISS.cs" />
+    <Compile Include="ItensNotasFiscaisServico.cs" />
+    <Compile Include="ItensParametrosArquivei.cs" />
+    <Compile Include="ItensVistoria.cs" />
+    <Compile Include="Lalur.cs" />
+    <Compile Include="LimpezaDeFrota.cs" />
+    <Compile Include="Linha.cs" />
+    <Compile Include="Livros.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="LogSAC.cs" />
+    <Compile Include="Metas.cs" />
+    <Compile Include="MetasDoCargo.cs" />
+    <Compile Include="Modulo.cs" />
+    <Compile Include="ModuloDoUsuario.cs" />
+    <Compile Include="Nfe_schema.cs" />
+    <Compile Include="NfseCampinas_schema.cs" />
+    <Compile Include="NfseGinfes_schema.cs" />
+    <Compile Include="NfseTaubate_schema.cs" />
+    <Compile Include="Nfse_schema.cs" />
+    <Compile Include="NotasFiscaisEscrituracaoGlobus.cs" />
+    <Compile Include="NotasFiscaisLivroISS.cs" />
+    <Compile Include="NotasFiscaisServico.cs" />
+    <Compile Include="NotificacaoChamado.cs" />
+    <Compile Include="NotificacaoComunicado.cs" />
+    <Compile Include="NotificacaoCorridas.cs" />
+    <Compile Include="NotificacaoDoSistema.cs" />
+    <Compile Include="OcorrenciasGlobus.cs" />
+    <Compile Include="Operacional.cs" />
+    <Compile Include="Parametro.cs" />
+    <Compile Include="ParametrosArquivei.cs" />
+    <Compile Include="ParcelasDoComunicado.cs" />
+    <Compile Include="ParticipanteCorrida.cs" />
+    <Compile Include="ParticipanteDaAgenda.cs" />
+    <Compile Include="PedidoGlobus.cs" />
+    <Compile Include="PeriodoBancoHorasColaborador.cs" />
+    <Compile Include="Pontuacao.cs" />
+    <Compile Include="Pontuacao9Box.cs" />
+    <Compile Include="PontuacaoFatorEmpresa.cs" />
+    <Compile Include="PowerBI.cs" />
+    <Compile Include="Prazos.cs" />
+    <Compile Include="ProgramacaoFerias.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Publicas.cs" />
+    <Compile Include="RadarBI.cs" />
+    <Compile Include="Ramais.cs" />
+    <Compile Include="RateioBeneficios.cs" />
+    <Compile Include="ResenhaLivros.cs" />
+    <Compile Include="ReservaLivros.cs" />
+    <Compile Include="SalaDeReuniao.cs" />
+    <Compile Include="SIGOM.cs" />
+    <Compile Include="Sorteio.cs" />
+    <Compile Include="SubCompetencias.cs" />
+    <Compile Include="Suprimentos.cs" />
+    <Compile Include="Tela.cs" />
+    <Compile Include="TipoDeAtendimento.cs" />
+    <Compile Include="TipoDeAtendimentoEMTU.cs" />
+    <Compile Include="TipoDeDespesa.cs" />
+    <Compile Include="TipoDePagamento.cs" />
+    <Compile Include="TipoDocumentoGlobus.cs" />
+    <Compile Include="Torneio.cs" />
+    <Compile Include="Usuario.cs" />
+    <Compile Include="UsuarioLogado.cs" />
+    <Compile Include="UsuarioResponsavelPelaCategoria.cs" />
+    <Compile Include="Vara.cs" />
+    <Compile Include="VeiculosGlobus.cs" />
+    <Compile Include="VisoesBI.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Upt_Sistemas.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

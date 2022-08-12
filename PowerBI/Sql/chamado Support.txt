@@ -1,0 +1,24 @@
+Boa tarde. 
+
+Mais casos.
+Empresa 029
+Estamos em redução de 25%, jornada de 5h30
+Apenas 4 colaboradores que estão com Jornada 7h20 (13, 42, 51, 55)
+
+e o evento Salario Normal está calculando errado, não está considerando a jornada de 5h30 e nem de 7h20.
+
+Os colaboradores 1,2, 3,6, 7,8,9,10,12,16, 19,24,27,31, 48, 49 e  56 Calculou 180h15 deveria ser 165h
+11, 22 - Calculou 209h35 deveria ser 165h
+13 - Calculou 167h deveria ser 220h
+14 - Calculou 106h20 deveria ser 150h10 ( 7 dias trabalhados + 10 dias projeção)
+15 - Calculou 137h35 deveria ser 126h30 ( 13 dias trabalhados + 10 dias projeção)
+21, 29 - Calculou 180h deveria ser 165h
+32 - Calculou 163h30 deveria ser 165h
+42, 51 - Calculou 240h20 deveria ser 220h
+43 - Calculou 116h deveria ser 110h ( 10 dias trabalhados + 10 dias projeção)
+46 - Calculou 205h55 deveria ser 165h
+47 - Calculou 183h20 deveria ser 143h (165h - 22h atestado) o Evento de atestado também ficou errado
+50 - Calculou 125h15 deveria ser 165h
+55 - estava em redução até dia 10/09 a partir do dia 11/09 jornada normal - Calculou 194h deveria ser 201h40 (10 dias de 5h30 e 20 dias de 7h20
+
+Todos os colaboradores estavam com o parâmetro 500 (sem redução e com a flag desmarcada)

@@ -1,0 +1,9 @@
+Select s.codigomatavulso || '-' || s.descricaomatavulso Material,
+       Decode(g.descricao, Null, Null, s.codigogenero || '-' || g.descricao) Genero,
+       s.codncm NCM,
+       s.cod_ident_cst CEST,
+       Decode(s.tipo, 'P', 'Produto', 'Serviço') Classificacao
+  From EST_CADMATERIALAVULSO  s
+     , Est_Generoitem g
+ Where g.codigogenero(+) = s.codigogenero
+ Order By material

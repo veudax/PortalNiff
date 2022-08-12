@@ -1,0 +1,1 @@
+Alter Table Niff_FRQ_Absenteismo Add Departamento Varchar2(80);

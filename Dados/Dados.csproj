@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{650E4FC0-F7A1-45CD-B7C3-79FFC989D3E4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dados</RootNamespace>
+    <AssemblyName>Dados</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AgendaDAO.cs" />
+    <Compile Include="AnexoDoHistoricoDAO.cs" />
+    <Compile Include="AniversarioDAO.cs" />
+    <Compile Include="ArquiveiDAO.cs" />
+    <Compile Include="AtendimentoDAO.cs" />
+    <Compile Include="AutoAvaliacaoDAO.cs" />
+    <Compile Include="BancoDeDadosDAO.cs" />
+    <Compile Include="BancoDeHorasDAO.cs" />
+    <Compile Include="BolaoEnqueteDAO.cs" />
+    <Compile Include="BolaoJogosDAO.cs" />
+    <Compile Include="BolaoNotificacaoDAO.cs" />
+    <Compile Include="BolaoPalpiteFinalDoColaboradorDAO.cs" />
+    <Compile Include="BolaoPalpitesDosColaboradoresDAO.cs" />
+    <Compile Include="BolaoPontuacaoDAO.cs" />
+    <Compile Include="BolaoTimesDAO.cs" />
+    <Compile Include="BolaoValorArrecadadoDAO.cs" />
+    <Compile Include="CargosDAO.cs" />
+    <Compile Include="CategoriaDAO.cs" />
+    <Compile Include="CategoriaLivrosDAO.cs" />
+    <Compile Include="CentroDeCustoContabilDAO.cs" />
+    <Compile Include="CentroDeCustoFinanceiroDAO.cs" />
+    <Compile Include="CFOPGlobusDAO.cs" />
+    <Compile Include="ChamadoDAO.cs" />
+    <Compile Include="ChatDAO.cs" />
+    <Compile Include="CigamDAO.cs" />
+    <Compile Include="ColaboradoresDAO.cs" />
+    <Compile Include="CompetenciasDAO.cs" />
+    <Compile Include="CompetenciasDoCargosDAO.cs" />
+    <Compile Include="CompetenciasDoColaboradorDAO.cs" />
+    <Compile Include="ComunicadoDAO.cs" />
+    <Compile Include="ConciliacaoContabilDAO.cs" />
+    <Compile Include="ConferenciaNotasPelaContabilidadeDAO.cs" />
+    <Compile Include="ControleDeHorasDAO.cs" />
+    <Compile Include="CorridasDAO.cs" />
+    <Compile Include="CurriculosDAO.cs" />
+    <Compile Include="CursosDAO.cs" />
+    <Compile Include="DepartamentoDAO.cs" />
+    <Compile Include="DescontoBeneficioDAO.cs" />
+    <Compile Include="DiferencialAliquotaDAO.cs" />
+    <Compile Include="DistanciaCorridaDAO.cs" />
+    <Compile Include="EmailEnvioComunicadoDAO.cs" />
+    <Compile Include="EmpresaDAO.cs" />
+    <Compile Include="EmpresaQueOColaboradorEhAvaliadoDAO.cs" />
+    <Compile Include="EmprestimoLivrosDAO.cs" />
+    <Compile Include="EndividamentoDAO.cs" />
+    <Compile Include="EscolaridadeDAO.cs" />
+    <Compile Include="FavoritosDAO.cs" />
+    <Compile Include="FeriadoDAO.cs" />
+    <Compile Include="FinanceiroDAO.cs" />
+    <Compile Include="FornecedoresGlobusDAO.cs" />
+    <Compile Include="FuncionariosGlobusDAO.cs" />
+    <Compile Include="HistoricosChamadoDAO.cs" />
+    <Compile Include="HistoricosDoColaboradorDAO.cs" />
+    <Compile Include="ItensArquiveiDAO.cs" />
+    <Compile Include="ItensAvaliacaoMetasDAO.cs" />
+    <Compile Include="ItensDaAutoAvaliacaoDAO.cs" />
+    <Compile Include="ItensParametrosArquiveiDAO.cs" />
+    <Compile Include="LalurDAO.cs" />
+    <Compile Include="LinhaDAO.cs" />
+    <Compile Include="LivrosDAO.cs" />
+    <Compile Include="LogDAO.cs" />
+    <Compile Include="LogSACDAO.cs" />
+    <Compile Include="MetasDAO.cs" />
+    <Compile Include="MetasDoCargoDAO.cs" />
+    <Compile Include="ModuloDAO.cs" />
+    <Compile Include="NotaFiscalEscrituracaoGlobusDAO.cs" />
+    <Compile Include="NotaFiscalServicoDAO.cs" />
+    <Compile Include="NotificacaoChamadoDAO.cs" />
+    <Compile Include="NotificacaoComunicadoDAO.cs" />
+    <Compile Include="NotificacaoCorridasDAO.cs" />
+    <Compile Include="NotificacaoDoSistemaDAO.cs" />
+    <Compile Include="OcorrenciasGlobusDAO.cs" />
+    <Compile Include="OperacionalDAO.cs" />
+    <Compile Include="ParametrosArquiveiDAO.cs" />
+    <Compile Include="ParametrosDAO.cs" />
+    <Compile Include="ParcelasDoComunicadoDAO.cs" />
+    <Compile Include="ParticipanteCorridaDAO.cs" />
+    <Compile Include="PedidoGlobusDAO.cs" />
+    <Compile Include="PeriodoBancoHorasColaboradorDAO.cs" />
+    <Compile Include="Pontuacao9BoxDAO.cs" />
+    <Compile Include="PontuacaoDAO.cs" />
+    <Compile Include="PontuacaoFatorEmpresaDAO.cs" />
+    <Compile Include="PowerBIDAO.cs" />
+    <Compile Include="PrazosDAO.cs" />
+    <Compile Include="ProdataDAO.cs" />
+    <Compile Include="ProgramacaoFeriasDAO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RadarBIDAO.cs" />
+    <Compile Include="RamaisDAO.cs" />
+    <Compile Include="RateioBeneficiosDAO.cs" />
+    <Compile Include="ResenhaLivrosDAO.cs" />
+    <Compile Include="ReservaLivrosDAO.cs" />
+    <Compile Include="SalaDeReuniaoDAO.cs" />
+    <Compile Include="Sessao.cs" />
+    <Compile Include="SessaoCigam.cs" />
+    <Compile Include="SessaoProdata.cs" />
+    <Compile Include="SessaoSigon.cs" />
+    <Compile Include="SIGOMDAO.cs" />
+    <Compile Include="SubCompetenciasDAO.cs" />
+    <Compile Include="SuprimentosDAO.cs" />
+    <Compile Include="TelaDAO.cs" />
+    <Compile Include="TipoDeAtendimentoDAO.cs" />
+    <Compile Include="TipoDeAtendimentoEMTUDAO.cs" />
+    <Compile Include="TipoDePagamentoDAO.cs" />
+    <Compile Include="TipoDocumentoGlobusDAO.cs" />
+    <Compile Include="TorneioDAO.cs" />
+    <Compile Include="UsuarioDAO.cs" />
+    <Compile Include="ValoresDasMetasNoGlobusDAO.cs" />
+    <Compile Include="VaraDAO.cs" />
+    <Compile Include="VeiculosGlobusDAO.cs" />
+    <Compile Include="VisoesBIDAO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Classes\Classes.csproj">
+      <Project>{009ca923-d3fd-449c-a854-c1407a52a40d}</Project>
+      <Name>Classes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

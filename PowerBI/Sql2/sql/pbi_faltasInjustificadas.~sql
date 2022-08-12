@@ -1,0 +1,10 @@
+Create Or Replace pbi_FaltaInjustificadas
+select empresa, codfunc, nomefunc, DtNasctoFunc, NrDocto, Data,
+       Sum(t.QtdInjustificada), Sum(t.DescontarInjutificadas) 
+  from pbi_descticketperiodoanterior t
+ Group By empresa, codfunc, nomefunc, DtNasctoFunc, NrDocto, Data
+ Union All
+select empresa, codfunc, nomefunc, DtNasctoFunc, NrDocto, Data,
+       Sum(t.QtdInjustificada), Sum(t.DescontarInjutificadas) 
+  from pbi_descticket_VugBeb
+ Group By empresa, codfunc, nomefunc, DtNasctoFunc, NrDocto, Data  

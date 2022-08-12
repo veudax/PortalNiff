@@ -1,0 +1,84 @@
+SELECT V.CONHECIMENTO CTRC 
+     , V.TOTAL_PREST 
+     , V.FRETE_VALOR 
+     , V.REM_RZ_SOCIAL 
+     , V.DEST_RZ_SOCIAL 
+     , V.CODDOCTOCRC 
+     , V.DATA_EMISSAO 
+     , V.EMPRESA 
+     , V.FILIAL 
+     , V.GARAGEM 
+     , V.SERIE 
+     , V.LOCAL_ENTREGA 
+     , V.END_ENTREGA 
+     , V.TIPO_DOCTO CodTipo 
+     , 
+V.FATURA_CALC_TOTALFRETE 
+     , A.CODDOCTOCRC_REC AS 
+RECEBIDO 
+     , V.CODDOCTOCRC 
+     , NVL
+(V.DESCONTO_APLICADO_CRC,0) 
+AS DESCONTOCTE 
+     , NVL
+(V.DESCONTO_APLICADO_CRC,0) 
+AS DESCONTOPAR 
+     , NVL(D.DESCONTOCRC,0) - 
+       NVL
+(T.DESCONTO_APLICADO_CRC,0) 
+AS DESCONTOORI 
+, CASE V.TIPO_DOCTO 
+  WHEN 1  THEN 'CTRC' 
+  WHEN 8  THEN 'NF' 
+  WHEN 15 THEN 'NFS' 
+  WHEN 57 THEN 'CTe' 
+  ELSE '' 
+   END TIPO_DOCTO 
+, CASE STATUS 
+  WHEN 'I'  THEN 'Inutilizado' 
+  WHEN 'P'  THEN 'Pendente' 
+  WHEN 'R'  THEN 'Rejeitado' 
+  WHEN 'A'  THEN 'Autorizado' 
+  WHEN 'C'  THEN 'Cancelado' 
+  WHEN 'D'  THEN 'Denegado' 
+  WHEN 'L'  THEN 'Lote em proc.' 
+  WHEN 'N'  THEN 'Não enviado' 
+  ELSE '' 
+  END AUTORIZADO 
+     , (SELECT NROPARCELACRC 
+          FROM CRCDOCTO D 
+         WHERE A.EMPRESA         = 
+V.EMPRESA 
+           AND A.FILIAL          = 
+V.FILIAL 
+           AND A.FILIAL          = 
+V.FILIAL 
+           AND A.GARAGEM         = 
+V.GARAGEM 
+           AND A.SERIE           = 
+V.SERIE 
+           AND A.CONHECIMENTO    = 
+V.CONHECIMENTO 
+           AND 
+A.CODDOCTOCRC_REC = 
+D.CODDOCTOCRC ) 
+            AS PARCELA 
+  FROM 
+VW_CRC_DOCUMENTOS_CGS V, 
+CRC_DOCTOSASSOCCGS A 
+     , CRCDOCTO D, FTA013 T 
+ WHERE V.CODDOCTOCRC     = 
+1083890 /* P_CodDoctoCRC */ 
+   AND T.CODDOCTOCRC     = 
+1083890 /* P_CodDoctoCRC */ 
+   AND D.CODDOCTOCRC     = 
+1083890 /* P_CodDoctoCRC */ 
+   AND A.EMPRESA(+)      = 
+V.EMPRESA 
+   AND A.FILIAL(+)       = V.FILIAL 
+   AND A.FILIAL(+)       = V.FILIAL 
+   AND A.GARAGEM(+)      = 
+V.GARAGEM 
+   AND A.SERIE(+)        = V.SERIE 
+   AND A.CONHECIMENTO(+) = 
+V.CONHECIMENTO 

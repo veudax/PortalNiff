@@ -1,0 +1,64 @@
+﻿
+body {
+}
+
+.container {
+    width: 420px;
+    height: 350px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: rgba(58, 60, 143,0.5);
+    margin-top: 250px;
+    margin-left: 150px;
+    border-radius: 6px;
+}
+
+    .container img {
+        width: 120px;
+        height: 120px;
+    }
+
+.login {
+    height: 35px;
+    width: 300px;
+    font-family: 'Century Gothic';
+    font-size: 15px;
+    margin-bottom: 2px;
+    border: none;
+    border-radius: 4px;
+    padding-left: 10px;
+}
+
+.form-input::before {
+    margin-bottom: 0px;
+    position: absolute;
+    /*padding-left: 5px;*/
+    padding-top: 7px;
+    color: black;
+    font-size: 30px;
+}
+
+
+.botaologin {
+    padding: 10px 45px;
+    cursor: pointer;
+    color: black;
+    font-family: 'Century Gothic';
+    font-size: medium;
+    border-radius: 20px;
+    border: none;
+    background-color: #8CD40E;
+    border-bottom: 2px solid #2eb82e;
+    margin-top: 20px;
+}
+
+    .botaologin:hover {
+        background-color: #25265b;
+        border-bottom: 2px solid #c9c9e9;
+        color: #c9c9e9;
+    }
+
+a {
+    font-size: small;
+    color: #31334e;
+}

@@ -1,0 +1,24 @@
+G:\Globus\Sistemas\Estoque\estoque.exe /loggetsql c:\temp\arqsqlestoque.txt
+g:\Globus\Sistemas\Escrituracao\Escrituracao.exe /loggetsql c:\temp\arqsqlEsf.txt
+G:\Globus\Sistemas\Retaguarda\Retaguarda.exe /loggetsql c:\temp\arqsqlRET.txt
+G:\Globus\Sistemas\ContasPagar\CPagar.exe /loggetsql c:\temp\arqsqlCPG.txt
+g:\Globus\Sistemas\Contabilidade\Contabilidade.exe /loggetsql c:\temp\arqsqlCTB.txt
+G:\Globus\Sistemas\Cargas\Cargas.exe /loggetsql c:\temp\arqsqlCGS.txt
+G:\Globus\Sistemas\Acidentes\Acidentes.exe /loggetsql c:\temp\arqsqlAcidentes.txt
+
+G:\Globus\Sistemas\Frequencia\Frequencia.exe /loggetsql c:\temp\arqsqlFRE.txt
+G:\Globus\Sistemas\Folha\Folha.exe /loggetsql c:\temp\arqsqlFLP.txt
+G:\Globus\Sistemas\Compras\Compras.exe /loggetsql c:\temp\arqsqlCompras.txt
+G:\Globus\Sistemas\Frota\Frota.exe /loggetsql c:\temp\arqsqlFrota.txt
+
+
+g:\Globus\Sistemas\Abastecimento\Abastecimento.exe /loggetsql c:\temp\arqsqlAba.txt
+
+g:\Globus\Sistemas\Cargas\Cargas.exe /loggetsql c:\temp\arqsqlCGS.txt
+g:\Globus\Sistemas\Ativo\Ativo.exe /loggetsql c:\temp\arqsqlATF.txt
+
+g:\Globus\Sistemas\Manutencao\Manutencao.exe /loggetsql c:\temp\arqsqlMAN.txt
+
+g:\Globus\Sistemas\Arrecadacao\arrecadacao.exe /loggetsql c:\temp\arqsqlarr.txt
+G:\Globus\Sistemas\Pneus\Pneus.exe /loggetsql c:\temp\arqsqlPneus.txt
+g:\Globus\Sistemas\Bancos\ControleBancario.exe /loggetsql c:\temp\arqsqlBCO.txt

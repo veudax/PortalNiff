@@ -1,0 +1,7 @@
+{
+    "name": "All Blacks (Exposé Data)",
+    "dataColors": ["#8A8A8A", "#8B8B8B", "#D3D3D3", "#E5E5E5", "#FCFCFC", "#FFFFFF", "#365E9A", "#459BBE", "#009BE6", "#2FBBFF", "#6CCFFF", "#60CBFF"],
+    "background":"#000000",
+    "foreground": "#8B8B8B",
+    "tableAccent": "#8A8A8A"
+}

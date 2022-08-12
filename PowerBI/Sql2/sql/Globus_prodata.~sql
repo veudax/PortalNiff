@@ -1,0 +1,24 @@
+Select To_char(Min(v.qtd_hora_ini),'dd/mm/yyyy hh24:mi') InicioJornada,
+To_char(Max(v.qtd_hora_final),'dd/mm/yyyy hh24:mi') FimJornada
+, g.cod_guia, g.cod_seq_guia
+, t.cod_tipopagto_imp, t.nom_descricao, Sum(d.vlr_receb) valor
+, l.codigolinha, cv.prefixoveic, d.cod_tipopagtarifa, d.qtd_passag_trans
+  From t_arr_guia g
+  , t_arr_detalhe_guia d
+  , t_arr_viagens_guia v
+  , t_trf_tipopagto t
+, Frt_Cadveiculos cv
+, bgm_cadlinhas l
+
+ Where g.dat_viagem_guia = '06-feb-2019'
+ And g.cod_seq_guia = d.cod_seq_guia
+ And g.cod_empresa = 2
+ And d.cod_seq_viagem = v.cod_seq_viagem
+ And v.cod_seq_guia = g.cod_seq_guia
+ And d.cod_tipopagtarifa = t.cod_tipopagto
+ And cv.codigoveic = v.cod_veiculo
+  And d.codintlinha = l.codintlinha
+  And g.cod_seq_guia = 11828601
+ 
+ Group By l.codigolinha, cv.prefixoveic, d.cod_tipopagtarifa, d.qtd_passag_trans, v.qtd_hora_ini 
+  , v.qtd_hora_final, g.cod_guia, t.cod_tipopagto_imp, t.nom_descricao, g.cod_seq_guia, v.cod_seq_viagem

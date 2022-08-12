@@ -1,0 +1,23 @@
+Select a.idarquivei, i.valoricmsitensnf, i.aliquotaicmsitensnf, i.valoricmssubsitensnf
+     , i.valoripiitensnf, i.valordescontoitensnf, i.valorseguroitensnf
+     , i.vlroutrasdespesasitnf, i.valorfreteitensnf, i.valortotalitensnf
+     , i.codsittributaria, i.codclassfisc, i.codoperfiscal
+  From Bgm_Notafiscal N 
+     , est_itensnf I
+     , Niff_Fis_Arquivei a     
+ Where n.chavedeacessonfe = a.chavedeacesso
+   And n.codtpdoc = 'DAN'
+   And a.idarquivei = 2064
+   And n.codintnf = i.codintnf;
+   
+Select a.Idarquivei, i.valoricms, i.aliquotaicms, i.valoricmsst
+     , i.valoripi, i.desconto, i.seguro, i.outrasdespesas
+     , i.valorfrete, i.valortotal, i.cst, i.csticms, i.cce, i.cfop
+     , i.comdiferencas, c.cfopentrada, c.cst CSTComp, c.operacao
+  From Niff_Fis_Arquivei a  
+     , Niff_Fis_Itensarquivei i
+     , niff_fis_cfopcst c
+ Where i.Idarquivei = a.Idarquivei     
+   And i.cfop = c.cfopsaida
+   And a.dataemissao Between 
+   And a.idempresa = 

@@ -1,0 +1,11 @@
+Alter Table Niff_CTB_ParametrosEndividamento Add NumeroPlano Number;
+
+Alter Table Niff_CTB_ParametrosEndividamento Add CodigoContaJurosDebito Number;
+Alter Table Niff_CTB_ParametrosEndividamento Add CodigoContaJurosCredito Number;
+Alter Table Niff_CTB_ParametrosEndividamento Add CodigoContaVariacaoDebito Number;
+Alter Table Niff_CTB_ParametrosEndividamento Add CodigoContaVariacaoCredito Number;
+Alter Table Niff_CTB_ParametrosEndividamento Add CodigoContaCurtoPrazo Number;
+Alter Table Niff_CTB_ParametrosEndividamento Add CodigoContaMedioPrazo Number;
+Alter Table Niff_CTB_ParametrosEndividamento Add CodigoContaLongoPrazo Number;
+
+

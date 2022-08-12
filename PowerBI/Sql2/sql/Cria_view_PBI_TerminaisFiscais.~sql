@@ -1,0 +1,4 @@
+Create Or Replace View PBI_TerminaisFiscais As
+  Select t.codintfunc, t.idterminal
+    From Niff_PBI_FiscaisDoTerminal t
+;

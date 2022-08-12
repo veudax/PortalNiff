@@ -1,0 +1,46 @@
+
+.botao {
+    color: rgb(83, 144, 202);
+    border-color: rgb(83, 144, 202);
+  }
+  
+  .botao:focus {
+    color: rgb(83, 144, 202);
+    border-color: rgb(68, 168, 214);
+    box-shadow: 0 0 0 0.0;
+  }
+  
+  .botao:hover {
+    color: black;
+    border-color: rgb(68, 168, 214);
+    background-color: rgb(68, 168, 214);
+    box-shadow: 0 0 0 0.0;  
+  }
+ 
+.form-control
+{
+  background-color: #161515;
+  color: rgb(83, 144, 202);
+  border-color: rgb(83, 144, 202);
+}
+
+.form-control:focus {
+    background-color: #161515;
+    color: rgb(83, 144, 202);
+    border-color: rgb(68, 168, 214);
+    box-shadow: 0 0 0 0.0;
+  }
+  
+.botaoEditar{
+     height: 30px;
+     text-align: center;
+     color: rgb(83, 144, 202);
+    border-color: rgb(83, 144, 202);
+  }
+
+  #divBotoes{
+    margin:0;
+    padding: 20px 0px 20px 0px;
+    align-items: center;
+    color: rgb(83, 144, 202);
+  }

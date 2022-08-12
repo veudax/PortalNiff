@@ -1,0 +1,8 @@
+Select Count( Distinct u.nome), trunc(Data), u.nome, e.nomeabreviado, u.email, Count(*)
+  From niff_chm_log l, niff_chm_usuarios u, niff_chm_empresas e
+Where trunc(Data) Between '08-feb-2019' And '12-feb-2019'
+-- Where trunc(Data) = trunc(Sysdate)
+ And u.Idusuario = l.Idusuario
+ And u.idempresa = e.idempresa
+ And tela Like '%login'
+ Group By e.Nomeabreviado, u.nome, trunc(Data),  u.email

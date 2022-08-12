@@ -1,0 +1,120 @@
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <form class="form-inline">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="dropdown-item itensMenu" [routerLink]="['/']">
+                    <i class="fas fa-home"> Voltar</i></a>
+            </li>
+        </ul>      
+    </form>
+</nav>
+
+<form class="formCenterLogin">
+    <h3>Cadastro de Categoria</h3>
+
+    <div class="container-fluid">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <div class="input-group">
+                        <input type="text" [(ngModel)]="categoria.IDCATEGORIA" name="idCategoria" class="form-control" id="inputCodigo" placeholder="Código" aria-label="" aria-describedby="button-addon4">
+                        <div class="input-group-append" id="button-addon4">
+                          <button class="btn btn-outline-secondary botao" type="button" (click)="proximo()"><i class="fas fa-plus"></i></button>
+                          <button class="btn btn-outline-secondary botao conditional-launch" type="button" data-toggle="modal" data-target="#meuModal" (click)="listar()"><i class="fas fa-search"></i></button>
+                        </div>
+                </div>
+                </div>
+
+            </div>
+
+
+        <div class="form-group">
+            <input type="text" [(ngModel)]="categoria.DESCRICAO" name="decricao" class="form-control" id="inputNome"  placeholder="Nome" >
+        </div>
+
+        <div class="custom-control-inline col-md-9">
+            <div class="custom-control-inline custom-checkbox col-md-4">
+                <input type="checkbox" [(ngModel)]="categoria.Ativo" name="ativo" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Ativo</label>
+            </div>
+            <div class="custom-control-inline custom-checkbox col-md-7">
+                <input type="checkbox" [(ngModel)]="categoria.PossuiModulos" name="possui"  class="custom-control-input" id="customCheck2">
+                <label class="custom-control-label" for="customCheck2">Possui Modulo</label>
+            </div>                
+        </div>
+
+        
+        <div class="form-group">
+          <input type="text" bsDatepicker name="data" class="form-control" id="inputNome"  >
+        </div>
+
+        <div class="form-row" id="divBotoes">
+                <div class="col-3">
+                    <button class="btn btn-outline-dark botao" type="button" id="botaoGravar" (click)="gravar(categoria)" >Gravar</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-outline-dark botao" type="reset" id="botaoLimpar">Limpar</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-outline-dark botao" type="button" id="botaoExcluir" (click)="excluir(categoria)">Excluir</button>
+                </div>
+            </div>
+        </div>
+
+      <!-- Modal -->  
+      <div id="meuModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+   
+          <!-- Conteúdo do modal-->
+          <div class="modal-content">
+   
+            <!-- Cabeçalho do modal -->
+            <div class="modal-header">
+              <h4 class="modal-title">Pesquisa de Categorias</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+   
+            <!-- Corpo do modal -->
+            <div class="modal-body">
+                <div class="row ">
+                    <div class="col-sm-12 cabecalho">
+                      <div class="row">
+                        <div class="col-1 col-sm-1" style="text-align: right">
+                          Código
+                        </div>
+                        <div class="col-5 col-sm-5">
+                          Descrição
+                        </div>
+                        <div class="col-2 col-sm-2" style="text-align: center">
+                            Ativo
+                        </div>
+                        <div class="col-3 col-sm-3" style="text-align: center">
+                            Possui Modulos
+                        </div>
+                      </div>
+                    </div>
+                </div>                                 
+                  <div class="row" *ngFor="let item of listaCategorias" name="grid">
+                        <div class="col-sm-12 cabecalho">
+                            <div class="row">
+                                <div class="col-1 col-sm-1" style="text-align: right">{{item.IDCATEGORIA}}</div>
+                                <div class="col-5 col-sm-5">{{item.DESCRICAO}}</div>
+                                <div class="col-2 col-sm-2" style="text-align: center">{{item.ATIVO}}</div>
+                                <div class="col-3 col-sm-3" style="text-align: center">{{item.POSSUIMODULOS}}</div>
+                                <button class="btn btn-outline-dark btn-sm botao botaoEditar" type="button" id="botaoEditar" 
+                                data-dismiss="modal" (click)="selecionar(item)">Editar</button>
+                            </div>
+                        </div>                      
+                    </div>                                 
+            </div>
+   
+            <!-- Rodapé do modal
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Confirmar</button>
+            </div>
+            -->
+          </div>
+        </div>
+      </div>
+</form>

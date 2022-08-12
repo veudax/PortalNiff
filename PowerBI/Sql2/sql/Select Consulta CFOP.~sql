@@ -1,0 +1,7 @@
+Select i.codoperfiscal, i.codsittributaria, i.codclassfisc, f.codigoempresa, Count(*) 
+  From Bgm_Notafiscal f,
+       est_itensnf i
+ Where f.codintnf = i.codintnf
+   And f.dataemissaonf >= '01-mar-2017'
+   And i.codclassfisc In (1407,2407)
+ Group By i.codoperfiscal, i.codsittributaria, i.codclassfisc, f.codigoempresa   

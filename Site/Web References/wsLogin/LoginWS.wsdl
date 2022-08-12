@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://niff.com.br/suportte/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://niff.com.br/suportte/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://niff.com.br/suportte/">
+      <s:element name="ValidarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidarUsuarioResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Usuario">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsuarioAcesso" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Tipo" type="tns:TipoUsuario" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoSac" type="tns:TipoUsuarioSAC" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ativo" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Administrador" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="IpMaquina" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeMaquina" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Telefone" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ramal" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Senha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cargo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataNascimento" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Foto" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="AcessaAgenda" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AcessaChat" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PermiteExcluirChat" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AcessaBI" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PermiteIncluirExcluirFoto" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAcessoPowerBi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Setor" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Existe" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEmpresa" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Empresa" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoInternoFuncionarioGlobus" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegistroFuncionario" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AcessaSac" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdDepartamento" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Departamento" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CPF" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailDepartamento" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AcessaDescontoBeneficio" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AcessaJuridico" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AcessaCadastroJuridico" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PermiteAprovarComunicado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PermiteReprovarComunicado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PermiteCancelarComunicado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdCargo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PermiteAlterarComunicado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PermiteFinalizarComunicado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AcessaDashBoardChamados" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AcessaAvaliacaoDesempenho" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AcessoDeRH" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AcessoDeGestor" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AcessoDeColaborador" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AcessoDeControladoria" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="NaoNotificaCorridas" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AniversariantesApenasDaEmpresa" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="VisualizaRadarCompleto" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TipoUsuario">
+        <s:restriction base="s:string">
+          <s:enumeration value="Socilitante" />
+          <s:enumeration value="Atendente" />
+          <s:enumeration value="BI" />
+          <s:enumeration value="Todos" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="TipoUsuarioSAC">
+        <s:restriction base="s:string">
+          <s:enumeration value="Administrador" />
+          <s:enumeration value="Atendente" />
+          <s:enumeration value="UsuarioComum" />
+          <s:enumeration value="Finalizador" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="AlterarStatusUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idUsuario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarStatusUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AlterarStatusUsuarioResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ValidarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ValidarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarStatusUsuario" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarStatusUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LoginWSSoap">
+    <wsdl:operation name="ValidarUsuario">
+      <wsdl:input message="tns:ValidarUsuarioSoapIn" />
+      <wsdl:output message="tns:ValidarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatusUsuario">
+      <wsdl:input message="tns:AlterarStatusUsuarioSoapIn" />
+      <wsdl:output message="tns:AlterarStatusUsuarioSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LoginWSSoap" type="tns:LoginWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidarUsuario">
+      <soap:operation soapAction="http://niff.com.br/suportte/ValidarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatusUsuario">
+      <soap:operation soapAction="http://niff.com.br/suportte/AlterarStatusUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LoginWSSoap12" type="tns:LoginWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidarUsuario">
+      <soap12:operation soapAction="http://niff.com.br/suportte/ValidarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatusUsuario">
+      <soap12:operation soapAction="http://niff.com.br/suportte/AlterarStatusUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LoginWS">
+    <wsdl:port name="LoginWSSoap" binding="tns:LoginWSSoap">
+      <soap:address location="http://localhost/suportte/LoginWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LoginWSSoap12" binding="tns:LoginWSSoap12">
+      <soap12:address location="http://localhost/suportte/LoginWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

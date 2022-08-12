@@ -1,0 +1,5 @@
+Select t.*, Rowid From niff_ads_valoresmetas t
+Where idempresa = 4
+And referencia > 201712
+And idmetas = 34
+Order By referencia

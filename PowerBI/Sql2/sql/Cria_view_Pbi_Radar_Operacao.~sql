@@ -1,0 +1,17 @@
+Create Or Replace View Pbi_Radar_Operacao As
+Select Grupo,
+       Decode(EmpFil, '009/002', '009/001', empFil) EmpFil,
+       Data,
+       Valor,
+       Percentual,
+       Ordem, 
+       Tipo
+  From (Select Grupo,  
+               Ordem, 
+               Data,
+               EMPFIL,
+               VaLor,
+               Percentual,
+               'O' Tipo
+              From Pbi_Radar_Operacional
+             Where Tipo = 'Operacional')

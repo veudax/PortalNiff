@@ -1,0 +1,4 @@
+Create Or Replace View Pbi_Radar_Calendario As
+  Select To_char(Data, 'mm/yyyy') mesAno, To_char(Data, 'yyyy/mm') anoMes, To_char(Data, 'yyyy') Ano
+    From pbi_radar
+   Group By To_char(Data, 'mm/yyyy'), To_char(Data, 'yyyy/mm'), To_char(Data, 'yyyy')

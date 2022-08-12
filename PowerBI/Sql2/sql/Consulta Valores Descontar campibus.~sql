@@ -1,0 +1,5 @@
+select empresa, codfunc, nomefunc, DtNasctoFunc, NrDocto, 
+Sum(t.QtdInjustificada), Sum(t.DescontarInjutificadas) from pbi_descticketperiodoanterior t
+Where t.Data Between '26-Nov-2017' And '25-dec-2017'
+  And t.Empresa = '009/002'
+Group By empresa, codfunc, nomefunc, DtNasctoFunc, NrDocto

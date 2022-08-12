@@ -1,0 +1,72 @@
+<div class="container">
+            
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <!--
+      <div class="navbar-header pull-left bottom">
+          <a class="navbar-brand" href="http://support.com.br">
+              <img src="../../imagens/LogoSupport.png" width="50"  alt="">
+          </a>
+      </div> -->     
+  
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" 
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        Menu
+      </button>
+       
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <a *ngIf="!mostrarMenu" class="dropdown-item itensMenu" 
+             [routerLink]="['/login']" routerLinkActive="active">Entrar</a>
+
+        <ul *ngIf="mostrarMenu" class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" 
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastros</a>
+              <div class="dropdown-menu divMenu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item itensMenu" [routerLink]="['/categoria']">Cadastro Categorias</a>
+                  <a class="dropdown-item itensMenu" [routerLink]="['/listaCategoria']">Categorias</a>
+                  <a class="dropdown-item itensMenu" href="#">item 3</a>
+                  <a class="dropdown-item itensMenu" href="#">item 4</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" 
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Movimentações</a>
+              <div class="dropdown-menu divMenu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item itensMenu" href="#">item 1</a>
+                  <a class="dropdown-item itensMenu" href="#">item 2</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" 
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Relatórios</a>
+              <div class="dropdown-menu divMenu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item itensMenu" href="#">item 1</a>
+                  <a class="dropdown-item itensMenu" href="#">item 2</a>
+              </div>
+          </li>
+        </ul>        
+      </div>    
+      
+      <form *ngIf="mostrarMenu" class="form-inline">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" 
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{nomeUsuario}}</a>
+                  <div class="dropdown-menu dropdown-menu-right divMenu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item itensMenu" href="#">Trocar senha</a>
+                      <a class="dropdown-item itensMenu" href="#">Editar perfil</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item itensMenu" href="#">Sair</a>
+                      
+                  </div>
+              </li>
+        </ul>
+      </form>
+    </nav>
+    
+  </div>
+
+  <router-outlet></router-outlet>

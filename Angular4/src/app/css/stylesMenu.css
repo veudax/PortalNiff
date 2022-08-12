@@ -1,0 +1,27 @@
+
+a.itensMenu{
+	text-decoration:none;
+	padding: 10px;
+}
+
+a.itensMenu:link, a:visited{
+	color: rgb(83, 144, 202);
+	font-size: 1em;
+}
+a.itensMenu:hover{
+	color: rgb(68, 168, 214);
+	background: #343a40;
+}
+a.itensMenu:active{
+	color:  rgb(68, 168, 214);
+	background: #343a40;
+}
+
+.divMenu
+{
+background-color: #343a40;
+}
+
+.subMenu{
+	color: rgb(83, 144, 202);
+}

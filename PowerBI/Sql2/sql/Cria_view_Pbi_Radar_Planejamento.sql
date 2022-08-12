@@ -1,0 +1,92 @@
+create or replace view pbi_radar_planejamento as
+Select Grupo,
+       Decode(EmpFil, '009/002', '009/001', empFil) EmpFil,
+       Data,
+       Quantidade valor,
+       decode(Percentual,0,Null,Round(Percentual,2)) Percentual,
+       Ordem,
+       Tipo
+  From (Select Grupo, Ordem,
+               Data,
+               EmpFil,
+               valor Quantidade,
+               percentual,
+               'P' Tipo
+          From Pbi_Radar_Operacional
+         Where Tipo = 'Planejamento'
+         Union All
+        Select 'Passageiro Transportado' Grupo, 3 ordem,
+                 To_date('01/' || To_char(g.dat_viagem_guia,'mm/yyyy'),'dd/mm/yyyy') Data,
+                 LPAD(g.Cod_Empresa,3,'0') || '/' || Lpad(g.CodigoFl,3,'0') EMPFIL,
+                 Sum(Decode(d.cod_tipopagtarifa, '403', 0, Decode( d.cod_tipopagtarifa,'X', -1,'956', -1, 1) * d.qtd_passag_trans)) Quantidade,
+                 0 Percentual,
+                 'P' Tipo
+            From t_Arr_Guia g,
+                 t_arr_detalhe_guia d
+            Where d.cod_seq_guia = g.cod_seq_guia
+              And g.Cod_Empresa || g.codigofl in (11,12,21,31,41,51,61,91,131,261,263)
+              And g.dat_viagem_guia Between (ADD_MONTHS(Trunc(Sysdate,'rr'), -12)) -- inicio de 1 ano atraz
+              And (ADD_MONTHS(Last_day(Trunc(Sysdate)), -1))
+            Group By To_date('01/' || To_char(g.dat_viagem_guia,'mm/yyyy'),'dd/mm/yyyy') ,
+                  LPAD(g.Cod_Empresa,3,'0') || '/' || Lpad(g.CodigoFl,3,'0')
+           Union All
+          Select 'IPK' Grupo, 4 Ordem,
+                 Data,
+                 EmpFil,
+                 Round(Decode(Sum(kmRodado), 0, 0, Sum(Quantidade)/ Sum(KmRodado)),2) Quantiadde,
+                 0 Percentual,
+                 'P' Tipo
+            From (Select LPAD(g.Cod_Empresa,3,'0') || '/' || Lpad(g.CodigoFl,3,'0') EMPFIL,
+                         Last_day(g.dat_viagem_guia) Data,
+                         Sum(Decode(d.cod_tipopagtarifa, '403', 0, Decode( d.cod_tipopagtarifa,'X', -1,'956', -1, 1) * d.qtd_passag_trans)) Quantidade,
+                         0 KmRodado
+                    From t_Arr_Guia g,
+                         t_arr_detalhe_guia d,
+                         t_arr_estatguia e
+                    Where d.cod_seq_guia = g.cod_seq_guia
+                      And e.cod_seq_guia = g.cod_seq_guia
+                      And e.cod_seq_viagem = d.cod_seq_viagem
+                      And g.Cod_Empresa || g.codigofl in (11,12,21,31,41,51,61,91,131,261,263)
+                      And g.dat_viagem_guia Between (ADD_MONTHS(Trunc(Sysdate,'rr'), -12)) -- inicio de 1 ano atraz
+                      And (ADD_MONTHS(Last_day(Trunc(Sysdate)), -1))
+                    Group By Last_day(g.dat_viagem_guia) ,
+                          LPAD(g.Cod_Empresa,3,'0') || '/' || Lpad(g.CodigoFl,3,'0')
+                    Union all
+                   Select EmpFil,
+                          Data,
+                          0 Quantidade,
+                          Km
+                    From pbi_radar_manut_Km  )                            
+            Group By EmpFil, Data
+            Union All
+           Select 'PVD' Grupo, 5 Ordem,
+                  Data,
+                  EmpFil,
+                  Round(Decode(QtdCarros, 0, 0, Round(Quantidade/QtdCarros)),2) Quantidade,
+                  0 Percentual,
+                  'P' Tipo
+             From (Select EmpFil,
+                          Data,
+                          Sum(Quantidade) Quantidade,
+                          Sum(QtdCarros) QtdCarros
+                     From (Select Last_day(g.dat_viagem_guia) Data,
+                                  LPAD(g.Cod_Empresa,3,'0') || '/' || Lpad(g.CodigoFl,3,'0') EMPFIL,
+                                  Sum(Decode(d.cod_tipopagtarifa, '403', 0, Decode( d.cod_tipopagtarifa,'X', -1,'956', -1, 1) * d.qtd_passag_trans)) Quantidade,
+                                  0 QtdCarros
+                             From t_Arr_Guia g,
+                                 t_arr_detalhe_guia d
+                             Where d.cod_seq_guia = g.cod_seq_guia
+                               And g.Cod_Empresa || g.codigofl in (11,12,21,31,41,51,61,91,131,261,263)
+                                And g.dat_viagem_guia Between (ADD_MONTHS(Trunc(Sysdate,'rr'), -12)) -- inicio de 1 ano atraz
+                               And (ADD_MONTHS(Last_day(Trunc(Sysdate)), -1))
+                             Group By Last_day(g.dat_viagem_guia),
+                                   LPAD(g.Cod_Empresa,3,'0') || '/' || Lpad(g.CodigoFl,3,'0')
+                            Union All
+                            Select Last_day(Data) ,
+                                   EmpFil,
+                                   0 Quantidade,
+                                   Sum(Valor) QtdCarros
+                              From Pbi_Radar_Operacional
+                             Where grupo = 'Frota Operacional'
+                             Group By Last_day(Data), EmpFil)
+                    Group By  EmpFil, Data))

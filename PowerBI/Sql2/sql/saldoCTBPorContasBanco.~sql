@@ -1,0 +1,44 @@
+Select codbanco, codagencia, codcontabco, codcontactb
+     , Sum(saldoIni) Saldoini
+     , Sum(Resultado) Resultado
+     , Sum(Debito) debito
+     , Sum(credito) credito
+     , Sum(saldoIni) + Sum(resultado) SaldoFim
+  From (     
+Select c.codbanco, c.codagencia, c.codcontabco, ctb.codcontactb
+     , 0 saldoIni
+     , Sum(s.vldebitosaldo) - Sum(s.vlcreditosaldo) resultado
+     , Sum(s.vldebitosaldo) debito
+     , Sum(s.vlcreditosaldo) credito
+  From bcoconta_contactb ctb,  Bcoconta C, ctbsaldo s
+ Where ctb.nroplano =10
+   And c.codbanco = ctb.codbanco
+   And c.codagencia = ctb.codagencia
+   And c.codcontabco = ctb.codcontabco
+   And c.contacaixa = 'N'
+   And s.nroplano = ctb.nroplano
+   And s.periodosaldo = '201912'
+   And s.codcontactb = ctb.codcontactb
+   And c.codigoempresa = s.codigoempresa
+ Group By c.codbanco, c.codagencia, c.codcontabco   , ctb.codcontactb
+ 
+Union All
+
+Select c.codbanco, c.codagencia, c.codcontabco, ctb.codcontactb
+     , Sum(s.vldebantsaldo) - Sum(s.vlcredantsaldo) SaldoIni
+     , 0 resultado 
+     , 0 debito
+     , 0 credito
+  From bcoconta_contactb ctb,  Bcoconta C, ctbsaldo s
+ Where ctb.nroplano =10
+   And c.codbanco = ctb.codbanco
+   And c.codagencia = ctb.codagencia
+   And c.codcontabco = ctb.codcontabco
+   And c.contacaixa = 'N'
+   And s.nroplano = ctb.nroplano
+   And s.periodosaldo Between '201901' And '201912'
+   And s.codcontactb = ctb.codcontactb
+   And c.codigoempresa = s.codigoempresa
+ Group By c.codbanco, c.codagencia, c.codcontabco   , ctb.codcontactb
+)
+Group By codbanco, codagencia, codcontabco, codcontactb

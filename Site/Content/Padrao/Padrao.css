@@ -1,0 +1,115 @@
+﻿body {
+    font-family: 'Century Gothic';
+    margin: 0 auto;
+    background-image: url(../../Imagens/Fundo.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-x: center
+}
+
+a {
+    color: #31334e;
+}
+
+
+#imagemlogo {
+   margin-top:-250px;
+   width:40px;
+   height:40px;
+
+
+}
+
+#rodape {
+    height: 35px;
+    width: 100%;
+    background-color: #5e9009;
+    position: fixed;
+    bottom: 0px;
+    font-family: 'Century Gothic';
+    font-size: small;
+}
+
+#rodape p{
+    margin-left:20px;
+    margin-top:10px;
+}
+
+.barraTitulo {
+    height: 32px;
+    padding: 1px;
+    background-color: #fff;
+    border-top: 1px solid #8cd40e;
+    border-bottom: 1px solid #8cd40e;
+    margin-top: -135px;
+    margin-left: 195px;
+}
+
+    .barraTitulo p {
+        margin-left: 20px;
+        margin-top: 7px;
+    }
+
+span{
+    margin-right: 15px;
+
+}
+
+.containerPrincipal {
+    width: 1080px;
+    height: 790px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #fff;
+    border-left: 1px solid #8cd40e;
+    /*border-top: 1px solid #8cd40e;*/
+    border-right: 1px solid #8cd40e;
+    border-bottom: 1px solid #8cd40e;
+    margin-top: -370px;
+    margin-left: 195px;
+    display:inline-block;
+    overflow-x:auto;
+
+}
+
+#chamadosGridView{
+    
+    width:600px;
+}
+
+.ItensVistoriados {
+    width: 680px;
+    height: 490px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #fff;
+    border-left: 1px solid #8cd40e;
+    border-top: 1px solid #8cd40e;
+    border-right: 1px solid #8cd40e;
+    border-bottom: 1px solid #8cd40e;
+    margin-top: 10px;
+    margin-left: 195px;
+    display: inline-block;
+    
+}
+
+.campo {
+    height: 35px;
+    width: 300px;
+    font-family: 'Century Gothic';
+    font-size: 8px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 4px;
+    padding-left: 30px;
+}
+
+.literal {
+    height: 35px;
+    width: 300px;
+    font-family: 'Century Gothic';
+    font-size: 12px;
+    margin-bottom: 20px;
+    padding: 10px;
+    padding-left: 30px;
+}

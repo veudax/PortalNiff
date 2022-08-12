@@ -1,0 +1,738 @@
+﻿namespace Suportte.Biblioteca
+{
+    partial class Perguntas
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Perguntas));
+            Syncfusion.Windows.Forms.Grid.Grouping.GridColumnDescriptor gridColumnDescriptor1 = new Syncfusion.Windows.Forms.Grid.Grouping.GridColumnDescriptor();
+            Syncfusion.Windows.Forms.Grid.Grouping.GridColumnDescriptor gridColumnDescriptor2 = new Syncfusion.Windows.Forms.Grid.Grouping.GridColumnDescriptor();
+            this.camposPanel = new System.Windows.Forms.Panel();
+            this.ativoCheckBox = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
+            this.dadosPanel = new System.Windows.Forms.Panel();
+            this.TabControl = new Syncfusion.Windows.Forms.Tools.TabControlAdv();
+            this.PerguntasTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.label6 = new System.Windows.Forms.Label();
+            this.PerguntasGrid = new Syncfusion.Windows.Forms.Grid.Grouping.GridGroupingControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.AlterarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RespostaTextBox = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.label3 = new System.Windows.Forms.Label();
+            this.PerguntasTextBox = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ResenhaTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.ResenhaRichText = new System.Windows.Forms.RichTextBox();
+            this.CategoriaComboBox = new Syncfusion.Windows.Forms.Tools.ComboBoxAdv();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dataDateTimePicker = new Syncfusion.Windows.Forms.Tools.DateTimePickerAdv();
+            this.PesquisaColaboradorButton = new Syncfusion.Windows.Forms.ButtonAdv();
+            this.ColaboradorTextBox = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.label1 = new System.Windows.Forms.Label();
+            this.NomeColaboradorTextBox = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.NomeTextBox = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.pesquisaCategoriaButton = new Syncfusion.Windows.Forms.ButtonAdv();
+            this.codigoTextBox = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.label26 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox44 = new System.Windows.Forms.PictureBox();
+            this.limparButton = new Syncfusion.Windows.Forms.ButtonAdv();
+            this.gravarButton = new Syncfusion.Windows.Forms.ButtonAdv();
+            this.tituloPanel = new System.Windows.Forms.Panel();
+            this.tituloLabel = new System.Windows.Forms.Label();
+            this.powerPictureBox = new System.Windows.Forms.PictureBox();
+            this.camposPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ativoCheckBox)).BeginInit();
+            this.dadosPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TabControl)).BeginInit();
+            this.TabControl.SuspendLayout();
+            this.PerguntasTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PerguntasGrid)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RespostaTextBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerguntasTextBox)).BeginInit();
+            this.ResenhaTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CategoriaComboBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDateTimePicker)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ColaboradorTextBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NomeColaboradorTextBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NomeTextBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codigoTextBox)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox44)).BeginInit();
+            this.tituloPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.powerPictureBox)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // camposPanel
+            // 
+            this.camposPanel.Controls.Add(this.ativoCheckBox);
+            this.camposPanel.Controls.Add(this.dadosPanel);
+            this.camposPanel.Controls.Add(this.CategoriaComboBox);
+            this.camposPanel.Controls.Add(this.label4);
+            this.camposPanel.Controls.Add(this.label5);
+            this.camposPanel.Controls.Add(this.dataDateTimePicker);
+            this.camposPanel.Controls.Add(this.PesquisaColaboradorButton);
+            this.camposPanel.Controls.Add(this.ColaboradorTextBox);
+            this.camposPanel.Controls.Add(this.label1);
+            this.camposPanel.Controls.Add(this.NomeColaboradorTextBox);
+            this.camposPanel.Controls.Add(this.NomeTextBox);
+            this.camposPanel.Controls.Add(this.pesquisaCategoriaButton);
+            this.camposPanel.Controls.Add(this.codigoTextBox);
+            this.camposPanel.Controls.Add(this.label26);
+            this.camposPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.camposPanel.Location = new System.Drawing.Point(0, 40);
+            this.camposPanel.Name = "camposPanel";
+            this.camposPanel.Size = new System.Drawing.Size(933, 656);
+            this.camposPanel.TabIndex = 6;
+            // 
+            // ativoCheckBox
+            // 
+            this.ativoCheckBox.BeforeTouchSize = new System.Drawing.Size(106, 21);
+            this.ativoCheckBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(53)))));
+            this.ativoCheckBox.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ativoCheckBox.Location = new System.Drawing.Point(815, 70);
+            this.ativoCheckBox.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(53)))));
+            this.ativoCheckBox.Name = "ativoCheckBox";
+            this.ativoCheckBox.Size = new System.Drawing.Size(106, 21);
+            this.ativoCheckBox.Style = Syncfusion.Windows.Forms.Tools.CheckBoxAdvStyle.Metro;
+            this.ativoCheckBox.TabIndex = 26;
+            this.ativoCheckBox.Text = "Liberado";
+            this.ativoCheckBox.ThemeName = "Metro";
+            // 
+            // dadosPanel
+            // 
+            this.dadosPanel.Controls.Add(this.TabControl);
+            this.dadosPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dadosPanel.Location = new System.Drawing.Point(0, 99);
+            this.dadosPanel.Name = "dadosPanel";
+            this.dadosPanel.Size = new System.Drawing.Size(933, 557);
+            this.dadosPanel.TabIndex = 25;
+            // 
+            // TabControl
+            // 
+            this.TabControl.ActiveTabColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(53)))));
+            this.TabControl.ActiveTabFont = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TabControl.ActiveTabForeColor = System.Drawing.Color.WhiteSmoke;
+            this.TabControl.BeforeTouchSize = new System.Drawing.Size(933, 557);
+            this.TabControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TabControl.BorderWidth = 2;
+            this.TabControl.CloseButtonForeColor = System.Drawing.Color.Empty;
+            this.TabControl.CloseButtonHoverForeColor = System.Drawing.Color.Empty;
+            this.TabControl.CloseButtonPressedForeColor = System.Drawing.Color.Empty;
+            this.TabControl.CloseTabOnMiddleClick = false;
+            this.TabControl.Controls.Add(this.PerguntasTabPage);
+            this.TabControl.Controls.Add(this.ResenhaTabPage);
+            this.TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(53)))));
+            this.TabControl.FocusOnTabClick = false;
+            this.TabControl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TabControl.InActiveTabForeColor = System.Drawing.Color.Empty;
+            this.TabControl.Location = new System.Drawing.Point(0, 0);
+            this.TabControl.Name = "TabControl";
+            this.TabControl.SeparatorColor = System.Drawing.SystemColors.ControlDark;
+            this.TabControl.ShowSeparator = false;
+            this.TabControl.Size = new System.Drawing.Size(933, 557);
+            this.TabControl.TabIndex = 0;
+            this.TabControl.ThemeName = "TabRenderer3D";
+            // 
+            // PerguntasTabPage
+            // 
+            this.PerguntasTabPage.Controls.Add(this.label6);
+            this.PerguntasTabPage.Controls.Add(this.PerguntasGrid);
+            this.PerguntasTabPage.Controls.Add(this.RespostaTextBox);
+            this.PerguntasTabPage.Controls.Add(this.label3);
+            this.PerguntasTabPage.Controls.Add(this.PerguntasTextBox);
+            this.PerguntasTabPage.Controls.Add(this.label2);
+            this.PerguntasTabPage.Image = null;
+            this.PerguntasTabPage.ImageSize = new System.Drawing.Size(16, 16);
+            this.PerguntasTabPage.Location = new System.Drawing.Point(1, 28);
+            this.PerguntasTabPage.Name = "PerguntasTabPage";
+            this.PerguntasTabPage.ShowCloseButton = true;
+            this.PerguntasTabPage.Size = new System.Drawing.Size(931, 528);
+            this.PerguntasTabPage.TabIndex = 2;
+            this.PerguntasTabPage.Text = "Perguntas / Respostas";
+            this.PerguntasTabPage.ThemesEnabled = false;
+            // 
+            // label6
+            // 
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Enabled = false;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(931, 41);
+            this.label6.TabIndex = 27;
+            this.label6.Text = resources.GetString("label6.Text");
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // PerguntasGrid
+            // 
+            this.PerguntasGrid.ActivateCurrentCellBehavior = Syncfusion.Windows.Forms.Grid.GridCellActivateAction.SetCurrent;
+            this.PerguntasGrid.AlphaBlendSelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(94)))), ((int)(((byte)(171)))), ((int)(((byte)(222)))));
+            this.PerguntasGrid.BackColor = System.Drawing.SystemColors.Control;
+            this.PerguntasGrid.ContextMenuStrip = this.contextMenuStrip1;
+            this.PerguntasGrid.DefaultGridBorderStyle = Syncfusion.Windows.Forms.Grid.GridBorderStyle.Solid;
+            this.PerguntasGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PerguntasGrid.GridOfficeScrollBars = Syncfusion.Windows.Forms.OfficeScrollBars.Metro;
+            this.PerguntasGrid.GridVisualStyles = Syncfusion.Windows.Forms.GridVisualStyles.Metro;
+            this.PerguntasGrid.Location = new System.Drawing.Point(0, 222);
+            this.PerguntasGrid.Name = "PerguntasGrid";
+            this.PerguntasGrid.ShowCurrentCellBorderBehavior = Syncfusion.Windows.Forms.Grid.GridShowCurrentCellBorder.GrayWhenLostFocus;
+            this.PerguntasGrid.ShowNavigationBar = true;
+            this.PerguntasGrid.Size = new System.Drawing.Size(931, 306);
+            this.PerguntasGrid.TabIndex = 26;
+            this.PerguntasGrid.TableDescriptor.AllowNew = false;
+            gridColumnDescriptor1.Appearance.AnyRecordFieldCell.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Left;
+            gridColumnDescriptor1.Appearance.AnyRecordFieldCell.VerticalAlignment = Syncfusion.Windows.Forms.Grid.GridVerticalAlignment.Middle;
+            gridColumnDescriptor1.Appearance.ColumnHeaderCell.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Left;
+            gridColumnDescriptor1.MappingName = "Pergunta";
+            gridColumnDescriptor1.Width = 500;
+            gridColumnDescriptor2.Appearance.AnyRecordFieldCell.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Left;
+            gridColumnDescriptor2.Appearance.AnyRecordFieldCell.VerticalAlignment = Syncfusion.Windows.Forms.Grid.GridVerticalAlignment.Middle;
+            gridColumnDescriptor2.Appearance.ColumnHeaderCell.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Left;
+            gridColumnDescriptor2.MappingName = "Resposta";
+            gridColumnDescriptor2.Width = 400;
+            this.PerguntasGrid.TableDescriptor.Columns.AddRange(new Syncfusion.Windows.Forms.Grid.Grouping.GridColumnDescriptor[] {
+            gridColumnDescriptor1,
+            gridColumnDescriptor2});
+            this.PerguntasGrid.TableDescriptor.TableOptions.CaptionRowHeight = 29;
+            this.PerguntasGrid.TableDescriptor.TableOptions.ColumnHeaderRowHeight = 25;
+            this.PerguntasGrid.TableDescriptor.TableOptions.RecordRowHeight = 25;
+            this.PerguntasGrid.TableOptions.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.PerguntasGrid.TableOptions.SelectionTextColor = System.Drawing.SystemColors.HighlightText;
+            this.PerguntasGrid.TopLevelGroupOptions.ShowCaption = false;
+            this.PerguntasGrid.UseRightToLeftCompatibleTextBox = true;
+            this.PerguntasGrid.VersionInfo = "15.4460.0.17";
+            this.PerguntasGrid.TableControlCellClick += new Syncfusion.Windows.Forms.Grid.Grouping.GridTableControlCellClickEventHandler(this.PerguntasGrid_TableControlCellClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AlterarToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(110, 26);
+            // 
+            // AlterarToolStripMenuItem
+            // 
+            this.AlterarToolStripMenuItem.Name = "AlterarToolStripMenuItem";
+            this.AlterarToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.AlterarToolStripMenuItem.Text = "Alterar";
+            this.AlterarToolStripMenuItem.Click += new System.EventHandler(this.AlterarToolStripMenuItem_Click);
+            // 
+            // RespostaTextBox
+            // 
+            this.RespostaTextBox.AcceptsReturn = true;
+            this.RespostaTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.RespostaTextBox.BeforeTouchSize = new System.Drawing.Size(95, 23);
+            this.RespostaTextBox.BorderColor = System.Drawing.Color.DimGray;
+            this.RespostaTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RespostaTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.RespostaTextBox.FocusBorderColor = System.Drawing.Color.Navy;
+            this.RespostaTextBox.Font = new System.Drawing.Font("Century Gothic", 9.25F);
+            this.RespostaTextBox.Location = new System.Drawing.Point(12, 147);
+            this.RespostaTextBox.MaxLength = 2000;
+            this.RespostaTextBox.MinimumSize = new System.Drawing.Size(10, 6);
+            this.RespostaTextBox.Multiline = true;
+            this.RespostaTextBox.Name = "RespostaTextBox";
+            this.RespostaTextBox.Size = new System.Drawing.Size(905, 72);
+            this.RespostaTextBox.TabIndex = 25;
+            this.RespostaTextBox.ThemeName = "Default";
+            this.RespostaTextBox.UseBorderColorOnFocus = true;
+            this.RespostaTextBox.Enter += new System.EventHandler(this.PerguntasTextBox_Enter);
+            this.RespostaTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RespostaTextBox_KeyDown);
+            this.RespostaTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.RespostaTextBox_Validating);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(9, 131);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 15);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Resposta";
+            // 
+            // PerguntasTextBox
+            // 
+            this.PerguntasTextBox.AcceptsReturn = true;
+            this.PerguntasTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.PerguntasTextBox.BeforeTouchSize = new System.Drawing.Size(95, 23);
+            this.PerguntasTextBox.BorderColor = System.Drawing.Color.DimGray;
+            this.PerguntasTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PerguntasTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.PerguntasTextBox.FocusBorderColor = System.Drawing.Color.Navy;
+            this.PerguntasTextBox.Font = new System.Drawing.Font("Century Gothic", 9.25F);
+            this.PerguntasTextBox.Location = new System.Drawing.Point(12, 56);
+            this.PerguntasTextBox.MaxLength = 2000;
+            this.PerguntasTextBox.MinimumSize = new System.Drawing.Size(10, 6);
+            this.PerguntasTextBox.Multiline = true;
+            this.PerguntasTextBox.Name = "PerguntasTextBox";
+            this.PerguntasTextBox.Size = new System.Drawing.Size(905, 72);
+            this.PerguntasTextBox.TabIndex = 23;
+            this.PerguntasTextBox.ThemeName = "Default";
+            this.PerguntasTextBox.UseBorderColorOnFocus = true;
+            this.PerguntasTextBox.Enter += new System.EventHandler(this.PerguntasTextBox_Enter);
+            this.PerguntasTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PerguntasTextBox_KeyDown);
+            this.PerguntasTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.PerguntasTextBox_Validating);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(9, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 15);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Pergunta";
+            // 
+            // ResenhaTabPage
+            // 
+            this.ResenhaTabPage.Controls.Add(this.ResenhaRichText);
+            this.ResenhaTabPage.Image = null;
+            this.ResenhaTabPage.ImageSize = new System.Drawing.Size(16, 16);
+            this.ResenhaTabPage.Location = new System.Drawing.Point(1, 28);
+            this.ResenhaTabPage.Name = "ResenhaTabPage";
+            this.ResenhaTabPage.ShowCloseButton = true;
+            this.ResenhaTabPage.Size = new System.Drawing.Size(931, 528);
+            this.ResenhaTabPage.TabIndex = 3;
+            this.ResenhaTabPage.Text = "Resenha";
+            this.ResenhaTabPage.ThemesEnabled = false;
+            // 
+            // ResenhaRichText
+            // 
+            this.ResenhaRichText.BackColor = System.Drawing.SystemColors.Control;
+            this.ResenhaRichText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ResenhaRichText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ResenhaRichText.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResenhaRichText.Location = new System.Drawing.Point(0, 0);
+            this.ResenhaRichText.Name = "ResenhaRichText";
+            this.ResenhaRichText.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.ResenhaRichText.Size = new System.Drawing.Size(931, 528);
+            this.ResenhaRichText.TabIndex = 0;
+            this.ResenhaRichText.Text = "";
+            // 
+            // CategoriaComboBox
+            // 
+            this.CategoriaComboBox.BeforeTouchSize = new System.Drawing.Size(401, 25);
+            this.CategoriaComboBox.FlatBorderColor = System.Drawing.Color.DimGray;
+            this.CategoriaComboBox.Font = new System.Drawing.Font("Century Gothic", 9.25F);
+            this.CategoriaComboBox.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.CategoriaComboBox.Location = new System.Drawing.Point(520, 27);
+            this.CategoriaComboBox.Name = "CategoriaComboBox";
+            this.CategoriaComboBox.ReadOnly = true;
+            this.CategoriaComboBox.Size = new System.Drawing.Size(401, 25);
+            this.CategoriaComboBox.Style = Syncfusion.Windows.Forms.VisualStyle.VS2010;
+            this.CategoriaComboBox.TabIndex = 18;
+            this.CategoriaComboBox.TabStop = false;
+            this.CategoriaComboBox.ThemeName = "VS2010";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(517, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 16);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Categoria";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(517, 53);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 15);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Data";
+            // 
+            // dataDateTimePicker
+            // 
+            this.dataDateTimePicker.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
+            this.dataDateTimePicker.BorderColor = System.Drawing.Color.Empty;
+            this.dataDateTimePicker.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dataDateTimePicker.CalendarSize = new System.Drawing.Size(189, 176);
+            this.dataDateTimePicker.Checked = false;
+            this.dataDateTimePicker.ClipboardFormat = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dataDateTimePicker.Culture = new System.Globalization.CultureInfo("pt-BR");
+            this.dataDateTimePicker.DropDownImage = null;
+            this.dataDateTimePicker.DropDownNormalColor = System.Drawing.SystemColors.Control;
+            this.dataDateTimePicker.Enabled = false;
+            this.dataDateTimePicker.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.dataDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dataDateTimePicker.Location = new System.Drawing.Point(520, 70);
+            this.dataDateTimePicker.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(241)))), ((int)(((byte)(39)))));
+            this.dataDateTimePicker.MinValue = new System.DateTime(((long)(0)));
+            this.dataDateTimePicker.Name = "dataDateTimePicker";
+            this.dataDateTimePicker.ShowCheckBox = false;
+            this.dataDateTimePicker.Size = new System.Drawing.Size(111, 23);
+            this.dataDateTimePicker.Style = Syncfusion.Windows.Forms.VisualStyle.VS2010;
+            this.dataDateTimePicker.TabIndex = 24;
+            this.dataDateTimePicker.Value = new System.DateTime(2017, 9, 1, 0, 0, 0, 0);
+            // 
+            // PesquisaColaboradorButton
+            // 
+            this.PesquisaColaboradorButton.Appearance = Syncfusion.Windows.Forms.ButtonAppearance.Metro;
+            this.PesquisaColaboradorButton.BackColor = System.Drawing.SystemColors.Control;
+            this.PesquisaColaboradorButton.BeforeTouchSize = new System.Drawing.Size(23, 23);
+            this.PesquisaColaboradorButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.PesquisaColaboradorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PesquisaColaboradorButton.Font = new System.Drawing.Font("Century Gothic", 9.25F, System.Drawing.FontStyle.Bold);
+            this.PesquisaColaboradorButton.ForeColor = System.Drawing.Color.Black;
+            this.PesquisaColaboradorButton.Image = ((System.Drawing.Image)(resources.GetObject("PesquisaColaboradorButton.Image")));
+            this.PesquisaColaboradorButton.Location = new System.Drawing.Point(110, 70);
+            this.PesquisaColaboradorButton.MetroColor = System.Drawing.Color.DimGray;
+            this.PesquisaColaboradorButton.Name = "PesquisaColaboradorButton";
+            this.PesquisaColaboradorButton.OverrideFormManagedColor = true;
+            this.PesquisaColaboradorButton.Size = new System.Drawing.Size(23, 23);
+            this.PesquisaColaboradorButton.TabIndex = 21;
+            this.PesquisaColaboradorButton.TabStop = false;
+            this.PesquisaColaboradorButton.ThemeName = "Metro";
+            this.PesquisaColaboradorButton.Click += new System.EventHandler(this.PesquisaColaboradorButton_Click);
+            // 
+            // ColaboradorTextBox
+            // 
+            this.ColaboradorTextBox.AcceptsReturn = true;
+            this.ColaboradorTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.ColaboradorTextBox.BeforeTouchSize = new System.Drawing.Size(95, 23);
+            this.ColaboradorTextBox.BorderColor = System.Drawing.Color.DimGray;
+            this.ColaboradorTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ColaboradorTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ColaboradorTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.ColaboradorTextBox.FocusBorderColor = System.Drawing.Color.Navy;
+            this.ColaboradorTextBox.Font = new System.Drawing.Font("Century Gothic", 9.25F);
+            this.ColaboradorTextBox.Location = new System.Drawing.Point(16, 70);
+            this.ColaboradorTextBox.MaxLength = 5;
+            this.ColaboradorTextBox.MinimumSize = new System.Drawing.Size(10, 6);
+            this.ColaboradorTextBox.Name = "ColaboradorTextBox";
+            this.ColaboradorTextBox.Size = new System.Drawing.Size(95, 23);
+            this.ColaboradorTextBox.TabIndex = 20;
+            this.ColaboradorTextBox.ThemeName = "Default";
+            this.ColaboradorTextBox.UseBorderColorOnFocus = true;
+            this.ColaboradorTextBox.TextChanged += new System.EventHandler(this.ColaboradorTextBox_TextChanged);
+            this.ColaboradorTextBox.Enter += new System.EventHandler(this.ColaboradorTextBox_Enter);
+            this.ColaboradorTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ColaboradorTextBox_KeyDown);
+            this.ColaboradorTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ColaboradorTextBox_Validating);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(13, 52);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 15);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Colaborador";
+            // 
+            // NomeColaboradorTextBox
+            // 
+            this.NomeColaboradorTextBox.AcceptsReturn = true;
+            this.NomeColaboradorTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.NomeColaboradorTextBox.BeforeTouchSize = new System.Drawing.Size(95, 23);
+            this.NomeColaboradorTextBox.BorderColor = System.Drawing.Color.DimGray;
+            this.NomeColaboradorTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NomeColaboradorTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.NomeColaboradorTextBox.Enabled = false;
+            this.NomeColaboradorTextBox.FocusBorderColor = System.Drawing.Color.Navy;
+            this.NomeColaboradorTextBox.Font = new System.Drawing.Font("Century Gothic", 9.25F);
+            this.NomeColaboradorTextBox.Location = new System.Drawing.Point(136, 70);
+            this.NomeColaboradorTextBox.MaxLength = 50;
+            this.NomeColaboradorTextBox.MinimumSize = new System.Drawing.Size(10, 6);
+            this.NomeColaboradorTextBox.Name = "NomeColaboradorTextBox";
+            this.NomeColaboradorTextBox.Size = new System.Drawing.Size(378, 23);
+            this.NomeColaboradorTextBox.TabIndex = 22;
+            this.NomeColaboradorTextBox.ThemeName = "Default";
+            this.NomeColaboradorTextBox.UseBorderColorOnFocus = true;
+            // 
+            // NomeTextBox
+            // 
+            this.NomeTextBox.AcceptsReturn = true;
+            this.NomeTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.NomeTextBox.BeforeTouchSize = new System.Drawing.Size(95, 23);
+            this.NomeTextBox.BorderColor = System.Drawing.Color.DimGray;
+            this.NomeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NomeTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.NomeTextBox.Enabled = false;
+            this.NomeTextBox.FocusBorderColor = System.Drawing.Color.Navy;
+            this.NomeTextBox.Font = new System.Drawing.Font("Century Gothic", 9.25F);
+            this.NomeTextBox.Location = new System.Drawing.Point(136, 27);
+            this.NomeTextBox.MaxLength = 50;
+            this.NomeTextBox.MinimumSize = new System.Drawing.Size(10, 6);
+            this.NomeTextBox.Name = "NomeTextBox";
+            this.NomeTextBox.Size = new System.Drawing.Size(378, 23);
+            this.NomeTextBox.TabIndex = 16;
+            this.NomeTextBox.ThemeName = "Default";
+            this.NomeTextBox.UseBorderColorOnFocus = true;
+            // 
+            // pesquisaCategoriaButton
+            // 
+            this.pesquisaCategoriaButton.Appearance = Syncfusion.Windows.Forms.ButtonAppearance.Metro;
+            this.pesquisaCategoriaButton.BackColor = System.Drawing.SystemColors.Control;
+            this.pesquisaCategoriaButton.BeforeTouchSize = new System.Drawing.Size(23, 23);
+            this.pesquisaCategoriaButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.pesquisaCategoriaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pesquisaCategoriaButton.Font = new System.Drawing.Font("Century Gothic", 9.25F, System.Drawing.FontStyle.Bold);
+            this.pesquisaCategoriaButton.ForeColor = System.Drawing.Color.Black;
+            this.pesquisaCategoriaButton.Image = ((System.Drawing.Image)(resources.GetObject("pesquisaCategoriaButton.Image")));
+            this.pesquisaCategoriaButton.Location = new System.Drawing.Point(110, 27);
+            this.pesquisaCategoriaButton.MetroColor = System.Drawing.Color.DimGray;
+            this.pesquisaCategoriaButton.Name = "pesquisaCategoriaButton";
+            this.pesquisaCategoriaButton.OverrideFormManagedColor = true;
+            this.pesquisaCategoriaButton.Size = new System.Drawing.Size(23, 23);
+            this.pesquisaCategoriaButton.TabIndex = 15;
+            this.pesquisaCategoriaButton.TabStop = false;
+            this.pesquisaCategoriaButton.ThemeName = "Metro";
+            this.pesquisaCategoriaButton.Click += new System.EventHandler(this.pesquisaCategoriaButton_Click);
+            // 
+            // codigoTextBox
+            // 
+            this.codigoTextBox.AcceptsReturn = true;
+            this.codigoTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.codigoTextBox.BeforeTouchSize = new System.Drawing.Size(95, 23);
+            this.codigoTextBox.BorderColor = System.Drawing.Color.DimGray;
+            this.codigoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.codigoTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.codigoTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.codigoTextBox.FocusBorderColor = System.Drawing.Color.Navy;
+            this.codigoTextBox.Font = new System.Drawing.Font("Century Gothic", 9.25F);
+            this.codigoTextBox.Location = new System.Drawing.Point(16, 27);
+            this.codigoTextBox.MaxLength = 5;
+            this.codigoTextBox.MinimumSize = new System.Drawing.Size(10, 6);
+            this.codigoTextBox.Name = "codigoTextBox";
+            this.codigoTextBox.Size = new System.Drawing.Size(95, 23);
+            this.codigoTextBox.TabIndex = 14;
+            this.codigoTextBox.ThemeName = "Default";
+            this.codigoTextBox.UseBorderColorOnFocus = true;
+            this.codigoTextBox.TextChanged += new System.EventHandler(this.codigoTextBox_TextChanged);
+            this.codigoTextBox.Enter += new System.EventHandler(this.codigoTextBox_Enter);
+            this.codigoTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.codigoTextBox_KeyDown);
+            this.codigoTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.codigoTextBox_Validating);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(13, 9);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(32, 15);
+            this.label26.TabIndex = 13;
+            this.label26.Text = "Livro";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.pictureBox44);
+            this.panel3.Controls.Add(this.limparButton);
+            this.panel3.Controls.Add(this.gravarButton);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 696);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(933, 62);
+            this.panel3.TabIndex = 7;
+            // 
+            // pictureBox44
+            // 
+            this.pictureBox44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(53)))));
+            this.pictureBox44.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox44.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox44.Name = "pictureBox44";
+            this.pictureBox44.Size = new System.Drawing.Size(933, 4);
+            this.pictureBox44.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox44.TabIndex = 19;
+            this.pictureBox44.TabStop = false;
+            // 
+            // limparButton
+            // 
+            this.limparButton.Appearance = Syncfusion.Windows.Forms.ButtonAppearance.Metro;
+            this.limparButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(53)))));
+            this.limparButton.BeforeTouchSize = new System.Drawing.Size(103, 34);
+            this.limparButton.BorderStyleAdv = Syncfusion.Windows.Forms.ButtonAdvBorderStyle.Flat;
+            this.limparButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(38)))), ((int)(((byte)(91)))));
+            this.limparButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.limparButton.Font = new System.Drawing.Font("Century Gothic", 9.25F, System.Drawing.FontStyle.Bold);
+            this.limparButton.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.limparButton.Location = new System.Drawing.Point(503, 14);
+            this.limparButton.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(53)))));
+            this.limparButton.Name = "limparButton";
+            this.limparButton.OverrideFormManagedColor = true;
+            this.limparButton.Size = new System.Drawing.Size(103, 34);
+            this.limparButton.TabIndex = 1;
+            this.limparButton.Text = "&Limpar";
+            this.limparButton.ThemeName = "Metro";
+            this.limparButton.Click += new System.EventHandler(this.limparButton_Click);
+            this.limparButton.Enter += new System.EventHandler(this.limparButton_Enter);
+            this.limparButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.limparButton_KeyDown);
+            this.limparButton.Validating += new System.ComponentModel.CancelEventHandler(this.limparButton_Validating);
+            // 
+            // gravarButton
+            // 
+            this.gravarButton.Appearance = Syncfusion.Windows.Forms.ButtonAppearance.Metro;
+            this.gravarButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(53)))));
+            this.gravarButton.BeforeTouchSize = new System.Drawing.Size(103, 34);
+            this.gravarButton.BorderStyleAdv = Syncfusion.Windows.Forms.ButtonAdvBorderStyle.Flat;
+            this.gravarButton.Enabled = false;
+            this.gravarButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(38)))), ((int)(((byte)(91)))));
+            this.gravarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gravarButton.Font = new System.Drawing.Font("Century Gothic", 9.25F, System.Drawing.FontStyle.Bold);
+            this.gravarButton.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.gravarButton.Location = new System.Drawing.Point(327, 14);
+            this.gravarButton.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(53)))));
+            this.gravarButton.Name = "gravarButton";
+            this.gravarButton.OverrideFormManagedColor = true;
+            this.gravarButton.Size = new System.Drawing.Size(103, 34);
+            this.gravarButton.TabIndex = 0;
+            this.gravarButton.Text = "&Gravar";
+            this.gravarButton.ThemeName = "Metro";
+            this.gravarButton.Click += new System.EventHandler(this.gravarButton_Click);
+            this.gravarButton.Enter += new System.EventHandler(this.gravarButton_Enter);
+            this.gravarButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gravarButton_KeyDown);
+            this.gravarButton.Validating += new System.ComponentModel.CancelEventHandler(this.gravarButton_Validating);
+            // 
+            // tituloPanel
+            // 
+            this.tituloPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(19)))), ((int)(((byte)(53)))));
+            this.tituloPanel.Controls.Add(this.tituloLabel);
+            this.tituloPanel.Controls.Add(this.powerPictureBox);
+            this.tituloPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tituloPanel.Location = new System.Drawing.Point(0, 0);
+            this.tituloPanel.Name = "tituloPanel";
+            this.tituloPanel.Size = new System.Drawing.Size(933, 40);
+            this.tituloPanel.TabIndex = 8;
+            this.tituloPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.tituloPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.tituloPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            // 
+            // tituloLabel
+            // 
+            this.tituloLabel.AutoSize = true;
+            this.tituloLabel.Font = new System.Drawing.Font("Century Gothic", 12.25F);
+            this.tituloLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.tituloLabel.Location = new System.Drawing.Point(12, 10);
+            this.tituloLabel.Name = "tituloLabel";
+            this.tituloLabel.Size = new System.Drawing.Size(282, 21);
+            this.tituloLabel.TabIndex = 0;
+            this.tituloLabel.Text = "Perguntas / Respostas / Resenha";
+            this.tituloLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.tituloLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.tituloLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            // 
+            // powerPictureBox
+            // 
+            this.powerPictureBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.powerPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("powerPictureBox.Image")));
+            this.powerPictureBox.Location = new System.Drawing.Point(893, 0);
+            this.powerPictureBox.Name = "powerPictureBox";
+            this.powerPictureBox.Size = new System.Drawing.Size(40, 40);
+            this.powerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.powerPictureBox.TabIndex = 12;
+            this.powerPictureBox.TabStop = false;
+            this.powerPictureBox.Click += new System.EventHandler(this.powerPictureBox_Click);
+            // 
+            // Perguntas
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(933, 758);
+            this.ControlBox = false;
+            this.Controls.Add(this.camposPanel);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.tituloPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "Perguntas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Perguntas";
+            this.Shown += new System.EventHandler(this.Perguntas_Shown);
+            this.camposPanel.ResumeLayout(false);
+            this.camposPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ativoCheckBox)).EndInit();
+            this.dadosPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.TabControl)).EndInit();
+            this.TabControl.ResumeLayout(false);
+            this.PerguntasTabPage.ResumeLayout(false);
+            this.PerguntasTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PerguntasGrid)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.RespostaTextBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerguntasTextBox)).EndInit();
+            this.ResenhaTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CategoriaComboBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDateTimePicker)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ColaboradorTextBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NomeColaboradorTextBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NomeTextBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codigoTextBox)).EndInit();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox44)).EndInit();
+            this.tituloPanel.ResumeLayout(false);
+            this.tituloPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.powerPictureBox)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel camposPanel;
+        private Syncfusion.Windows.Forms.Tools.ComboBoxAdv CategoriaComboBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private Syncfusion.Windows.Forms.Tools.DateTimePickerAdv dataDateTimePicker;
+        private Syncfusion.Windows.Forms.ButtonAdv PesquisaColaboradorButton;
+        public Syncfusion.Windows.Forms.Tools.TextBoxExt ColaboradorTextBox;
+        private System.Windows.Forms.Label label1;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt NomeColaboradorTextBox;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt NomeTextBox;
+        private Syncfusion.Windows.Forms.ButtonAdv pesquisaCategoriaButton;
+        public Syncfusion.Windows.Forms.Tools.TextBoxExt codigoTextBox;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pictureBox44;
+        private Syncfusion.Windows.Forms.ButtonAdv limparButton;
+        private Syncfusion.Windows.Forms.ButtonAdv gravarButton;
+        private System.Windows.Forms.Panel tituloPanel;
+        private System.Windows.Forms.Label tituloLabel;
+        private System.Windows.Forms.PictureBox powerPictureBox;
+        private System.Windows.Forms.Panel dadosPanel;
+        private Syncfusion.Windows.Forms.Tools.TabControlAdv TabControl;
+        private Syncfusion.Windows.Forms.Tools.TabPageAdv PerguntasTabPage;
+        private Syncfusion.Windows.Forms.Tools.TabPageAdv ResenhaTabPage;
+        private Syncfusion.Windows.Forms.Grid.Grouping.GridGroupingControl PerguntasGrid;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt RespostaTextBox;
+        private System.Windows.Forms.Label label3;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt PerguntasTextBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox ResenhaRichText;
+        private Syncfusion.Windows.Forms.Tools.CheckBoxAdv ativoCheckBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem AlterarToolStripMenuItem;
+    }
+}

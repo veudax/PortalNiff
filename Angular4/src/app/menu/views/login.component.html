@@ -1,0 +1,36 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <!--<div class="navbar-header pull-left bottom">
+        <a class="navbar-brand" href="http://support.com.br">
+            <img src="c:/Sistemas/Angular4/src/app/imagens/LogoSupport.png" width="50"  alt="">
+        </a>
+    </div>-->     
+     
+    <form class="form-inline">
+            <ul class="navbar-nav">
+                <li class="nav-item disabled">
+                    <a class="nav-link disabled" href="#" id="navbarDropdownMenuLink" role="button" 
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Efetue seu login</a>
+                  </li>
+            </ul>
+  
+          </form> 
+</nav>
+
+<form class="formCenterLogin">
+    <div class="form-group">
+      <!-- para usar o ngModel teve ter um name e incluir o module formModule -->
+      <input type="email" [(ngModel)]="usuario.EMAIL" 
+             class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Informe seu e-mail" name="email">
+    </div>
+    <div class="form-group">
+      
+      <input [(ngModel)]="usuario.SENHA" type="password" class="form-control" id="exampleInputPassword1" placeholder="Informe sua senha" name="senha" required>
+          <a class="nav-link" href="#" >
+              <small id="emailHelp" class="form-text esqueceuSenha">Esqueceu a senha? 
+                </small>
+            </a>
+    </div>
+    <!--  <a href="#" class="btn btn-outline-dark btn-primary btn-lg btn-block" role="submit" id="botaoLogin">Acessar</a> -->
+    <button type="button" class="btn btn-outline-dark btn-block" id="botaoLogin" (click)="fazerLogin()">Acessar</button> 
+   
+  </form>

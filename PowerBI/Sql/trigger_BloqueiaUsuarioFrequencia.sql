@@ -1,0 +1,14 @@
+CREATE OR REPLACE TRIGGER Tr_NIFF_BloqUsuarioFrq
+
+  AFTER insert ON Ctr_Cadastrodeusuarios
+
+  FOR EACH ROW
+
+
+BEGIN
+
+  Insert Into FRQ_FECHAAUTOMATICO_USUARIO
+  (USUARIO,SISTEMA,QTDE_HORAS)
+  VALUES (:New.Usuario, 'FRQ',72);
+
+END Tr_NIFF_BloqUsuarioFrq;

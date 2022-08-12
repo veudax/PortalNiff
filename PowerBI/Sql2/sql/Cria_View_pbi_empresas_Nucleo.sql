@@ -1,0 +1,43 @@
+create or replace view pbi_empresas_Nucleo as
+select '001/001' nucleo, '001/001' EmpFil from dual
+UNION ALL
+ ----------------------------------------------------------------------------
+select '001/002' nucleo, '001/002' EmpFil from dual
+UNION ALL
+ ----------------------------------------------------------------------------
+select '002/001' nucleo, '002/001' EmpFil from dual
+UNION ALL
+ ----------------------------------------------------------------------------
+select '003/001' nucleo, '003/001' EmpFil from dual
+UNION ALL
+ ----------------------------------------------------------------------------
+select '004/001' nucleo, '004/001' EmpFil from dual
+UNION ALL
+ ----------------------------------------------------------------------------
+select '005/001' nucleo, '005/001' EmpFil from dual
+UNION ALL
+ ----------------------------------------------------------------------------
+select '006/001' nucleo, '006/001' EmpFil from dual
+UNION ALL
+ ----------------------------------------------------------------------------
+select '009/001' nucleo, '009/001' EmpFil from dual
+UNION ALL
+ ----------------------------------------------------------------------------
+select '013/001' nucleo, '013/001' EmpFil from dual
+UNION ALL
+ ----------------------------------------------------------------------------
+select '026/001' nucleo, '026/001' EmpFil from dual
+UNION ALL
+ ----------------------------------------------------------------------------
+select '026/002' nucleo, '026/002' EmpFil from dual
+UNION ALL
+ ----------------------------------------------------------------------------
+select '000/000' nucleo, '001/001' EmpFil from dual
+Union All
+Select '000/000' nucleo, '001/002' EmpFil from dual
+Union All
+Select '000/000' nucleo, '006/001' EmpFil from dual
+Union All
+Select '000/000' nucleo, '026/001' EmpFil from dual
+
+

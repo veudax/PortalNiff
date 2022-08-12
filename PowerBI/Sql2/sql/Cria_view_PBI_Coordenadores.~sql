@@ -1,0 +1,8 @@
+Create Or Replace View PBI_Coordenadores As
+  Select distinct f.CODINTFUNC, f.CODFUNC, f.nomefunc, 
+         f.CODFUNC || '-' || f.nomefunc nome, 
+         lPad(f.codigoempresa,3,'0') || '/' || lPad(f.codigofl,3,'0') empfil
+    From vw_funcionarios f
+       , Niff_PBI_CoordInspetores c
+   Where c.codintfunc_coord = f.CODINTFUNC
+;

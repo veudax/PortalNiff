@@ -1,0 +1,61 @@
+create or replace view pbi_avariasporlinha as
+   Select Count(fu.Codintfunc) Qtd_Ocorr, ft.codintfunc codfiscal, 
+        To_char(f.dthist, 'yyyy/mm') mes,
+                 f.Dthist,
+                 f.Ocorrencia,
+                 a.codintlinha,
+                 v.prefixoveic carro,
+                 fu.codintfunc,
+                 codfunc || ' - ' || fu.nomefunc funcionario, A.NUMERORAINFGER
+            From (Select Distinct t.codintfunc, trunc(t.dthist) dtHist, t.codocorr, o.Codocorr || ' - ' || o.Descocorr Ocorrencia
+                    From Flp_Historico t,
+                         Frq_Ocorrencia o
+                   Where o.codocorr = t.codocorr
+                     And t.Codocorr In (514, 106, 241, 594, 595)
+                     And t.Dthist Between '01-jan-2016' And Sysdate) F,
+                 vw_funcionarios Fu,
+                ( Select Distinct a.NUMERORAINFGER, a.datarainfger, a.codocorr, ac.codintfunc, a.codintlinha, a.codigoveic
+                    From ACD_FUNCINFORMGERAIS ac,
+                         acd_informacoesgerais A
+                   Where a.codigoempresa = ac.codigoempresa
+                     And a.codigofl = ac.codigofl
+                     And A.NUMERORAINFGERPRINCIPAL Is Null
+                     And a.Codocorr In (514, 106, 241, 594, 595)
+                     And a.numerorainfger = ac.numerorainfger ) A,
+                 frt_cadveiculos v,
+                 niff_pbi_linhasporservico ls,
+                 niff_pbi_fiscaisdoterminal ft,
+                 frq_digitacaomovimento dmf,
+                 frq_digitacaomovimento dm, niff_pbi_terminallinhas tl
+           Where f.Dthist Between '01-jan-2016' And Sysdate
+             And F.Codintfunc = Fu.Codintfunc
+             And fu.codintfunc = a.codintfunc
+             And a.Datarainfger = F.dthist
+             And a.codocorr = F.codocorr
+             And v.codigoveic = a.codigoVeic
+             And fu.CODAREA = 40      
+             
+             And ls.codintlinha = a.codintlinha
+             And ft.idterminal = ls.idterminal
+             And ft.Data = f.dthist
+             And dmf.codintfunc = ft.codintfunc
+             And dmf.dtdigit = f.dthist
+             And dmf.codocorr In (96,99,98)
+             And dmf.tipodigit = 'F'
+             
+             And dm.codintfunc = fu.CODINTFUNC
+             And dm.dtdigit = f.dthist
+             And dm.codocorr In (96,99,98)
+             And dm.tipodigit = 'F'
+             And tl.idterminal = ft.idterminal
+             And dm.entradigit Between dmf.entradigit And dmf.saidadigit
+--             And fu.CODINTFUNC = 7490
+
+           Group By f.Dthist,
+        To_char(f.dthist, 'yyyy/mm') ,
+                    f.Ocorrencia,
+                    a.codintlinha, 
+                    v.prefixoveic,
+                    fu.codintfunc, A.NUMERORAINFGER,
+                    codfunc ,fu.nomefunc, ft.codintfunc
+

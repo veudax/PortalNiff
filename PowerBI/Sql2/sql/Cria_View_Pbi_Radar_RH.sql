@@ -1,0 +1,316 @@
+create or replace view pbi_radar_rh as
+Select Grupo,
+       Decode(EmpFil, '009/002', '009/001', empFil) EmpFil,
+       Data,
+       Quantidade valor,
+       decode(Percentual,0,Null,Round(Percentual,2)) Percentual,
+       Ordem,
+       Tipo
+  From (Select 'Exames Vencidos' Grupo, 9 Ordem,
+                 Trunc(M.DATAFICHA) Data,
+                 LPAD(F.CODIGOEMPRESA,3,'0') || '/' || Lpad(F.CodigoFl,3,'0') EMPFIL,
+                 Count(*) Quantidade,
+                 0 Percentual,
+                 'RH' Tipo
+            From FLP_FUNCIONARIOS F,
+                 SRH_TIPOCONSULTA C,
+                 SRH_FICHAMEDICA FM,
+               ( Select Max(FM.DATAFICHAMED) DATAFICHA, FM.CODINTFUNC
+                   From SRH_FICHAMEDICA FM
+                  Where FM.TIPOCONSULTA In ('02','03','04','07')
+                  Group By FM.CODINTFUNC ) M
+           Where F.CODINTFUNC = M.CODINTFUNC
+             And F.CODINTFUNC = FM.CODINTFUNC
+             And FM.DATAFICHAMED = M.DATAFICHA
+             And C.CODTIPOCONS = FM.TIPOCONSULTA
+             And f.situacaofunc = 'A'
+             And f.codigoempresa || f.codigofl in (11,12,21,31,41,51,61,92,131,261,263)
+             And Trunc(M.DataFicha) Between (ADD_MONTHS(Trunc(Sysdate,'rr'), -12)) -- inicio de 1 ano atraz
+             And (ADD_MONTHS(Last_day(Trunc(Sysdate)), -1))
+           Group By LPAD(F.CODIGOEMPRESA,3,'0') || '/' || Lpad(F.CodigoFl,3,'0'),
+                    Trunc(M.DATAFICHA)
+           Union All
+          Select 'CNH Vencidas' Grupo, 10 Ordem,
+                 Trunc(D.CNHVENCTO) Data,
+                 LPAD(F.CODIGOEMPRESA,3,'0') || '/' || Lpad(F.CodigoFl,3,'0') EMPFIL,
+                 Count(*) Quantidade,
+                 0 Percentual,
+                 'RH' Tipo
+            From vwflp_doctos d,
+                 Vw_Funcionarios f
+           Where f.CODINTFUNC = d.CODINTFUNC
+             And f.SITUACAOFUNC = 'A'
+             And f.codigoempresa || f.codigofl in (11,12,21,31,41,51,61,92,131,261,263)
+             And Trunc(D.CNHVENCTO) Between (ADD_MONTHS(Trunc(Sysdate,'rr'), -12)) -- inicio de 1 ano atraz
+             And (ADD_MONTHS(Last_day(Trunc(Sysdate)), -1))
+           Group By LPAD(F.CODIGOEMPRESA,3,'0') || '/' || Lpad(F.CodigoFl,3,'0'),
+                    Trunc(D.CNHVENCTO)
+           Union All
+          Select 'Absenteísmo' Grupo, 5 Ordem,
+                 Data,
+                 EMPFIL,
+                 Round(Decode(Sum(FTE), 0, 0, (Sum(qtd_ocorr)/30)/Sum(FTE))*100,2)  Quantidade,
+                 0 Percentual,
+                 'RH' Tipo
+            From (Select Count(fu.nomefunc) qtd_ocorr,
+                       last_day(trunc(t.dthist)) Data,
+                       LPAD(FU.CODIGOEMPRESA,3,'0') || '/' || Lpad(FU.CodigoFl,3,'0') EMPFIL,
+                       0 FTE
+                  From flp_historico t, frq_ocorrencia f, vw_funcionarios fu
+                 Where t.dthist BETWEEN (ADD_MONTHS(Trunc(Sysdate,'rr'), -12)) -- inicio de 1 ano atraz
+                   And (ADD_MONTHS(Last_day(Trunc(Sysdate)), -1))
+                   And f.codocorr = t.codocorr
+                   And fu.codigoempresa || fu.codigofl in (11,12,21,31,41,51,61,92,131,261,263)
+                   And f.codocorr In (505,504,506,507,521,526,534,535,541,542,579,582,579,560,584,580,581,583,592,593,527)
+                   And t.codintfunc = fu.codintfunc
+                   And fu.CODAREA In (20,30,40) -- trazer só essas areas?
+                 Group By Trunc(t.dthist),
+                          LPAD(FU.CODIGOEMPRESA,3,'0') || '/' || Lpad(FU.CodigoFl,3,'0')
+                 Union All
+                 Select 0 Qtd_Ocorr,
+                        Last_day(ff.competficha) data,
+                        LPAD(F.CODIGOEMPRESA,3,'0') || '/' || Lpad(F.CodigoFl,3,'0') EMPFIL,
+                        Count(Distinct f.nomefunc) FTE
+                   from flp_funcionarios f,
+                        flp_fichafinanceira ff
+                  where f.codigoempresa || f.codigofl in (11,12,21,31,41,51,61,92,131,261,263)
+                    And ff.competficha between (ADD_MONTHS(Trunc(Sysdate,'rr'), -12)) -- inicio de 1 ano atraz
+                    And (ADD_MONTHS(Last_day(Trunc(Sysdate)), -1))
+                    And ff.codintfunc = f.codintfunc
+                    And ff.situacaoffinan = 'A'
+                    And (ff.tipofolha = 1)
+                  Group By ff.competficha,
+                        LPAD(F.CODIGOEMPRESA,3,'0') || '/' || Lpad(F.CodigoFl,3,'0')                
+                          ) 
+           group By EmpFil, Data                
+            Union All
+           Select 'Avarias por KM' Grupo, 8 Ordem,
+                  Data,
+                  EmpFil,
+                  Round(Decode(qtd_ocorr, 0, 0, totalkm / qtd_ocorr),2) Quantidade,
+                  0 Percentual,
+                 'RH' Tipo
+             From (Select Sum(qtd_ocorr) qtd_ocorr,
+                          Data,
+                          EmpFil,
+                          Sum(totalkm) TotalKM
+                     From (Select EmpFil, Sum(qtd_ocorr) qtd_ocorr, Last_day(Trunc(dthist)) Data, 0 TotalKm
+                             From (select count(fu.nomefunc) qtd_ocorr, 
+                                          t.dthist,
+                                          lpad(fu.codigoempresa,3,'0') || '/' || lPad(Decode(fu.codigoempresa,9, decode(fu.codigofl, 2, 1, fu.codigofl),fu.codigofl),3,'0') EmpFil
+                                     from flp_historico t, frq_ocorrencia f, flp_funcionarios fu
+                                    where t.dthist BETWEEN '01-jan-2016' and sysdate
+                                      and f.codocorr = t.codocorr
+                                      and fu.codigoempresa || fu.codigofl In (11,12,21,31,41,51,61,92,131,261,263)
+                                      and f.codocorr In (514,106,241,594,595)
+                                      and t.codintfunc = fu.codintfunc
+                                    group by t.dthist, fu.codigoempresa, fu.codigofl ) 
+                    Group By Empfil, Last_day(Trunc(dthist))
+                    Union All
+                   Select LPAD(b.CODIGOEMPRESA,3,'0') || '/' || Lpad(b.CodigoFl,3,'0') EMPFIL,
+                          0 qtd_ocorr,
+                          Last_day(b.dataveloc) Data,                          
+                          sum(b.kmpercorridoveloc) totalkm
+                     From bgm_velocimetro b
+                    Where b.dataveloc BETWEEN (ADD_MONTHS(Trunc(Sysdate,'rr'), -12)) -- inicio de 1 ano atraz
+                      And (ADD_MONTHS(Last_day(Trunc(Sysdate)), -1))
+                      and b.codigoempresa || b.CODIGOfl in (11,12,21,31,41,51,61,91,131,261,263)
+                    Group by Last_day(b.dataveloc),
+                             LPAD(b.CODIGOEMPRESA,3,'0') || '/' || Lpad(b.CodigoFl,3,'0')) 
+                 Group By Data, EmpFil )             
+            Union All
+           Select 'Acidentes por KM' Grupo, 7 Ordem,
+                  Data,
+                  EmpFil,
+                  Round(Decode(qtd_ocorr, 0, 0, totalkm / qtd_ocorr),2) Quantidade,
+                  0 Percentual,
+                 'RH' Tipo
+             From (Select Sum(qtd_ocorr) qtd_ocorr,
+                          Data,
+                          EmpFil,
+                          Sum(totalkm) TotalKM
+                     From (Select EmpFil, Sum(qtd_ocorr) qtd_ocorr, Last_day(Trunc(dthist)) Data, 0 TotalKm
+                             From (select count(fu.nomefunc) qtd_ocorr, 
+                                          t.dthist,
+                                          lpad(fu.codigoempresa,3,'0') || '/' || lPad(Decode(fu.codigoempresa,9, decode(fu.codigofl, 2, 1, fu.codigofl),fu.codigofl),3,'0') EmpFil
+                                     from flp_historico t, frq_ocorrencia f, flp_funcionarios fu
+                                    where t.dthist BETWEEN '01-jan-2016' and sysdate
+                                      and f.codocorr = t.codocorr
+                                      and fu.codigoempresa || fu.codigofl In (11,12,21,31,41,51,61,92,131,261,263)
+                                      and f.codocorr In (502,501,257,226,86,84,503,511,103,228)
+                                      and t.codintfunc = fu.codintfunc
+                                    group by t.dthist, fu.codigoempresa, fu.codigofl ) 
+                    Group By Empfil, Last_day(Trunc(dthist))
+                    Union All
+                   Select LPAD(b.CODIGOEMPRESA,3,'0') || '/' || Lpad(b.CodigoFl,3,'0') EMPFIL,
+                          0 qtd_ocorr,
+                          Last_day(b.dataveloc) Data,                          
+                          sum(b.kmpercorridoveloc) totalkm
+                     From bgm_velocimetro b
+                    Where b.dataveloc BETWEEN (ADD_MONTHS(Trunc(Sysdate,'rr'), -12)) -- inicio de 1 ano atraz
+                      And (ADD_MONTHS(Last_day(Trunc(Sysdate)), -1))
+                      and b.codigoempresa || b.CODIGOfl in (11,12,21,31,41,51,61,91,131,261,263)
+                    Group by Last_day(b.dataveloc),
+                             LPAD(b.CODIGOEMPRESA,3,'0') || '/' || Lpad(b.CodigoFl,3,'0')) 
+                 Group By Data, EmpFil ) 
+            Union All
+           Select 'Turnover' Grupo, 6 Ordem,
+                   Data,
+                   EmpFil,
+                   Round(Decode(Sum(efetivos),0,0,((Sum(QtdDemitidos)+ Sum(admitidos))/2)/Sum(efetivos))*100,2) Quantidade,
+                    0 Percentual,
+                   'RH' Tipo
+             From (Select count(distinct f.nomefunc) QtdDemitidos,
+                          0 Admitidos ,
+                          0 efetivos,
+                          Last_Day(q.dtdesligquita) data,
+                          LPAD(F.CODIGOEMPRESA,3,'0') || '/' || Lpad(F.CodigoFl,3,'0') EMPFIL
+                     from flp_funcionarios f, flp_quitacao q
+                    Where f.codigoempresa || f.codigofl in (11,12,21,31,41,51,61,92,131,261,263)
+                      and q.dtdesligquita between '01-jan-2016' and sysdate
+                      and q.codintfunc = f.codintfunc 
+                      and q.statusquita = 'N'
+                    group by Last_Day(q.dtdesligquita), LPAD(F.CODIGOEMPRESA,3,'0') || '/' || Lpad(F.CodigoFl,3,'0')
+                    Union All
+                  (select 0 QtdDemitidos, 
+                          count(distinct f.nomefunc) Admitidos, 
+                          0 efetivos,
+                          Last_Day(f.dtadmfunc) data,
+                          LPAD(F.CODIGOEMPRESA,3,'0') || '/' || Lpad(F.CodigoFl,3,'0') EMPFIL
+                     From flp_funcionarios f   
+                    Where f.codigoempresa || f.codigofl in (11,12,21,31,41,51,61,92,131,261,263)
+                      and f.dtadmfunc between '01-jan-2016' and sysdate
+                    group by Last_Day(f.dtadmfunc), LPAD(F.CODIGOEMPRESA,3,'0') || '/' || Lpad(F.CodigoFl,3,'0')
+                    union all
+                   select 0 QtdDemitidos, 
+                          count(distinct f.nomefunc)total_func,
+                          0 efetivos,
+                          Last_day(f.dttransffunc) data,
+                          LPAD(F.CODIGOEMPRESA,3,'0') || '/' || Lpad(F.CodigoFl,3,'0') EMPFIL
+                     from flp_funcionarios f
+                    where f.codigoempresa || f.codigofl in (11,12,21,31,41,51,61,92,131,261,263)     
+                      and f.dttransffunc between '01-jan-2016' and sysdate
+                    group by Last_day(f.dttransffunc), LPAD(F.CODIGOEMPRESA,3,'0') || '/' || Lpad(F.CodigoFl,3,'0'))
+                    Union All
+                   Select 0 demitidos,
+                          0 admitidos,
+                          FTE efetivos,
+                          Data,
+                          EMPFIL
+                     from pbi_Radar_QtdeFTE   )
+           Group By EmpFil, Data             
+           Union All
+           Select 'Qtde. Total de FTE''s' Grupo, 1 Ordem,
+                  Data,
+                  EMPFIL,
+                  FTE,
+                  0 Percentual,
+                  'RH' Tipo
+             from pbi_Radar_QtdeFTE     
+            Union All
+           Select 'Qtde. FTE Operação/Carro' Grupo, 2 Ordem,
+                   Data,
+                   EmpFil,
+                   Decode(QtdCarros, 0, 0, Round(Quantidade/QtdCarros)) Quantidade,
+                   0 Percentual,
+                 'RH' Tipo
+             From (Select Decode(EmpFil, '009/002', '009/001', empFil) EmpFil,
+                          To_date('01/' || To_char(Data,'mm/yyyy'),'dd/mm/yyyy') Data,
+                          Sum(Quantidade) Quantidade,
+                          Sum(QtdCarros) QtdCarros
+                     From (Select LPAD(F.CODIGOEMPRESA,3,'0') || '/' || Lpad(F.CodigoFl,3,'0') EMPFIL,
+                                  ff.competficha data,
+                                  Count(Distinct f.nomefunc) Quantidade,
+                                  0 QtdCarros
+                             from vw_funcionarios f,
+                                  flp_fichafinanceira ff
+                            where f.codigoempresa || f.codigofl in (11,12,21,31,41,51,61,92,131,261,263)
+                              And ff.competficha between (ADD_MONTHS(Trunc(Sysdate,'rr'), -12)) -- inicio de 1 ano atraz
+                              And (ADD_MONTHS(Last_day(Trunc(Sysdate)), -1))
+                              And ff.codintfunc = f.codintfunc
+                              And ff.situacaoffinan = 'A'
+                              And ff.tipofolha = 1
+                              And f.CODAREA = 40
+                            Group By ff.competficha,
+                                  LPAD(F.CODIGOEMPRESA,3,'0') || '/' || Lpad(F.CodigoFl,3,'0')
+                            Union All
+                           Select EmpFil,
+                                  Last_day(Data) ,
+                                  0 Valor,
+                                  Sum(Valor) QtdCarros
+                             From Pbi_Radar_Operacional
+                            Where grupo = 'Frota Operacional'
+                            Group By Last_day(Data), EmpFil  )
+                    Group By Decode(EmpFil, '009/002', '009/001', empFil),
+                             To_date('01/' || To_char(Data,'mm/yyyy'),'dd/mm/yyyy'))
+            Union All
+           Select 'Qtde. FTE Manutenção/Carro' Grupo, 3 Ordem,
+                   Data,
+                   EmpFil,
+                   Decode(QtdCarros, 0, 0, Round(Quantidade/QtdCarros)) Quantidade,
+                   0 Percentual,
+                 'RH' Tipo
+             From (Select Decode(EmpFil, '009/002', '009/001', empFil) EmpFil,
+                          To_date('01/' || To_char(Data,'mm/yyyy'),'dd/mm/yyyy') Data,
+                          Sum(Quantidade) Quantidade,
+                          Sum(QtdCarros) QtdCarros
+                     From (Select LPAD(F.CODIGOEMPRESA,3,'0') || '/' || Lpad(F.CodigoFl,3,'0') EMPFIL,
+                                  ff.competficha data,
+                                  Count(Distinct f.nomefunc) Quantidade,
+                                  0 QtdCarros
+                             from vw_funcionarios f,
+                                  flp_fichafinanceira ff
+                            where f.codigoempresa || f.codigofl in (11,12,21,31,41,51,61,92,131,261,263)
+                              And ff.competficha between (ADD_MONTHS(Trunc(Sysdate,'rr'), -12)) -- inicio de 1 ano atraz
+                              And (ADD_MONTHS(Last_day(Trunc(Sysdate)), -1))
+                              And ff.codintfunc = f.codintfunc
+                              And ff.situacaoffinan = 'A'
+                              And ff.tipofolha = 1
+                              And f.CODAREA = 30
+                            Group By ff.competficha,
+                                     LPAD(F.CODIGOEMPRESA,3,'0') || '/' || Lpad(F.CodigoFl,3,'0')
+                            Union All
+                           Select EmpFil,
+                                  Last_day(Data) ,
+                                  0 Valor,
+                                  Sum(Valor) QtdCarros
+                             From Pbi_Radar_Operacional
+                            Where grupo = 'Frota Operacional'
+                            Group By Last_day(Data), EmpFil  )
+                    Group By Decode(EmpFil, '009/002', '009/001', empFil),
+                             To_date('01/' || To_char(Data,'mm/yyyy'),'dd/mm/yyyy'))
+            Union All
+           Select 'Qtde. FTE Adm/Total FTE' Grupo, 4 Ordem,
+                  data,
+                  EMPFIL,
+                  Quantidade,
+                  Trunc((Quantidade/FTE) * 100,2) Percentual,
+                 'RH' Tipo
+             From (Select Decode(EmpFil, '009/002', '009/001', empFil) EmpFil,
+                          To_date('01/' || To_char(Data,'mm/yyyy'),'dd/mm/yyyy') Data,
+                          Sum(Quantidade) Quantidade,
+                          Sum(FTE) FTE
+                     From (Select LPAD(F.CODIGOEMPRESA,3,'0') || '/' || Lpad(F.CodigoFl,3,'0') EMPFIL,
+                                  Last_day(ff.competficha) data,
+                                  Count(Distinct f.nomefunc) Quantidade,
+                                  0 FTE
+                             from vw_funcionarios f,
+                                  flp_fichafinanceira ff
+                            where f.codigoempresa || f.codigofl in (11,12,21,31,41,51,61,92,131,261,263)
+                              And ff.competficha between (ADD_MONTHS(Trunc(Sysdate,'rr'), -12)) -- inicio de 1 ano atraz
+                              And (ADD_MONTHS(Last_day(Trunc(Sysdate)), -1))
+                              And ff.codintfunc = f.codintfunc
+                              And ff.situacaoffinan = 'A'
+                              And ff.tipofolha = 1
+                              And f.CODAREA = 20
+                            Group By Last_day(ff.competficha),
+                                  LPAD(F.CODIGOEMPRESA,3,'0') || '/' || Lpad(F.CodigoFl,3,'0')
+                            Union All
+                            Select EmpFil,
+                                   Data,
+                                   0 Quantidade,
+                                   FTE
+                             from pbi_Radar_QtdeFTE  ) a
+                    Group By Decode(EmpFil, '009/002', '009/001', empFil),
+                             To_date('01/' || To_char(Data,'mm/yyyy'),'dd/mm/yyyy') ) )
+

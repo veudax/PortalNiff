@@ -1,0 +1,1 @@
+exec globus.replica_niff_reposcontabil_aux('30-jun-20', '30-jun-20');

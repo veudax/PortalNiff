@@ -1,0 +1,30 @@
+SELECT 
+    CU.CU_DATETIME AS Horario,
+    formatcard(CU.iss_id, CU.cd_id, CU.crd_snr) Cartao, 
+    CD.CD_DESC TP_CARTAO,
+    APP.APP_DESCLONG Aplicacao,
+    CU_TSN TSN,
+    ld.ld_descshort  LINHA,
+    CU.CU_FAREVALUE
+
+    FROM cardusage  CU
+
+    INNER JOIN CARDDESIGN CD
+        ON CU.CD_ID = CD.CD_ID
+    INNER JOIN linedetails LD
+        ON cu.ld_id = ld.ld_id  
+    INNER JOIN applications app
+            on cu.app_id = app.app_id
+
+WHERE   cut_id in (1,5)
+        and trunc( cu_datetime ) between '01-apr-2019' and '15-apr-2019'
+        and (cu.cu_partfareseqnbr = 1 
+        OR cu.cu_partfareseqnbr is null) 
+ 
+group by CU.CU_DATETIME,
+    formatcard(CU.iss_id, CU.cd_id, CU.crd_snr) , 
+    CD.CD_DESC ,
+    APP.APP_DESCLONG,
+    CU_TSN ,
+    ld.ld_descshort  ,
+    CU.CU_FAREVALUE
